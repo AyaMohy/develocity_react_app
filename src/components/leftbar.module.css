@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@1,500&family=Lobster+Two&display=swap');
+
+.epiloguefont{
+    font-family: 'Epilogue', sans-serif;
+    font-family: 'Lobster Two', cursive;
+    font-weight: 500;
+}
+.linkitemopcity{
+    transition: all 1s !important ;
+}
+.linkitemopcity:hover{
+    opacity: 0.6 !important;
+}
