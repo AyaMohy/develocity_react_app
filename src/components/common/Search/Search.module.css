@@ -1,0 +1,107 @@
+.searchNote{
+    font-size: 12px;
+    font-weight: 400;
+    color: #888;
+    display: flex;
+    align-items: center;
+}
+.dot{
+    color: #9F4AE8;
+    margin-right: 5px;
+}
+.searchInput{
+    width: 480px;
+    height: 52px;
+    display: flex;
+    margin-top: 9px;
+    align-items: center;
+    padding: 0 5px;
+    border:1px solid;
+    border-color: rgba(37,41,44,0.2);
+    outline: none;
+    position: relative;
+}
+.searchInput:focus{
+    border: 1px solid #9F4AE8;
+}
+.searchSection{
+    position: relative;
+    width: 480px;
+
+}
+.searchBtn{
+    color: #fff;
+    background-color: #9F4AE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 42px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    position: absolute;
+    right: 5px;
+    border:0;
+   transition: 0.5s;
+    top: 5px;
+}
+.searchBtn:hover{
+    background-color: rgba(159,74,232,0.15);
+    color: #9F4AE8;
+}
+.searchNote2{
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+}
+.note{
+    font-size: 8px;
+    font-weight: 400;
+    color: #9F4AE8;
+    text-transform: uppercase;
+    width: 60px;
+    height: 20px;
+    background-color: rgba(159,74,232,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+.note2{
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    margin-right: 5px;
+    display: flex;
+   
+}
+
+.searchInput::placeholder{
+    color: #888;
+}
+.bitcoin{
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 991px){
+    .searchSection{
+        width: 100%;
+    }
+    .searchInput{
+        width: 100%;
+    }
+}

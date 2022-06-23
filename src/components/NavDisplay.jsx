@@ -17,7 +17,7 @@ export function NavDisplay(){
     }
     return(
         <>
-            <nav className="navbar navbar-expand-lg border-bottom" style={{backgroundColor:'#F3F2F7'}}>
+            <nav className="navbar navbar-expand-lg  " style={{backgroundColor:'#F3F2F7'}}>
                 <div className="container align-items-center" style={{marginTop:'45px',marginBottom:'45px'}}>
                     <a className="navbar-brand" href="#">
                         <img width="50" src={logo} alt="logo" />
@@ -65,8 +65,13 @@ export function NavDisplay(){
                         </div>
                     </ul>
                     </div>
+                    
                 </div>
+                
             </nav>
+            <div className=" container" >
+                <hr class="dropdown-divider container"/> 
+            </div>
         </>
     )
 }
