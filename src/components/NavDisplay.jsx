@@ -40,7 +40,8 @@ export function NavDisplay(){
                             <Link className={`nav-link text-black ${styles.linkitem}`} aria-current="page" to="/about">About</Link>
                             </li>
                             <li className="nav-item px-3">
-                                <a className={`nav-link text-black ${styles.linkitem}`}>Token</a>
+                                <Link className={`nav-link text-black ${styles.linkitem}`} to="token">Token</Link>
+                               
                             </li>
                             <li className="nav-item px-3">
                                 <a className={`nav-link text-black ${styles.linkitem}`}>Academy</a>

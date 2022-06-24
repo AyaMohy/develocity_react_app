@@ -10,15 +10,17 @@ import App from './App';
 import {Home} from './Pages/Home/Home'
 import {About} from './Pages/About'
 import reportWebVitals from './reportWebVitals';
+import {Token} from './Pages/Token/Token'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
    <Routes> 
-  <Route path="/" element={<App />} />
-      <Route path="home" element={<Home />} />
-      <Route path="about" element={<About />} />
+      <Route path="/"  element={<App />} />
+      <Route path="home" exact   element={<Home />} />
+      <Route path="about"  element={<About />} />
+      <Route path='token' exact  element={<Token/>} />
       </Routes>
   </BrowserRouter>
 );

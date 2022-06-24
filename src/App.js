@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {LeftBar} from './components/LeftBar'
 import {NavDisplay} from './components/NavDisplay'
@@ -9,11 +9,6 @@ function App() {
     <div className="App">
       <SocialBar/>
       <NavDisplay/>
-      <div className='d-flex container'>
-        <LeftBar/>
-        <Search/>
-      </div>
-      
     </div>
   );
 }
