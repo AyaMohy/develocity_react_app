@@ -6,6 +6,7 @@ export function ButtonComponent({data}){
         fontSize:'14px',
         width:'160px',
         height:'42px',
+        fontFamily:'SF Pro Display Medium',
         border:data.border ||null
     }
 

@@ -1,17 +1,19 @@
-import {LeftBar} from '../../components/LeftBar'
-import {NavDisplay} from '../../components/NavDisplay'
-import SocialBar from '../../components/common/SocialBar/SocialBar'
-import Search from '../../components/common/Search/Search'
+import {NavBar} from '../../components/Home/Header/NavBar' 
+import {Section1} from '../../components/Home/Main/section1/Section1'
+import {Section2} from '../../components/Home/Main/section2/Section2'
+import CopyRight from '../../components/Home/CopyRight/CopyRight'
+import {useEffect} from "react";
+import axios from "axios"
+
 function Home() {
+ 
+  
   return (
-    <div className="App">
-      <SocialBar/>
-      <NavDisplay/>
-      <div className='d-flex container'>
-        <LeftBar/>
-        <Search/>
-      </div>
-      
+    <div >
+      <NavBar/>
+      <Section1/>
+      <Section2/>
+      <CopyRight/>
     </div>
   );
 }

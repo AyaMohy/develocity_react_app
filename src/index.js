@@ -1,28 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
 import './index.css';
 import App from './App';
-import {Home} from './Pages/Home/Home'
-import {About} from './Pages/About'
 import reportWebVitals from './reportWebVitals';
-import {Token} from './Pages/Token/Token'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+import { Provider } from 'react-redux'
+import {store} from './store/store'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-   <Routes> 
-      <Route path="/"  element={<App />} />
-      <Route path="home" exact   element={<Home />} />
-      <Route path="about"  element={<About />} />
-      <Route path='token' exact  element={<Token/>} />
-      </Routes>
-  </BrowserRouter>
+  <Provider store={store}> 
+  <App />
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

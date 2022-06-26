@@ -13,23 +13,23 @@ const SocialBar=() =>{
         <div className={styles.socialBar}>
 
         <ul className={styles.socialIcons}>
-        <li><a href="#"><FaPaperPlane/></a></li>
-        <li><a href="#"><FaTwitter/></a></li>
-        <li><a href="#"><FaFacebookF/></a></li>
+          <li><a href="#"><FaPaperPlane/></a></li>
+          <li><a href="#"><FaTwitter/></a></li>
+          <li><a href="#"><FaFacebookF/></a></li>
         </ul>
 
         <ul className={styles.socialBarNav}>
-    <li><a href="#">advertise</a></li>
-    <li><a href="#">changelog</a></li>
-    <li><a href="#">whitepaper</a></li>
-    <li className={styles.dropdown}>
-  <button className={styles.dropbtn}>english<IoIosArrowDown/></button>
-  <li className={styles.dropdownContent}>
-    <a href="#">arabic</a>
-    <a href="#">turkish</a>
-  
-  </li>
-  </li>
+          <li><a href="#">advertise</a></li>
+          <li><a href="#">changelog</a></li>
+          <li><a href="#">whitepaper</a></li>
+          <li className={styles.dropdown}>
+        <button className={styles.dropbtn}>english<IoIosArrowDown/></button>
+        <div className={styles.dropdownContent}>
+          <a href="#">arabic</a>
+          <a href="#">turkish</a>
+        
+        </div>
+        </li>
         
   </ul>
        

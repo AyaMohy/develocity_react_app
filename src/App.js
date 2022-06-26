@@ -1,16 +1,29 @@
-
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import {Home} from './Pages/Home/Home'
+import {About} from './Pages/About'
+import {Token} from './Pages/Token/Token'
 import './App.css';
-import {LeftBar} from './components/LeftBar'
-import {NavDisplay} from './components/NavDisplay'
-import SocialBar from './components/common/SocialBar/SocialBar'
-import Search from './components/common/Search/Search'
+
+
 function App() {
+ 
   return (
-    <div className="App">
-      <SocialBar/>
-      <NavDisplay/>
-    </div>
+    <BrowserRouter>
+      <Routes> 
+        <Route exact path="/"  element={<Home />} />
+        <Route path="about"  element={<About />} />
+        <Route path='token'  element={<Token/>} />
+       </Routes>
+   </BrowserRouter>
   );
+
 }
 
 export default App;
+
+

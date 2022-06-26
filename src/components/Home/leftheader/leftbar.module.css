@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@1,500&family=Lobster+Two&display=swap');
+
+.epiloguefont{
+    font-family: "SF Pro Display Regular";
+    font-weight: 300 !important;
+    font-size:62px;
+    color:#333333;
+    line-height: 75px;
+    margin-top: 23px;
+    font-family:'SF Pro Display Medium';
+}
+.linkitemopcity{
+    transition: all 1s !important ;
+}
+.linkitemopcity:hover{
+    opacity: 0.6 !important;
+}
