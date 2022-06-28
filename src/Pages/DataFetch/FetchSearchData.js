@@ -8,8 +8,9 @@ export const fetchResult =  createAsyncThunk('search/fetchResult',
 async (searchKey)=>{
    
     const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
+    console.log(response)
     return response.data
-      
+   
     });
    
 
@@ -26,7 +27,7 @@ const Search =  createSlice({
 
     },
     extraReducers:{
-        [fetchResult.fulfilled] : (state,{payload}) =>{
+        [fetchResult.fulfilled] : (state,payload) =>{
             state.data = payload;
             state.status = "success";
 
@@ -37,7 +38,9 @@ const Search =  createSlice({
         },
         [fetchResult.rejected] : (state) =>{
             state.status = "failed";
-
+            
+            
+            console.log(state.status )
         }
 
     }
