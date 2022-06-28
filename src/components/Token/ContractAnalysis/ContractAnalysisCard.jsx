@@ -14,6 +14,7 @@ export function ContractAnalysisCard(){
         dispatch (fetchBSCResult ('0xC3262500039696Ff8ef9830Fb422Ab32b15Bd366'));
     },[contractAddress]);
 
+    // dispatch (fetchBSCResult ('0xC3262500039696Ff8ef9830Fb422Ab32b15Bd366'));
     let [data, setData]=useState([
         {
             name:'Mint',
