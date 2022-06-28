@@ -72,7 +72,7 @@ export function NavDisplay() {
                 </div>
 
             </nav>
-            <div className=" container" >
+            <div className=" container" style={{marginTop:'-10px'}} >
                 <hr className="dropdown-divider container" />
             </div>
         </>

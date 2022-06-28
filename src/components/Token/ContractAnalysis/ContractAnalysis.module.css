@@ -1,0 +1,28 @@
+.listGroup{
+    background-color: #EA3943 !important;
+    /* height: 240px !important; */
+    border-bottom: 0px;
+}
+.listGroup >div{
+   height: 40px; 
+}
+.detected{
+    background-color: #EA3943;
+    background-color: rgba(234, 57, 67, 0.3);
+    width: 100px;
+    text-align: center;
+    font-family: 'SF Pro Display Semibold'
+}
+.notdetected{
+    color: #16c784;
+    background-color: rgba(22, 199, 132, 0.2);
+    width: 100px;
+    text-align: center;
+    font-family: 'SF Pro Display Semibold'
+}
+.listitem :first-child{
+    font-size: 12px;
+    font-family: 'SF Pro Display Medium'
+}
+
+

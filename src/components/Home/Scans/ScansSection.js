@@ -40,15 +40,15 @@ const ScansSection = () => {
     return (
         <div className="container">
             <Row>
-                <Col>
+                <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={star} title="Popular Today" />
                     <CardScans popularScans={popularScans} />
                 </Col>
-                <Col>
+                <Col  lg={4} md={6} sm={12}>
                     <HeaderCard image={last} title="Last Scan" />
                     <CardScans popularScans={lastScans} />
                 </Col>
-                <Col>
+                <Col  lg={4} md={6} sm={12}>
                     <HeaderCard image={recent} title="Recently Verified" />
                     <CardScans popularScans={recentScans} />
                 </Col>

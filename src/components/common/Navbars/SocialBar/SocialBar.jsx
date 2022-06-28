@@ -8,7 +8,7 @@ import {IoIosArrowDown} from 'react-icons/io'
 
 const SocialBar=() =>{
     return(
-        <div className={styles.socialBarSection}>
+        <div className={styles.socialBarSection} style={{ backgroundColor: '#F3F2F7' }}>
         <div className="container">
         <div className={styles.socialBar}>
 
