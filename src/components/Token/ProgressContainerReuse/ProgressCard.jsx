@@ -9,12 +9,12 @@ export function ProgressCard({carddata}){
             series: [carddata.series],
             chart: {
                 type: 'radialBar',
+                height: 130,
             },
           plotOptions: {
             radialBar: {
               track:{
                 background:"rgba(115,136,169,0.35)",
-    
               },
               hollow: {
                 size: 55,
@@ -23,11 +23,13 @@ export function ProgressCard({carddata}){
               dataLabels: {
                 showOn: "always",
                 name: {
+                  offsetY: -20,
                   show: false,
                 },
                 value: {
                     color: carddata.barpercentcolor,
-                    fontSize: "24px",
+                    fontSize: "22px",
+                    offsetY: 10,
                     fontWeight:"500",
                     show: true,
                     fontFamily: 'SF Pro Display Medium'
@@ -48,13 +50,13 @@ export function ProgressCard({carddata}){
 
     return(
         <>
-            <div className='px-1 pt-0 d-flex flex-column '   style={{width:'250px',height:'125px',backgroundColor:'#F3F2F7'}}>
+            <div className='px-2 pt-0 d-flex flex-column '   style={{width:'250px',height:'125px',backgroundColor:'#F3F2F7'}}>
               <div className='d-flex align-items-center justify-content-between'>
                 <div className='text-start flex-grow-1 '>
                   <h5 style={{fontFamily: 'SF Pro Display Medium'}}>{carddata.title}</h5>
                   <p><span className='fs-3' style={{ fontFamily: 'SF Pro Display Semibold'}}>5</span>/ <span style={{fontFamily: 'SF Pro Display Regular'}}>8</span></p>
                 </div>
-                <div className=' col-5'>
+                <div className='col-5'>
                   <div  id="chart" >
                       <ReactApexChart  options={options} series={options.series} type="radialBar" height={130} width={130}/>
                   </div>

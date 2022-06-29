@@ -11,19 +11,21 @@ import { fetchDistribution } from "../../../Pages/DataFetch/FetchDistributionDat
 
 
 const Distribution = () =>{
-    const dist = useSelector(state => state.Dist);
+
+  const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+    const dist = useSelector(state => state.Dist.data);
 
     const dispatch = useDispatch ();
     useEffect(()=>{
-        dispatch (fetchDistribution ());
+        dispatch (fetchDistribution (contractAddress));
   
-    },[dispatch]);
+    },[dispatch , contractAddress]);
 
 
-    const distData = dist.data.result;
-  console.log(distData)
+    const distData = dist.result;
+  // console.log(distData)
 
-var   options = {
+var options = {
     series: [distData? Math.round( distData.realholdersPercentage )  : null, distData? Math.round( distData.airdropHoldersPercentage ) : null, distData? Math.round( distData.shrinkHoldersPercentage ): null],
     dataLabels: {
         formatter: function(val) {
@@ -91,25 +93,6 @@ var   options = {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-  
-  
       
     return (
         <div className="container">

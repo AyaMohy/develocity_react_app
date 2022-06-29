@@ -1,5 +1,4 @@
-import styles from './ScansSection.module.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import star from '../../../assets/images/star.png';
 import last from '../../../assets/images/last.png';
 import recent from '../../../assets/images/recent.png';
@@ -15,27 +14,27 @@ const ScansSection = () => {
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
 
-    const socket = io('https://api.develocity.finance');
+    useEffect(() => {
+        const socket = io('https://api.develocity.finance');
 
-    socket.on("connect", () => {
-        const engine = socket.io;
-        engine.on("packet", ({ type, data }) => {
-            // console.log(data);
-            if (data[0] === "popularScan") {
-                setPopularScans(data[1]);
-            }
-            if (data[0] === "highScore") {
-                setRecentScans(data[1]);
-            }
-            if (data[0] === "latestScan") {
-                setLastScans(data[1]);
-            }
+        socket.on("popularScan", (data) => {
+            setPopularScans(data);
+        })
+        socket.on("highScore", (data) => {
+            setRecentScans(data);
+        }
+        )
+        socket.on("latestScan", (data) => {
+            setLastScans(data);
+        })
 
-
-
-        });
-    });
-
+        return () => {
+            socket.off("popularScan");
+            socket.off("highScore");
+            socket.off("latestScan");
+            socket.close();
+        }
+    }, []);
 
     return (
         <div className="container">
@@ -44,11 +43,11 @@ const ScansSection = () => {
                     <HeaderCard image={star} title="Popular Today" />
                     <CardScans popularScans={popularScans} />
                 </Col>
-                <Col  lg={4} md={6} sm={12}>
+                <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={last} title="Last Scan" />
                     <CardScans popularScans={lastScans} />
                 </Col>
-                <Col  lg={4} md={6} sm={12}>
+                <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={recent} title="Recently Verified" />
                     <CardScans popularScans={recentScans} />
                 </Col>

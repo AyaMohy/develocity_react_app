@@ -2,8 +2,8 @@ import axios from "axios";
 import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
 
 export const fetchBSCResult=createAsyncThunk('search/fetchBSCResult',
-    async(searchKey)=>{
-        const response= await axios.get(`https://api.develocity.finance/api/v1/contract/getBSCContractDetail/${searchKey}`) 
+    async(contract)=>{
+        const response= await axios.get(`https://api.develocity.finance/api/v1/contract/getBSCContractDetail/${contract}`) 
         return response.data
     }
 );

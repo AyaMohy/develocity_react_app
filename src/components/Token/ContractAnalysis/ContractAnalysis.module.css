@@ -8,14 +8,19 @@
 }
 .detected{
     background-color: #EA3943;
-    background-color: rgba(234, 57, 67, 0.3);
+    background-color: rgba(234, 57, 67, 0.2);
+    color:#EA3943;
+    border-radius: 3px;
     width: 100px;
     text-align: center;
+    border: 1px solid #EA3943;
     font-family: 'SF Pro Display Semibold'
 }
 .notdetected{
     color: #16c784;
     background-color: rgba(22, 199, 132, 0.2);
+    border: 1px solid #16c784;
+    border-radius: 3px;
     width: 100px;
     text-align: center;
     font-family: 'SF Pro Display Semibold'

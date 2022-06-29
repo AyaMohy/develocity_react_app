@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 
 export const fetchScore =  createAsyncThunk('score/fetchScore',
-async ()=>{
+async (contractAddress)=>{
    
-    const response = await axios.get("https://api.develocity.finance/api/v1/contract/humanSummary/0x1a57dc4e3BC63B06c2B263774859F227B99Ab031")
+    const response = await axios.get(`https://api.develocity.finance/api/v1/contract/humanSummary/${contractAddress}`)
     return response.data
       
     });

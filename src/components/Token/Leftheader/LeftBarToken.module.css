@@ -30,3 +30,12 @@
     border: 1px solid #9F4AE8;
     transform: rotate(360deg);
 }
+
+.percent h5{
+    font-size: 14px;   
+}
+
+.percent p{
+    font-size: 18px; 
+
+}

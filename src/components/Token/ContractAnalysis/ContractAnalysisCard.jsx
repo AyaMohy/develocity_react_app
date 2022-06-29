@@ -3,53 +3,51 @@ import React ,{ useEffect , useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchBSCResult } from "../../../Services/FetchBSCData";
 export function ContractAnalysisCard(){
-    let [returndata,setReturnData]=useState(null)
-    let {contractAddress}=useSelector(state=>state.contractAddress)
-    const bscdata = useSelector(state => state.GetBSCdata)
-    // setReturnData(bscdata)
-    console.log(bscdata.data)
-
+    const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+    const bscdata = useSelector(state => state.GetBSCdata.data)
+   
+console.log(bscdata.data)
     const dispatch = useDispatch ();
     useEffect(()=>{
-        dispatch (fetchBSCResult ('0xC3262500039696Ff8ef9830Fb422Ab32b15Bd366'));
+        dispatch (fetchBSCResult (contractAddress));
     },[contractAddress]);
 
-    // dispatch (fetchBSCResult ('0xC3262500039696Ff8ef9830Fb422Ab32b15Bd366'));
+    const newbscdata = bscdata.result;
     let [data, setData]=useState([
         {
             name:'Mint',
-            // value:bscdata.data.result.mint,
-            value:true
+            value:newbscdata?newbscdata.mint:null,
+            // value:true
         },
         {
             name:'Burn',
-            // value:bscdata.data.result.burn
-            value:true
+            value:newbscdata?newbscdata.burn:null,
+            // value:true
         },
         {
             name:'Reflection',
-            // value:bscdata.data.result.reflection
-            value:true
+            value:newbscdata?newbscdata.reflection:null,
+            // value:true
         },
         {
             name:'Self Destruction',
-            // value:bscdata.data.result.selfdistruction
-            value:false
+            value:newbscdata?newbscdata.selfdistruction:null,
+            // value:false
         },
         {
             name:'Transfer Ownership',
-            // value:bscdata.data.result.transferOwnership
-            value:true
+            value:newbscdata?newbscdata.transferOwnership:null,
+            // value:true
         },
         {
             name:'Antiwhale',
-            // value:bscdata.data.result.antiWhale
-            value:true
+            value:newbscdata?newbscdata.antiWhale:null,
+            // value:true
         },
         {
             name:'Antibot',
-            // value:bscdata.data.result.antiBot
-            value:false
+            value:newbscdata?newbscdata.antiBot:null,
+            // value:false
         }
 
 

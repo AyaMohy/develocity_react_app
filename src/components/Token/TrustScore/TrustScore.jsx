@@ -8,17 +8,22 @@ import { fetchScore } from "../../../Pages/DataFetch/FetchTrustScoreData";
 
 const TrustScore =() =>{
 
+  const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+  console.log(contractAddress)
 
-  const score = useSelector(state => state.Score)
+
+  const score = useSelector(state => state.Score.data)
+  console.log(score)
+  
 
   const dispatch = useDispatch ();
   useEffect(()=>{
-      dispatch (fetchScore ());
+      dispatch (fetchScore (contractAddress));
 
-  },[dispatch]);
-  const scoreData = score.data.result;
+  },[dispatch , contractAddress]);
+  const scoreData = score.result;
   console.log(scoreData)
-
+console.log(fetchScore ({contractAddress}))
 
 
     var options = {
