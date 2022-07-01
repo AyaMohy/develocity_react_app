@@ -2,8 +2,6 @@ import {NavBar} from '../../components/Home/Header/NavBar'
 import {Section1} from '../../components/Home/Main/section1/Section1'
 import {Section2} from '../../components/Home/Main/section2/Section2'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
-import {useEffect} from "react";
-import axios from "axios"
 
 function Home() {
  

@@ -41,8 +41,8 @@ const Wallet10Top = ({ topWalletData }) => {
             let rank = i + 1;
             let address = topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) + '...' + topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
             let nameTag = 'N/A'
-            let balance = topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity;
-            let percentage = topWalletData.ownerInfo.top10LiquidityHolder[i].percentage;
+            let balance = (topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).substr(0, 9)
+            let percentage = (topWalletData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2);
             wallet.push({ rank, address, nameTag, balance, percentage });
 
         }

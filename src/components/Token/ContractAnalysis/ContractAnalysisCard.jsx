@@ -55,7 +55,7 @@ console.log(bscdata.data)
 
     return(
         <>
-            <div className="" style={{width:'250px'}}>
+            <div className="" style={{width:'100%'}}>
                 <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>Contract Analysis</h5>
                 <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >
                 {data.map( (item)=>{

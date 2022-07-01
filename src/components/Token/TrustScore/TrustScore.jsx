@@ -1,4 +1,4 @@
-import React ,{useState, useRef , useEffect} from "react";
+import React ,{ useEffect} from "react";
 import styles from "./TrustScore.module.css";
 import ReactApexChart from 'react-apexcharts';
 

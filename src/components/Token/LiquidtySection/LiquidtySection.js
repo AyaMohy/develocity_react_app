@@ -1,8 +1,11 @@
 import React from 'react'
 import { Tab, Tabs } from 'react-bootstrap'
+import AddedLiquidity from '../LiquidtyTable/AddLiquidty'
 import LiquidtyTable from '../LiquidtyTable/LiquidtyTable'
+import RemovedLiquidity from '../LiquidtyTable/RemovedLiquidity'
 
-const LiquidtySection = () => {
+const LiquidtySection = ({ LiquidtyData }) => {
+
     return (
         <>
             <Tabs defaultActiveKey="LiquidtyTransactions" id="uncontrolled-tab-example" >
@@ -10,10 +13,10 @@ const LiquidtySection = () => {
                     <LiquidtyTable />
                 </Tab>
                 <Tab eventKey="AddedLiquidity" title="Added Liquidity">
-                    <LiquidtyTable />
+                    <AddedLiquidity LiquidtyData={LiquidtyData} />
                 </Tab>
                 <Tab eventKey="RemovedLiquidity" title="Removed Liquidity">
-                    <LiquidtyTable />
+                    <RemovedLiquidity LiquidtyData={LiquidtyData} />
                 </Tab>
                 <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
                     <LiquidtyTable />

@@ -50,7 +50,7 @@ export function ProgressCard({carddata}){
 
     return(
         <>
-            <div className='px-2 pt-0 d-flex flex-column '   style={{width:'250px',height:'125px',backgroundColor:'#F3F2F7'}}>
+            <div className='px-2 pt-0 d-flex flex-column '   style={{width:'100%',height:'125px',backgroundColor:'#F3F2F7'}}>
               <div className='d-flex align-items-center justify-content-between'>
                 <div className='text-start flex-grow-1 '>
                   <h5 style={{fontFamily: 'SF Pro Display Medium'}}>{carddata.title}</h5>
@@ -63,7 +63,7 @@ export function ProgressCard({carddata}){
                 </div>
               </div>
 
-                <div className='text-start' style={{marginTop:'-15px'}}>
+                {/* <div className='text-start' style={{marginTop:'-15px'}}>
                     {
                       carddata.precentageover>0? <BsFillArrowUpCircleFill className='text-success'/>:<BsFillArrowDownCircleFill className='text-danger'/> 
                     }
@@ -74,7 +74,7 @@ export function ProgressCard({carddata}){
                         }
                         </span> than average
                         
-                  </div>
+                </div> */}
                
             </div>
         </>

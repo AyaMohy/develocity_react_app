@@ -26,11 +26,12 @@ export function Token() {
     const dispatch = useDispatch();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const topWalletData = useSelector(state => state.topWallet.topWallet);
+    const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
 
     useEffect(() => {
-        dispatch(fetchTokenOwner())
-        dispatch(fetchWallet())
-    }, []);
+        dispatch(fetchTokenOwner(tokenAddress))
+        dispatch(fetchWallet(tokenAddress))
+    }, [tokenAddress]);
 
     return (
         <>
@@ -43,7 +44,8 @@ export function Token() {
                         <div className=' col-12 col-lg-6'> <Search /></div>
                     </div>
                     <div><BreadCrumbBar /></div>
-                    <div className='d-flex flex-wrap justify-content-center justify-content-sm-between'>
+
+                    {/* <div className='d-flex flex-wrap justify-content-center justify-content-sm-between'>
                         <div className='mt-5'><TrustScore /></div>
                         <div className='d-flex flex-column mt-5'>
                             <ContractProgrssCard />
@@ -57,12 +59,31 @@ export function Token() {
                         <div className='mt-5'>
                             <GeneralProgrssCard />
                         </div>
+                    </div> */}
+                    <div className='row mt-5'>
+                        <div className='col-lg-3 col-md-6 col-sm-12'>
+
+                            <TrustScore />
+                        </div>
+                        <div className=' col-lg-3 col-md-6 col-sm-12'>
+                            <ContractProgrssCard />
+                            <ContractAnalysisCard />
+                        </div>
+                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                            <LiquidProgressCard />
+                            <HoneypotCard />
+                            <RugpullCard />
+                        </div>
+                        <div className='col-lg-3 col-md-6 col-sm-12'>
+                            <GeneralProgrssCard />
+                        </div>
                     </div>
+
                     <div className='row  align-items-center mb-5'>
                         <div className='col-6'>
                             <Distribution />
                         </div>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
 
                                 <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} />
@@ -71,14 +92,14 @@ export function Token() {
                     </div>
 
                     <div className='row mb-5'>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
 
                                 <TokenOwner tokenOwnerData={tokenOwnerData} />
                             </div>
 
                         </div>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
                                 <LockedTokens LockedTokensData={tokenOwnerData} />
                             </div>
@@ -87,19 +108,21 @@ export function Token() {
                     <div className='row'>
                         <div className='col-12 col-lg-6  mb-4 d-flex flex-column'>
                             <div className='d-md-flex  justify-content-center'>
-                                <Trading/>
-                                <LiquidityList/>
+                                <Trading />
+                                <LiquidityList />
                             </div>
                             <div>
-                            <Slippage/>
+                                <Slippage />
                             </div>
-                           
+
                         </div>
                         <div className='col-12 col-lg-6'>
-                            <LiquidtySection />
-                            
+                            <div className='wallets_table'>
+
+                                <LiquidtySection LiquidtyData={topWalletData} />
+                            </div>
                         </div>
-                      
+
                     </div>
 
 

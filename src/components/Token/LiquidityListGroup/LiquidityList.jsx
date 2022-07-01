@@ -1,43 +1,43 @@
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
-export function LiquidityList(){
-    const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+export function LiquidityList() {
+    const contractAddress = useSelector(state => state.contractAddress.contractAddress);
     const buySellBSCapi = useSelector(state => state.GetBuySellBSCdata.data);
-    const dispatch = useDispatch ();
-    useEffect(()=>{
-        dispatch (fetchBuySellBSCResult(contractAddress));
-  
-    },[dispatch , contractAddress]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchBuySellBSCResult(contractAddress));
+
+    }, [dispatch, contractAddress]);
     const buySellBSCdata = buySellBSCapi.result;
 
-    const [data, setData]=useState([
+    const [data, setData] = useState([
         {
-            name:'Burned Liquidity',
+            name: 'Burned Liquidity',
             // value:buySellBSCdata?buySellBSCdata.buyTax:null,
-            value:'9'
+            value: '9'
         },
         {
-            name:'Added Liquidity',
+            name: 'Added Liquidity',
             // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value:'12'
+            value: '12'
         },
         {
-            name:'Removed Liquidity',
+            name: 'Removed Liquidity',
             // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value:'8'
+            value: '8'
         },
 
     ])
 
     return (
         <>
-        <div className='col-12 col-md-6'>
-            <h2 className='text-muted  mx-2'>Liquidity Metrics</h2>
-            <ListGroup listdata={data} title='Liquidity'/>
-        </div>
-       
+            <div className='col-12 col-md-6'>
+                <h2 className='text-muted  mx-2' style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>Liquidity Metrics</h2>
+                <ListGroup listdata={data} title='Liquidity' />
+            </div>
+
         </>
     )
 }
