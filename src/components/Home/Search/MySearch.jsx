@@ -77,53 +77,46 @@ const MySearch =() =>{
         <span className={styles.note2}><BiBitcoin className={styles.bitcoin}/>start to invest in bitcoin private with only 10$</span>
         </div>
 
-        <div >
-       
-                  <div className={styles.searchBlock}>
-                  { search.status =="success" && dataGet?  
-                  <>
-                   { dataGet.map(el => 
-                     
-                        (
-                            <div className={styles.resultRecord}>
-                            <div>
-                            <div className={styles.titleBar}>
-                            <img src={el.logo} alt="logo" className={styles.logo}/>
-                            <h1>{el.name}</h1>
-                            <span>{el.symbol}</span>
-                            </div>
-        
-                            <div className={styles.details}>
-        
-                            <div className={styles.address}>
-                            {el.contractAddress}
-                            <button><BiCopy/></button>
-                            </div>
-        
-                            <div className={styles.scan}>
-                             Score:{Math.round(el.contractScan)}
-                             </div>
-                            </div>
-                            </div>
-                            <button className={styles.arrowBtn}><BsArrowRight/></button>    
-                            </div>     
-                    )
-                    )
-                        }
-                    </>
-                    :
-                    ""      
-                 }
-
-
-                 { search.status =="failed" && <div>no result found</div> }
-                 { search.status =="loading" && <div>loading...</div> }
-                    
-                   </div>
-               
-        </div>
-
-        
+        { search.status =="success" && dataGet? 
+            <div >
+               <div className={styles.searchBlock}>
+                { dataGet.map(el => 
+                  
+                     (
+                         <div className={styles.resultRecord}>
+                         <div>
+                         <div className={styles.titleBar}>
+                         <img src={el.logo} alt="logo" className={styles.logo}/>
+                         <h1>{el.name}</h1>
+                         <span>{el.symbol}</span>
+                         </div>
+     
+                         <div className={styles.details}>
+     
+                         <div className={styles.address}>
+                         {el.contractAddress}
+                         <button><BiCopy/></button>
+                         </div>
+     
+                         <div className={styles.scan}>
+                          Score:{Math.round(el.contractScan)}
+                          </div>
+                         </div>
+                         </div>
+                         <button className={styles.arrowBtn}><BsArrowRight/></button>    
+                         </div>     
+                 )
+                 )
+                       
+              }
+                 
+                </div>
+            
+            </div>:''
+    }
+    
+    { search.status =="loading" && <div>loading...</div> }
+        { search.status =="failed" && '' }
 
         </div>
     )

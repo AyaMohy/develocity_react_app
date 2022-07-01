@@ -8,7 +8,7 @@
 }
 .detected{
     background-color: #EA3943;
-    background-color: rgba(234, 57, 67, 0.2);
+    background-color: rgba(234, 57, 67, 0.2) !important;
     color:#EA3943;
     border-radius: 3px;
     width: 100px;
@@ -18,7 +18,7 @@
 }
 .notdetected{
     color: #16c784;
-    background-color: rgba(22, 199, 132, 0.2);
+    background-color: rgba(22, 199, 132, 0.2) !important;
     border: 1px solid #16c784;
     border-radius: 3px;
     width: 100px;

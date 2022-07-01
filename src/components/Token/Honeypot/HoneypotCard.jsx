@@ -18,7 +18,7 @@ console.log(bscdata.data)
     return(
         <>
             <h5 className='text-start pt-3 pb-2' style={{fontFamily: 'SF Pro Display Medium'}}>Honeypot</h5>
-            <div className={`d-flex border px-2 pt-2  ${styles.card}` } style={{marginBottom:'-5px'}}>
+            <div className={`d-flex px-2 pt-2  ${styles.card}` } style={{height:'110px'}}>
                 <div className=''>
                     {
                         newhoney && newhoney.honeypotTest=="PASS"?

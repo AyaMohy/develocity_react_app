@@ -21,6 +21,8 @@ import LiquidtySection from '../../components/Token/LiquidtySection/LiquidtySect
 import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
 import { LiquidityList } from '../../components/Token/LiquidityListGroup/LiquidityList'
+import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
+import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 
 export function Token() {
     const dispatch = useDispatch();
@@ -62,21 +64,26 @@ export function Token() {
                     </div> */}
                     <div className='row mt-5'>
                         <div className='col-lg-3 col-md-6 col-sm-12'>
-
                             <TrustScore />
                         </div>
-                        <div className=' col-lg-3 col-md-6 col-sm-12'>
-                            <ContractProgrssCard />
-                            <ContractAnalysisCard />
+                        <div className='col-12 col-lg-9'>
+                            <div className='row'>
+                                <div className='col-12 col-md-4'> <ContractProgrssCard /></div>
+                                <div className='col-12 col-md-4'> <LiquidProgressCard /></div>
+                                <div className='col-12 col-md-4'> <GeneralProgrssCard /></div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-12 col-md-4'><ContractAnalysisCard /></div>
+                                <div className='col-12 col-md-4'>
+                                    <div className='col-12'> <HoneypotCard /></div>
+                                    <div className='col-12'> <RugpullCard /></div>
+                                </div>
+                                <div className='col-12 col-md-4'>
+                                    <div className='col-12'><AdevertiseOne/></div>
+                                </div>
+                            </div>
                         </div>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
-                            <LiquidProgressCard />
-                            <HoneypotCard />
-                            <RugpullCard />
-                        </div>
-                        <div className='col-lg-3 col-md-6 col-sm-12'>
-                            <GeneralProgrssCard />
-                        </div>
+                      
                     </div>
 
                     <div className='row  align-items-center mb-5'>
@@ -111,8 +118,9 @@ export function Token() {
                                 <Trading />
                                 <LiquidityList />
                             </div>
-                            <div>
+                            <div className='d-md-flex  justify-content-center'>
                                 <Slippage />
+                                <Advertisetwo/>
                             </div>
 
                         </div>
