@@ -2,12 +2,15 @@ import React from 'react'
 import styles from './RowScans.module.css';
 import { useDispatch } from 'react-redux';
 import { setContractAddress } from '../../../store/contractAddressSlice';
+import { Link } from 'react-router-dom';
 
 const RowScans = ({ number, image, nametoken, scans, sponsored, contract }) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     return (
-        <div className={styles.container_row} onClick={() => dispatch(setContractAddress(contract))}>
+        // <div className={styles.container_row} onClick={() => dispatch(setContractAddress(contract))}>
+        <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
+
             <div className={styles.header}>
                 <h3 className={styles.header_no}>{number}</h3>
                 <div className={styles.container_image}>
@@ -20,7 +23,7 @@ const RowScans = ({ number, image, nametoken, scans, sponsored, contract }) => {
 
             </div>
             <h3 className={styles.header_scans}>${scans}</h3>
-        </div>
+        </Link>
     )
 }
 

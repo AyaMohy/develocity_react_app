@@ -3,13 +3,18 @@ import { FaPaperPlane, FaTwitter, FaFacebookF, FaGithub, FaFirefoxBrowser, FaRed
 import bitcoinlogo from '../../../assets/images/bitcoin.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTokenInfoResult } from '../../../Services/FetchTokenInfo';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillWechat, AiTwotoneMail } from 'react-icons/ai';
 import {IoCopy} from 'react-icons/io5'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 export function LeftBarToken() {
 
-    const contractAddress = useSelector(state => state.contractAddress.contractAddress);
+    // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
+    const params = useParams();
+
+    const contractAddress = params.contractAddress
+    // console.log(contractAddress,'==================>>>>');
     const tokenData = useSelector(state => state.Gettokeninfodata.data);
 
     const dispatch = useDispatch();

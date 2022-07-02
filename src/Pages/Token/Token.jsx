@@ -21,12 +21,16 @@ import LiquidtySection from '../../components/Token/LiquidtySection/LiquidtySect
 import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
 import { LiquidityList } from '../../components/Token/LiquidityListGroup/LiquidityList'
+import { useParams } from 'react-router-dom'
 
 export function Token() {
     const dispatch = useDispatch();
+    const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const topWalletData = useSelector(state => state.topWallet.topWallet);
-    const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
+    // const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
+
+    const tokenAddress = params.contractAddress
 
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
