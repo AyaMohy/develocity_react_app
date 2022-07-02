@@ -26,3 +26,16 @@
 .navbar-collapse{
     transition: all 2s;
 }
+.navbar-nav{
+    margin-left: 46px;
+}
+
+
+@media only screen and (max-width: 991px){
+   nav{
+        padding: 0 !important;
+    }
+    .navbar-nav{
+        margin-left: 0;
+    }
+}

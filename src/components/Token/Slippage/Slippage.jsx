@@ -2,9 +2,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
+import { useParams } from 'react-router-dom';
 export function Slippage(){
-    const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+    const param = useParams()
+    const contractAddress = param.contractAddress;
     const buySellBSCapi = useSelector(state => state.GetBuySellBSCdata.data);
+    const statusBSCapi = useSelector(state => state.GetBuySellBSCdata.status);
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBuySellBSCResult(contractAddress));
@@ -28,9 +31,17 @@ export function Slippage(){
 
     return (
         <>
-        <div className='col-12 col-md-6'>
+       
+        {(statusBSCapi=='success' || statusBSCapi=='loading')  &&
+         <div className='col-12 col-md-6'>
             <ListGroup listdata={data} title='Slippage'/>
-        </div>
+        </div>}
+
+        
+        
+
+        {statusBSCapi=='failed' && ''}
+
        
         </>
     )

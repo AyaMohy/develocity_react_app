@@ -5,8 +5,8 @@ import styles from "./Search.module.css";
 import {FaCircle} from 'react-icons/fa';
 import {BiBitcoin} from "react-icons/bi";
 import {BiCopy} from "react-icons/bi";
-import {BsArrowRight} from "react-icons/bs"
-import {fetchResult} from '../../../Pages/DataFetch/FetchSearchData'
+import {BsArrowRight , BsFillPatchCheckFill} from "react-icons/bs"
+import {fetchResult} from '../../../Pages/DataFetch/FetchSearchData';
 
 
 
@@ -26,8 +26,9 @@ const MySearch =() =>{
  const dispatch = useDispatch ();
 //  console.log(search.status =="success" && search.data.payload)
     useEffect(()=>{
-        dispatch (fetchResult (term));
-
+        if (term != null) {
+            dispatch (fetchResult (term));
+        }
     },[term]);
 
     useEffect(() =>{
@@ -43,6 +44,7 @@ const MySearch =() =>{
                 symbol:e.contractInfo.symbol,
                 logo: e.contractInfo.logo,
                 interest:e.interest,
+                listed: e.isNotListed,
                  contractAddress : e.contractAddress,
                  contractScan : e.contractScan}) )
             console.log(newMyData);
@@ -63,7 +65,7 @@ const MySearch =() =>{
 },[search, term])
     console.log(dataGet)
     return(
-        <div className="container">
+        <div>
         <span className={styles.searchNote}><FaCircle className={styles.dot}/>Enter the token name and click scan</span>
 
         <div className={styles.searchSection}>
@@ -77,53 +79,71 @@ const MySearch =() =>{
         <span className={styles.note2}><BiBitcoin className={styles.bitcoin}/>start to invest in bitcoin private with only 10$</span>
         </div>
 
-        <div >
-       
-                  <div className={styles.searchBlock}>
-                  { search.status =="success" && dataGet?  
-                  <>
-                   { dataGet.map(el => 
-                     
-                        (
-                            <div className={styles.resultRecord}>
-                            <div>
-                            <div className={styles.titleBar}>
-                            <img src={el.logo} alt="logo" className={styles.logo}/>
-                            <h1>{el.name}</h1>
-                            <span>{el.symbol}</span>
+        { search.status =="success" && dataGet? 
+            <div >
+               <div className={styles.searchBlock}>
+                { dataGet.map(el => 
+                  
+                     (
+                         <div className={styles.resultRecord}>
+                         <div>
+                         <div className={styles.titleBar}>
+                         {el.logo ? <img src={el.logo} alt="logo" className={styles.logo} /> :
+                        //    create a new image with the first letter of the name token
+                        <div className={styles.icon_token_letter}>
+                            <h6 className={styles.icon_token_text}>{el.name.charAt(0)}</h6>
+                        </div>
+
+                    }
+                {/* <img src={el.logo} alt="logo" className={styles.logo}/> */} 
+                         <h1>{el.name} </h1>
+                        
+                         <span>{el.symbol} {el.listed? <BsFillPatchCheckFill className={styles.checkIcon}/> : null}</span>
+                         </div>
+     
+                         <div className={styles.details}>
+     
+                         <div className={styles.address}>
+                         {el.contractAddress}
+                         <button><BiCopy/></button>
+                         </div>
+     
+                        
+                        {
+                            (el.contractScan <59) &&  <div className={styles.scanRed}>
+                            Score:{Math.round(el.contractScan)}
                             </div>
-        
-                            <div className={styles.details}>
-        
-                            <div className={styles.address}>
-                            {el.contractAddress}
-                            <button><BiCopy/></button>
-                            </div>
-        
-                            <div className={styles.scan}>
-                             Score:{Math.round(el.contractScan)}
-                             </div>
-                            </div>
-                            </div>
-                            <button className={styles.arrowBtn}><BsArrowRight/></button>    
-                            </div>     
-                    )
-                    )
                         }
-                    </>
-                    :
-                    ""      
-                 }
 
+                        {
+                            (el.contractScan >59 && el.contractScan<84) &&  <div className={styles.scanYellow}>
+                            Score:{Math.round(el.contractScan)}
+                            </div>
+                        }
 
-                 { search.status =="failed" && <div>no result found</div> }
-                 { search.status =="loading" && <div>loading...</div> }
-                    
-                   </div>
-               
-        </div>
-
-        
+                        {
+                            (el.contractScan >84 ) &&  <div className={styles.scanGreen}>
+                            Score:{Math.round(el.contractScan)}
+                            </div>
+                        }
+                         
+                         
+                         </div>
+                         </div>
+                         <button className={styles.arrowBtn}><BsArrowRight/></button>    
+                         </div>     
+                 )
+                 )
+                       
+              }
+                 
+                </div>
+            
+            </div>:''
+    }
+    
+    { search.status =="loading" && <div>loading...</div> }
+        { search.status =="failed" && '' }
 
         </div>
     )

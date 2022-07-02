@@ -4,16 +4,18 @@ import ReactApexChart from 'react-apexcharts';
 
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchScore } from "../../../Pages/DataFetch/FetchTrustScoreData";
+import { useParams } from "react-router-dom";
 
 
 const TrustScore =() =>{
-
-  const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
-  console.log(contractAddress)
+  const param = useParams()
+  const contractAddress = param.contractAddress;
+  
+  // console.log(param.contractAddress ,'=-=-===== >>>');
 
 
   const score = useSelector(state => state.Score.data)
-  console.log(score)
+  // console.log(score)
   
 
   const dispatch = useDispatch ();
@@ -22,8 +24,8 @@ const TrustScore =() =>{
 
   },[dispatch , contractAddress]);
   const scoreData = score.result;
-  console.log(scoreData)
-console.log(fetchScore ({contractAddress}))
+  // console.log(scoreData ,'========= Score data ')
+// console.log(fetchScore ({contractAddress}))
 
 
     var options = {
@@ -76,7 +78,7 @@ console.log(fetchScore ({contractAddress}))
   
 
     return(
-        <div className="container">
+        <div >
         <div className={styles.trustScoreBlock}>
         <span className={styles.blockTitle}>trust score</span>
 

@@ -34,6 +34,23 @@
     margin-right: 5px;
 }
 
+.icon_token_letter {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    background-color: rgba(159, 74, 232, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.icon_token_text{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
 .header_no {
     margin-right: 14px;
     font-size: 10px;

@@ -50,13 +50,13 @@ export function ProgressCard({carddata}){
 
     return(
         <>
-            <div className='px-2 pt-0 d-flex flex-column '   style={{width:'100%',height:'125px',backgroundColor:'#F3F2F7'}}>
+            <div className='px-2 pt-0 d-flex flex-column mb-2'   style={{width:'100%',height:'125px',backgroundColor:'#F3F2F7'}}>
               <div className='d-flex align-items-center justify-content-between'>
-                <div className='text-start flex-grow-1 '>
+                <div className='text-start flex-grow-1'>
                   <h5 style={{fontFamily: 'SF Pro Display Medium'}}>{carddata.title}</h5>
                   <p><span className='fs-3' style={{ fontFamily: 'SF Pro Display Semibold'}}>5</span>/ <span style={{fontFamily: 'SF Pro Display Regular'}}>8</span></p>
                 </div>
-                <div className='col-5'>
+                <div className=''>
                   <div  id="chart" >
                       <ReactApexChart  options={options} series={options.series} type="radialBar" height={130} width={130}/>
                   </div>

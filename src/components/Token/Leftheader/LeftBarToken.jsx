@@ -40,14 +40,20 @@ export function LeftBarToken() {
 
     return (
         <>
-            <div className="d-flex me-5">
+            <div className="d-flex me-5 flex-wrap w-100">
                 <div className="flex-shrink-0">
-                    <img className={styles.tokenImg} src={tokeninfodata ? tokeninfodata.contractInfo.logo : null} alt="bitcoin" />
+                {
+                    (tokeninfodata && tokeninfodata.contractInfo.logo)?  <img className={styles.tokenImg} src={tokeninfodata.contractInfo.logo} alt="bitcoin" />:
+                    <div className={styles.icon_token_letter}>
+                    <h6 className={styles.icon_token_text}>{tokeninfodata?tokeninfodata.contractInfo.name.charAt(0) :null}</h6>
+                </div>
+                }
+                   
                 </div>
                 <div className="flex-grow-1 ms-3">
                     {/* top header */}
                     <div className="d-flex align-items-center">
-                        <h3 style={{ fontFamily: 'SF Pro Display Semibold' }}>Bitcoin </h3>
+                        <h3 style={{ fontFamily: 'SF Pro Display Semibold' }}>{tokeninfodata ?(tokeninfodata.contractInfo.name) : null} </h3>
                         <span className="px-3 h-50 fw-light mx-3" style={{ fontSize: '14px', backgroundColor: 'rgba(136, 136, 136,0.2)' }}>{tokeninfodata ? tokeninfodata.contractInfo.symbol : null}</span>
                         <span className='me-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#9F4AE8" className="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -158,13 +164,13 @@ export function LeftBarToken() {
                     </div>
 
                     <div className={`text-start mt-2 d-flex justify-content-between flex-wrap ${styles.badges}`} style={{ fontSize: '12px', fontFamily: 'SF Pro Display Regular' }}>
-                        <span className='d-flex align-items-center px-2 py-1  mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>
-                            <img className='rounded-circle' width={18} src={tokeninfodata ? tokeninfodata.contractInfo.logo : null} alt="bitcoin" />
-                            <span style={{ fontFamily: 'SF Pro Display Medium' }} className='ps-1'>{tokeninfodata ? tokeninfodata.contractInfo.symbol : null}</span>
+                        <span className='d-flex w-auto align-items-center px-2 py-1  mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>
+                            <img className='rounded-circle' width={18} src={tokeninfodata?.contractInfo?.logo ? tokeninfodata?.contractInfo?.logo : null} alt="bitcoin" />
+                            <span style={{ fontFamily: 'SF Pro Display Medium' }} className='ps-1'>{tokeninfodata ? tokeninfodata?.contractInfo?.symbol : null}</span>
                         </span>
-                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Total Scan {tokeninfodata ? (tokeninfodata.interest) : null}</span>
-                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Launched {tokeninfodata ? (tokeninfodata.contractInfo.age.split("T"))[0] : null}</span>
-                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Added {tokeninfodata ? (tokeninfodata.createdAt.split("T"))[0] : null}</span>
+                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Total Scan {tokeninfodata ? (tokeninfodata?.interest) : null}</span>
+                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Launched {tokeninfodata ? (tokeninfodata?.contractInfo?.age.split("T"))[0] : null}</span>
+                        <span className='px-2 py-1 mt-2 d-inline-block' style={{ backgroundColor: 'rgba(136, 136, 136,0.2)' }}>Added {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}</span>
                                 
                     </div>
                     <div className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}>

@@ -13,7 +13,7 @@ const CardScans = ({ popularScans }) => {
           ? popularScans.map((item, index) => {
             // console.log(item?.contractInfo ,'2');
             return (
-                item?.contractInfo &&
+                (item?.contractInfo && index + 1 <= 5) &&
                 <RowScans
                   key={index}
                   number={index + 1}

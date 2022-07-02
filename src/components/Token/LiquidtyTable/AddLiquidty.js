@@ -31,6 +31,8 @@ const columns = [
 
 
 const AddedLiquidity = ({ LiquidtyData }) => {
+console.log('LiquidtyData===============',LiquidtyData);
+
     let AddLiquidtyData = []
     if (LiquidtyData && LiquidtyData.addLiquidityTransaction) {
         console.log(LiquidtyData.addLiquidityTransaction);
