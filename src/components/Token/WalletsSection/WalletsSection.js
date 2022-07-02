@@ -14,9 +14,9 @@ const WalletsSection = ({ walletsData, topWalletData }) => {
                 <Tab eventKey="LiquidityWallets" title="Top 10 Liquidity Wallets">
                     <WalletsTable walletsData={walletsData} />
                 </Tab>
-                <Tab eventKey="TokenTransactions" title="Token Transactions">
+                {/* <Tab eventKey="TokenTransactions" title="Token Transactions">
                     <WalletsTable />
-                </Tab>
+                </Tab> */}
             </Tabs>
         </>
     )

@@ -13,7 +13,7 @@ export function Slippage(){
     },[dispatch , contractAddress]);
     const buySellBSCdata = buySellBSCapi.result;
 
-    const [data, setData]=useState([
+    const data=[
         {
             name:'Buy',
             value:buySellBSCdata?buySellBSCdata.buyTax:null,
@@ -25,7 +25,7 @@ export function Slippage(){
             // value:'two'
         },
 
-    ])
+    ]
 
     return (
         <>

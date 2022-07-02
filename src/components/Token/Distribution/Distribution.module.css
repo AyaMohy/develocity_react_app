@@ -72,3 +72,20 @@
     margin: 0;
     font-family: 'SF Pro Display Regular';
 }
+
+@media (max-width: 768px) {
+    .distChartDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        width: 100%;
+    }
+    .chartInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        width: 100%;
+    }
+}

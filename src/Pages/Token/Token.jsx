@@ -33,7 +33,7 @@ export function Token() {
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
         dispatch(fetchWallet(tokenAddress))
-    }, [tokenAddress]);
+    }, [dispatch, tokenAddress]);
 
     return (
         <>
@@ -47,21 +47,6 @@ export function Token() {
                     </div>
                     <div><BreadCrumbBar /></div>
 
-                    {/* <div className='d-flex flex-wrap justify-content-center justify-content-sm-between'>
-                        <div className='mt-5'><TrustScore /></div>
-                        <div className='d-flex flex-column mt-5'>
-                            <ContractProgrssCard />
-                            <ContractAnalysisCard />
-                        </div>
-                        <div className='d-flex flex-column mt-5'>
-                            <LiquidProgressCard />
-                            <HoneypotCard />
-                            <RugpullCard />
-                        </div>
-                        <div className='mt-5'>
-                            <GeneralProgrssCard />
-                        </div>
-                    </div> */}
                     <div className='row mt-5'>
                         <div className='col-lg-3 col-md-6 col-sm-12'>
                             <TrustScore />
@@ -79,15 +64,15 @@ export function Token() {
                                     <div className='col-12'> <RugpullCard /></div>
                                 </div>
                                 <div className='col-12 col-md-4'>
-                                    <div className='col-12'><AdevertiseOne/></div>
+                                    <div className='col-12'><AdevertiseOne /></div>
                                 </div>
                             </div>
                         </div>
-                      
+
                     </div>
 
                     <div className='row  align-items-center mb-5'>
-                        <div className='col-6'>
+                        <div className='col-lg-6 col-md-12'>
                             <Distribution />
                         </div>
                         <div className='col-lg-6 col-md-12'>
@@ -113,14 +98,14 @@ export function Token() {
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='col-12 col-lg-6  mb-4 d-flex flex-column'>
-                            <div className='d-md-flex  justify-content-center'>
+                        <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>
+                            <div className='d-md-flex justify-content-center'>
                                 <Trading />
                                 <LiquidityList />
                             </div>
                             <div className='d-md-flex  justify-content-center'>
                                 <Slippage />
-                                <Advertisetwo/>
+                                <Advertisetwo />
                             </div>
 
                         </div>

@@ -26,6 +26,7 @@ const ScansSection = () => {
         )
         socket.on("latestScan", (data) => {
             setLastScans(data);
+
         })
 
         return () => {
@@ -36,20 +37,21 @@ const ScansSection = () => {
         }
     }, []);
 
+
     return (
         <div className="container">
             <Row>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={star} title="Popular Today" />
-                    <CardScans popularScans={popularScans} />
+                    <CardScans popularScans={popularScans} title="Scans" />
                 </Col>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={last} title="Last Scan" />
-                    <CardScans popularScans={lastScans} />
+                    <CardScans popularScans={lastScans} title="Price" />
                 </Col>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={recent} title="Recently Verified" />
-                    <CardScans popularScans={recentScans} />
+                    <CardScans popularScans={recentScans} title="Score" />
                 </Col>
             </Row>
         </div>

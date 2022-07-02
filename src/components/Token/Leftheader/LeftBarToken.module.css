@@ -1,3 +1,6 @@
+.tokenImg{
+    width: 50px;
+}
 .socialIcons{
     list-style: none;
     margin: 0;
@@ -38,4 +41,16 @@
 .percent p{
     font-size: 12px !important; 
 
+}
+@media only screen and (max-width: 450px) {
+    .tokenImg{
+        width: 30px;
+    }
+    .percent>div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
 }
