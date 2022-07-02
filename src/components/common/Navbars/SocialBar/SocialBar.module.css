@@ -44,7 +44,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: center;
 }

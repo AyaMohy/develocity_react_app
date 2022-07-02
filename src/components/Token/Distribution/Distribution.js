@@ -29,7 +29,7 @@ const Distribution = () => {
     series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage) : null],
     dataLabels: {
       formatter: function (val) {
-        return (val.toFixed(0) + "%")
+        return ("")
       }
     },
     chart: {
@@ -77,6 +77,7 @@ const Distribution = () => {
             total: {
               show: true,
               label: 'Total',
+              fontFamily:"SF Pro Display Medium",
               color: '#373d3f',
               formatter: function (w) {
                 return w.globals.seriesTotals.reduce((a, b) => {
@@ -95,7 +96,7 @@ const Distribution = () => {
 
 
   return (
-    <div className="container">
+    <div >
       <h1 className={styles.title}>Distibution metrics</h1>
       <h6 className={styles.secondTitle}>holders distribution<AiFillInfoCircle className={styles.infoIcon} /></h6>
       <div className={styles.distChartDiv}>

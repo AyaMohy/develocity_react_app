@@ -15,7 +15,7 @@ export function LeftBar(){
                 <h4 className={` ${styles.epiloguefont}`} >
                     Became a PRO in Crypto Investments
                 </h4>
-                <p style={{fontSize:'24px',color:'#888',fontFamily:'SF Pro Display Medium',marginTop:'21px'}}>
+                <p className={styles.parag}>
                     We are excited to share our Beta version of the Develocity Multifunctional tool, that works on BSC. 
                 </p>
                 <a className={styles.linkitemopcity} style={{marginTop:'27px',display:'block'}}>

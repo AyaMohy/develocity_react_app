@@ -76,7 +76,7 @@ console.log(fetchScore ({contractAddress}))
   
 
     return(
-        <div className="container">
+        <div >
         <div className={styles.trustScoreBlock}>
         <span className={styles.blockTitle}>trust score</span>
 
