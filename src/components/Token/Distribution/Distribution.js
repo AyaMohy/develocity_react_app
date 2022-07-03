@@ -5,14 +5,16 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import { FaCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDistribution } from "../../../Pages/DataFetch/FetchDistributionData";
-
+import { useParams } from "react-router-dom";
+import { Placeholder } from "../../common/Placeholder/Placeholder";
 
 
 
 
 const Distribution = () => {
-
-  const contractAddress = useSelector(state => state.contractAddress.contractAddress);
+  const param = useParams()
+  const contractAddress = param.contractAddress;
+  const statusDist = useSelector(state => state.Dist.status);
   const dist = useSelector(state => state.Dist.data);
 
   const dispatch = useDispatch();
@@ -21,9 +23,7 @@ const Distribution = () => {
 
   }, [dispatch, contractAddress]);
 
-
   const distData = dist.result;
-  // console.log(distData)
 
   var options = {
     series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage) : null],
@@ -96,12 +96,15 @@ const Distribution = () => {
 
 
   return (
+    <>
     <div >
       <h1 className={styles.title}>Distibution metrics</h1>
       <h6 className={styles.secondTitle}>holders distribution<AiFillInfoCircle className={styles.infoIcon} /></h6>
+      
       <div className={styles.distChartDiv}>
-
-        <div className={styles.chartInfo}>
+        {
+          statusDist=='success' &&<>
+          <div className={styles.chartInfo}>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
               <h6><FaCircle className={styles.circleIconOne} />real holders</h6>
@@ -125,15 +128,52 @@ const Distribution = () => {
             <p>wallets with small amounts after selling</p>
           </div>
         </div>
-
-
         <div className={styles.chart} id="chart">
           <ReactApexChart options={options} series={options.series} type="donut" />
-
         </div>
+        </>
+        }
+
+        {statusDist=='loading' &&<>
+         <div className={styles.chartInfo}>
+         <div className={styles.infoRecord}>
+           <div className={styles.infoTitle}>
+             <h6><FaCircle className={styles.circleIconOne} />real holders</h6>
+             <span className={styles.chartNumber}><Placeholder styling={ {width:'50px',height:'20px'}}/> </span>
+           </div>
+           <p>The actual number of token holders </p>
+
+         </div>
+         <div className={styles.infoRecord}>
+           <div className={styles.infoTitle}>
+             <h6><FaCircle className={styles.circleIconTwo} />airdrop holders</h6>
+             <span className={styles.chartNumber}><Placeholder styling={ {width:'50px',height:'20px'}}/> </span>
+           </div>
+           <p>Tokens are sent by token owner</p>
+         </div>
+         <div className={styles.infoRecord}>
+           <div className={styles.infoTitle}>
+             <h6><FaCircle className={styles.circleIconThree} />wallet shrink</h6>
+             <span className={styles.chartNumber}><Placeholder styling={ {width:'50px',height:'20px'}}/> </span>
+           </div>
+           <p>wallets with small amounts after selling</p>
+         </div>
+       </div>
+       <div className={styles.chart} id="chart">
+       <Placeholder styling={ {width:'150px',height:'150px'}}/>
+        </div>
+       </>
+        }
+
+
+
+        
 
       </div>
     </div>
+
+    {statusDist=='failed' &&''}
+    </>
   )
 }
 

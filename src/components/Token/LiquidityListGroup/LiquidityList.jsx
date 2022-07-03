@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
 import styles from './LiquidityList.module.css';
+import { useParams } from 'react-router-dom';
 export function LiquidityList() {
-    const contractAddress = useSelector(state => state.contractAddress.contractAddress);
+    const param = useParams()
+    const contractAddress = param.contractAddress;
     const buySellBSCapi = useSelector(state => state.GetBuySellBSCdata.data);
     const dispatch = useDispatch();
     useEffect(() => {

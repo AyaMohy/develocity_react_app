@@ -1,5 +1,6 @@
 import { LeftBarToken } from '../../components/Token/Leftheader/LeftBarToken'
 import { NavBar } from '../../components/Home/Header/NavBar'
+import MySearch from '../../components/Home/Search/MySearch'
 import Search from '../../components/Home/Search/MySearch'
 import TrustScore from '../../components/Token/TrustScore/TrustScore'
 import { ContractProgrssCard } from '../../components/Token/ContractProgrss/ContractProgrssCard'
@@ -21,14 +22,22 @@ import LiquidtySection from '../../components/Token/LiquidtySection/LiquidtySect
 import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
 import { LiquidityList } from '../../components/Token/LiquidityListGroup/LiquidityList'
+import { useParams } from 'react-router-dom'
 import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
 import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 
 export function Token() {
     const dispatch = useDispatch();
+    const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
+    const status = useSelector(state => state.tokenOwner.loading);
+
+    
     const topWalletData = useSelector(state => state.topWallet.topWallet);
-    const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
+    console.log(topWalletData ,'topWalletData =>>>');
+    // const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
+
+    const tokenAddress = params.contractAddress
 
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
@@ -41,9 +50,9 @@ export function Token() {
 
                 <NavBar />
                 <section className='container '>
-                    <div className='d-flex mt-4 flex-wrap justify-content-between '>
-                        <div className='col-12 col-lg-6'> <LeftBarToken /></div>
-                        <div className=' col-12 col-lg-6'> <Search /></div>
+                    <div className='d-flex mt-4 flex-wrap align-items-center justify-content-between '>
+                        <div className='order-2 mt-5 order-md-1 col-12 col-lg-6'> <LeftBarToken /></div>
+                        <div className='order-1   order-md-2 '> <Search /></div>
                     </div>
                     <div><BreadCrumbBar /></div>
 
@@ -52,11 +61,11 @@ export function Token() {
                             <TrustScore />
                         </div>
                         <div className='col-12 col-lg-9'>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-12 col-md-4'> <ContractProgrssCard /></div>
                                 <div className='col-12 col-md-4'> <LiquidProgressCard /></div>
                                 <div className='col-12 col-md-4'> <GeneralProgrssCard /></div>
-                            </div>
+                            </div> */}
                             <div className='row'>
                                 <div className='col-12 col-md-4'><ContractAnalysisCard /></div>
                                 <div className='col-12 col-md-4'>
@@ -84,18 +93,24 @@ export function Token() {
                     </div>
 
                     <div className='row mb-5'>
-                        <div className='col-lg-6 col-md-12'>
+                        {
+                            (status=='success' && tokenOwnerData?.ownerInfo?.ownerAddress ) &&
+                            <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
 
                                 <TokenOwner tokenOwnerData={tokenOwnerData} />
                             </div>
 
                         </div>
-                        <div className='col-lg-6 col-md-12'>
+                        }
+                     
+                        {tokenOwnerData?.ownerInfo?.lockedToken.length > 0 
+                        
+                        &&<div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
                                 <LockedTokens LockedTokensData={tokenOwnerData} />
                             </div>
-                        </div>
+                        </div>}
                     </div>
                     <div className='row'>
                         <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>
@@ -111,11 +126,9 @@ export function Token() {
                         </div>
                         <div className='col-12 col-lg-6'>
                             <div className='wallets_table'>
-
                                 <LiquidtySection LiquidtyData={topWalletData} />
                             </div>
                         </div>
-
                     </div>
 
 

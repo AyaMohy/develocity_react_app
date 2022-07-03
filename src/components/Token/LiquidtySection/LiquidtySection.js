@@ -5,22 +5,22 @@ import LiquidtyTable from '../LiquidtyTable/LiquidtyTable'
 import RemovedLiquidity from '../LiquidtyTable/RemovedLiquidity'
 
 const LiquidtySection = ({ LiquidtyData }) => {
-
     return (
         <>
-            <Tabs defaultActiveKey="LiquidtyTransactions" id="uncontrolled-tab-example" >
-                <Tab eventKey="LiquidtyTransactions" title="Liquidty Transactions" >
+            <Tabs defaultActiveKey="AddedLiquidity" id="uncontrolled-tab-example" >
+                {/* <Tab eventKey="LiquidtyTransactions" title="Liquidty Transactions" >
                     <LiquidtyTable />
-                </Tab>
+                </Tab> */}
+                {LiquidtyData?.addLiquidityTransaction?.length !== 0 && 
                 <Tab eventKey="AddedLiquidity" title="Added Liquidity">
                     <AddedLiquidity LiquidtyData={LiquidtyData} />
-                </Tab>
-                <Tab eventKey="RemovedLiquidity" title="Removed Liquidity">
+                </Tab>}
+                {LiquidtyData?.removeLiquidityTransaction?.length !== 0 && <Tab eventKey="RemovedLiquidity" title="Removed Liquidity">
                     <RemovedLiquidity LiquidtyData={LiquidtyData} />
-                </Tab>
-                <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
+                </Tab>}
+                {/* <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
                     <LiquidtyTable />
-                </Tab>
+                </Tab> */}
             </Tabs></>
     )
 }

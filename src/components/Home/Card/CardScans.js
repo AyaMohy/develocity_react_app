@@ -1,28 +1,47 @@
-import React from 'react'
-import styles from './CardScans.module.css';
-import Header from './Header';
-import RowScans from './RowScans';
+import React from "react";
+import styles from "./CardScans.module.css";
+import Header from "./Header";
+import RowScans from "./RowScans";
+import { Placeholder } from "../../common/Placeholder/Placeholder";
+import logo from "../../../assets/images/tron.png";
 
+const CardScans = ({ popularScans,title }) => {
+  return (
+    <div className={styles.container_card}>
+      <div className={styles.card}>
+        <Header title={title}/>
+        {popularScans.length>0
+          ? popularScans.map((item, index) => {
+            // console.log(item?.contractInfo ,'2');
+            return (
+                (item?.contractInfo && index + 1 <= 5) &&
+                <RowScans
+                  key={index}
+                  number={index + 1}
+                  image={item.contractInfo.logo}
+                  nametoken={item.contractInfo.name}
+                  scans={title=="Scans"?(item.interest):(item.contractScan).toFixed(0)}
+                  contract={item.contractAddress}
+                  sponsored="fales"
+                  title={title}
+                />
+            )
+          }
+              
+            )
+          : <>
+          { [1,2,3,4,5].map((i)=>(
+                <div className="d-flex justify-content-between align-items-center">
+                <Placeholder  styling={ {width:'150px',height:'20px',padding:'15px'}}/>
+                <Placeholder styling={ {width:'30px',height:'20px',padding:'15px'}}/>
+                </div> 
+           ) )}
+            
 
+          </>}
+      </div>
+    </div>
+  );
+};
 
-const CardScans = ({ popularScans, title }) => {
-
-    return (
-        <div className={styles.container_card}>
-
-            <div className={styles.card}>
-                <Header title={title} />
-                {
-                    popularScans ? popularScans.map((item, index) => (
-                        item.contractInfo && index + 1 <= 5 ? <RowScans key={index} number={index + 1} image={item.contractInfo.logo} nametoken={item.contractInfo.name} scans={item.interest} sponsored="fales" contract={popularScans[0]["contractAddress"]} title={title} /> : null
-                    )) : null
-                }
-
-
-
-            </div>
-        </div>
-    )
-}
-
-export default CardScans
+export default CardScans;

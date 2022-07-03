@@ -4,6 +4,7 @@ import {AiOutlineUpload} from "react-icons/ai"
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTokenInfoResult } from '../../../Services/FetchTokenInfo';
 import { useEffect, useRef, useState } from 'react';
+import { useParams } from "react-router-dom";
 
 
 
@@ -12,8 +13,8 @@ import { useEffect, useRef, useState } from 'react';
 
 const BreadCrumbBar = () =>{
 
-    
-    const contractAddress = useSelector(state => state.contractAddress.contractAddress);
+    const param  = useParams()    
+    const contractAddress = param.contractAddress;
     const tokenData = useSelector(state => state.Gettokeninfodata.data);
 
     const dispatch = useDispatch();

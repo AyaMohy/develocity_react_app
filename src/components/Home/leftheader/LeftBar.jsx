@@ -18,9 +18,9 @@ export function LeftBar(){
                 <p className={styles.parag}>
                     We are excited to share our Beta version of the Develocity Multifunctional tool, that works on BSC. 
                 </p>
-                <a className={styles.linkitemopcity} style={{marginTop:'27px',display:'block'}}>
+                {/* <a className={styles.linkitemopcity} style={{marginTop:'27px',display:'block'}}>
                 <ButtonComponent data={buttondata}/>
-                </a>
+                </a> */}
                 </div>
             </section>
         </>

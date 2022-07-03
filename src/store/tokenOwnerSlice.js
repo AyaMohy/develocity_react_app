@@ -18,6 +18,7 @@ const tokenOwnerSlice = createSlice({
     extraReducers: {
         [fetchTokenOwner.fulfilled]: (state, action) => {
             state.tokenOwner = action.payload
+            state.loading='success'
         },
         [fetchTokenOwner.pending]: (state, action) => {
             state.loading = true

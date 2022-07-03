@@ -2,9 +2,11 @@ import styles from './Honey.module.css'
 import { fetchBSCResult } from '../../../Services/FetchBSCData' 
 import {useDispatch, useSelector} from 'react-redux';
 import React ,{ useEffect , useState} from "react";
+import { useParams } from 'react-router-dom';
 
 export function HoneypotCard(){
-    const contractAddress = useSelector(state =>state.contractAddress.contractAddress);
+    const param = useParams()
+    const contractAddress = param.contractAddress;
     const bscdata = useSelector(state => state.GetBSCdata.data)
    
 console.log(bscdata.data)

@@ -18,13 +18,23 @@ const ScansSection = () => {
         const socket = io('https://api.develocity.finance');
 
         socket.on("popularScan", (data) => {
+            console.log('all ==>',data);
+            data.map((item)=>{
+                console.log('setPopularScans ==', item?.contractInfo);
+            })
             setPopularScans(data);
         })
         socket.on("highScore", (data) => {
+            // data.map((item)=>{
+            //     console.log('setRecentScans ==', item?.contractInfo?.name,item.contractAddress);
+            // })
             setRecentScans(data);
         }
         )
         socket.on("latestScan", (data) => {
+            // data.map((item)=>{
+            //     console.log('setLastScans ==',item?.contractInfo?.name, item.contractAddress);
+            // })
             setLastScans(data);
 
         })
@@ -47,11 +57,11 @@ const ScansSection = () => {
                 </Col>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={last} title="Last Scan" />
-                    <CardScans popularScans={lastScans} title="Price" />
+                    <CardScans popularScans={lastScans} title="Score" />
                 </Col>
                 <Col lg={4} md={6} sm={12}>
-                    <HeaderCard image={recent} title="Recently Verified" />
-                    <CardScans popularScans={recentScans} title="Score" />
+                    <HeaderCard image={recent} title="Highest Score" />
+                    <CardScans popularScans={recentScans} title="Score"/>
                 </Col>
             </Row>
         </div>

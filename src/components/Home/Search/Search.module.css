@@ -267,12 +267,12 @@
         margin-top: 30px;
     }
     .searchBlock{
-        width: 100%;
+        width: 85%;
     }
     .arrowBtn{
         position: absolute;
     right: 10px;
-    top: 10px;
+    top: 20px;
     }
     .resultRecord{
         position: relative;

@@ -17,7 +17,7 @@ function App() {
       <Routes> 
         <Route exact path="/"  element={<Home />} />
         <Route path="about"  element={<About />} />
-        <Route path='token'  element={<Token/>} />
+        <Route path='token/:contractAddress'  element={<Token/>} />
        </Routes>
    </BrowserRouter>
   );

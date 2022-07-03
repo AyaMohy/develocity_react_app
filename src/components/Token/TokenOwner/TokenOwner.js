@@ -63,6 +63,8 @@ const TokenOwner = ({ tokenOwnerData }) => {
 
     return (
         <>
+        {
+            OwnerData.length>0 ?<>
             <HeaderText nameHeader="Token Owner" />
             <BootstrapTable
                 keyField="id"
@@ -73,6 +75,9 @@ const TokenOwner = ({ tokenOwnerData }) => {
                 loading={true}
                 alwaysShowAllBtns={true}
             />
+            </> :null
+        }
+           
         </>
     )
 }

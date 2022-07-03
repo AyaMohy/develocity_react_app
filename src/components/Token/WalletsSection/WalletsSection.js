@@ -4,16 +4,23 @@ import Wallet10Top from '../WalletsTable/Wallet10Top';
 import WalletsTable from '../WalletsTable/WalletsTable';
 import './WalletsSection.css'
 const WalletsSection = ({ walletsData, topWalletData }) => {
-
+let Active= topWalletData?.ownerInfo?.top10LiquidityHolder.length>0 ?'TopWallets':'LiquidityWallets'
     return (
         <>
-            <Tabs defaultActiveKey="TopWallets" id="uncontrolled-tab-example" >
-                <Tab eventKey="TopWallets" title="Top 10 Wallets" >
-                    <Wallet10Top topWalletData={topWalletData} />
-                </Tab>
+            <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example" >
+                {
+                   topWalletData?.ownerInfo?.top10LiquidityHolder.length>0 && 
+                    <Tab eventKey="TopWallets" title="Top 10 Wallets" >
+                   <Wallet10Top topWalletData={topWalletData} />
+               </Tab>
+                }
+               {
+                walletsData?.ownerInfo?.top10LiquidityHolder.length>0 &&
                 <Tab eventKey="LiquidityWallets" title="Top 10 Liquidity Wallets">
                     <WalletsTable walletsData={walletsData} />
                 </Tab>
+               }
+                
                 {/* <Tab eventKey="TokenTransactions" title="Token Transactions">
                     <WalletsTable />
                 </Tab> */}

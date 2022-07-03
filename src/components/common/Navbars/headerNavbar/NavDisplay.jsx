@@ -39,17 +39,17 @@ export function NavDisplay() {
                                         <Link className={`nav-link text-black ${styles.linkitem}`} aria-current="page" to="/">Home</Link>
                                     </li>
                                     <li className="nav-item px-3">
-                                        <Link className={`nav-link text-black ${styles.linkitem}`} aria-current="page" to="/about">About</Link>
+                                        <a href="https://www.develocity.finance/#about" className={`nav-link text-black ${styles.linkitem}`} >About</a>
                                     </li>
-                                    <li className="nav-item px-3">
+                                    {/* <li className="nav-item px-3">
                                         <Link className={`nav-link text-black ${styles.linkitem}`} to="token">Token</Link>
 
                                     </li>
                                     <li className="nav-item px-3">
                                         <a className={`nav-link text-black ${styles.linkitem}`}>Academy</a>
-                                    </li>
+                                    </li> */}
                                     <li className="nav-item px-3">
-                                        <a className={`nav-link text-black ${styles.linkitem}`}>Contact</a>
+                                        <a href="https://www.develocity.finance/#contact" className={`nav-link text-black ${styles.linkitem}`}>Contact</a>
                                     </li>
                                 </div>
                                 {/*<div className="d-lg-flex me-3">

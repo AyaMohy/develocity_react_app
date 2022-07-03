@@ -1,7 +1,8 @@
 export function Placeholder({styling}){
     let stylingdata={
         width:styling.width,
-        height:styling.height
+        height:styling.height,
+        marginTop:styling.padding
     }
     return(
         <>
