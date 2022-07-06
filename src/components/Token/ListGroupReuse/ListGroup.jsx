@@ -3,19 +3,25 @@ import HeaderText from "../HeaderText/HeaderText"
 import { Placeholder } from "../../common/Placeholder/Placeholder"
 import styles from './ListGroup.module.css'
 
-export function ListGroup({ listdata, title, disc }) {
-    let stylingdata={
-        width:'100px',
-        height:'20px'
+export function ListGroup({ listdata, title }) {
+    // دي كل الداتا اللي بترجع من api 
+    // if (listdata) {
+    //     console.log("listdata", listdata);
+    // listdata.addLiquidityPer 
+    // listdata.removeLiquidityPer
+    // listdata.burnLiquidityPer
+    // }
+    let stylingdata = {
+        width: '100px',
+        height: '20px'
     }
-    console.log(listdata)
-   
+
     return (
         <>
             <div className={`text-muted  mt-3 ${styles.title}`}>
-                <HeaderText nameHeader={title} disc={disc}/>
+                <HeaderText nameHeader={title} title="Welcome to develocity." />
             </div>
-
+            
             <div className={`mx-2 ${styles.groupcard}`}>
                 {
                     listdata  ?
@@ -27,7 +33,7 @@ export function ListGroup({ listdata, title, disc }) {
                                         {i.name}
                                         {title=='Slippage' &&  <span>{i.value}%</span>  }
                                         {title=='Gas Fee' &&  <span>${i.value}</span>  }
-                                        {title=='Liquidity' &&  <span>{i.value}</span>  }
+                                        {title=='Liquidity' &&  <span>{i.value}%</span>  }
                                     </>:
                                     <>
                                         <Placeholder styling={stylingdata}/>
@@ -44,7 +50,7 @@ export function ListGroup({ listdata, title, disc }) {
                         : ''
                 }
             </div>
-            
+
 
         </>
     )

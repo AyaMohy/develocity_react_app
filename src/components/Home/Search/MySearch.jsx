@@ -17,7 +17,6 @@ const MySearch = () => {
   const search = useSelector((state) => state.Search);
   const [copiedAddress,setCopyAddress] = useState('Copy Address');
 
-  console.log(search);
   const dispatch = useDispatch();
   //  console.log(search.status =="success" && search.data.payload)
   useEffect(() => {
@@ -51,7 +50,6 @@ const MySearch = () => {
             contractAddress: e.contractAddress,
             contractScan: e.contractScan,
           }));
-          console.log(newMyData);
           setdataGet(newMyData);
         }, 800);
         setDisable(true);
@@ -61,7 +59,6 @@ const MySearch = () => {
       // setdataGet(null);
     }
   }, [search, term]);
-  console.log(dataGet);
   return (
     <div className="w-100 ">
       <span className={styles.searchNote}>

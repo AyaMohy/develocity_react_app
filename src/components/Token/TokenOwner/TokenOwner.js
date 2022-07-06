@@ -14,6 +14,7 @@ const columns = [
         dataField: "ownership",
         text: "Ownership",
         formatter: (cell, row) => {
+            console.log(row.ownership);
             return (
                 <div>
                     {row.ownership ? <span className="token_owner_rennounced">Rennounced</span> : <span className="token_owner_not_rennounced">Not Rennounced</span>}
@@ -28,9 +29,11 @@ const columns = [
         formatter: (cell, row) => {
             return (
                 <div className='token_owner_liquidity'>
-                    <p className='liquidity'>{row.liquidity.liquidity}</p>
-                    <p className='rate'>{row.liquidity.rate}</p>
-                </div>
+                    {row.liquidity.liquidity !== 'NaN' ? <p className='liquidity'>{row.liquidity.liquidity}</p> : <p className='liquidity'>0</p>
+                    }
+
+                    < p className='rate' > {row.liquidity.rate}</p >
+                </div >
             )
         }
     },
@@ -42,7 +45,7 @@ const columns = [
                 <div className='token_owner_tokens'>
                     <p className='tokens'>{row.tokens.tokens}</p>
                     <p className='rate'>{row.tokens.rate}</p>
-                    <p className='price'>{row.tokens.price}</p>
+                    {/* <p className='price'>{row.tokens.price}</p> */}
                 </div>
             )
         }
@@ -63,21 +66,21 @@ const TokenOwner = ({ tokenOwnerData }) => {
 
     return (
         <>
-        {
-            OwnerData.length>0 ?<>
-            <HeaderText nameHeader="Token Owner" />
-            <BootstrapTable
-                keyField="id"
-                data={OwnerData}
-                columns={columns}
-                hover={true}
-                bordered={false}
-                loading={true}
-                alwaysShowAllBtns={true}
-            />
-            </> :null
-        }
-           
+            {
+                OwnerData.length > 0 ? <>
+                    <HeaderText nameHeader="Token Owner" title="Welcome to develocity."/>
+                    <BootstrapTable
+                        keyField="id"
+                        data={OwnerData}
+                        columns={columns}
+                        hover={true}
+                        bordered={false}
+                        loading={true}
+                        alwaysShowAllBtns={true}
+                    />
+                </> : null
+            }
+
         </>
     )
 }

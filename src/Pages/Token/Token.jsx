@@ -32,10 +32,8 @@ export function Token() {
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const status = useSelector(state => state.tokenOwner.loading);
 
-    
+
     const topWalletData = useSelector(state => state.topWallet.topWallet);
-    console.log(topWalletData ,'topWalletData =>>>');
-    // const tokenAddress = useSelector(state => state.contractAddress.contractAddress);
 
     const tokenAddress = params.contractAddress
 
@@ -61,11 +59,7 @@ export function Token() {
                             <TrustScore />
                         </div>
                         <div className='col-12 col-lg-9'>
-                            {/* <div className='row'>
-                                <div className='col-12 col-md-4'> <ContractProgrssCard /></div>
-                                <div className='col-12 col-md-4'> <LiquidProgressCard /></div>
-                                <div className='col-12 col-md-4'> <GeneralProgrssCard /></div>
-                            </div> */}
+                           
                             <div className='row'>
                                 <div className='col-12 col-md-4'><ContractAnalysisCard /></div>
                                 <div className='col-12 col-md-4'>
@@ -94,23 +88,23 @@ export function Token() {
 
                     <div className='row mb-5'>
                         {
-                            (status=='success' && tokenOwnerData?.ownerInfo?.ownerAddress ) &&
+                            (status == 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                             <div className='col-lg-6 col-md-12'>
-                            <div className='wallets_table'>
+                                <div className='wallets_table'>
 
-                                <TokenOwner tokenOwnerData={tokenOwnerData} />
+                                    <TokenOwner tokenOwnerData={tokenOwnerData} />
+                                </div>
+
                             </div>
-
-                        </div>
                         }
-                     
-                        {tokenOwnerData?.ownerInfo?.lockedToken.length > 0 
-                        
-                        &&<div className='col-lg-6 col-md-12'>
-                            <div className='wallets_table'>
-                                <LockedTokens LockedTokensData={tokenOwnerData} />
-                            </div>
-                        </div>}
+
+                        {tokenOwnerData?.ownerInfo?.lockedToken.length > 0
+
+                            && <div className='col-lg-6 col-md-12'>
+                                <div className='wallets_table'>
+                                    <LockedTokens LockedTokensData={tokenOwnerData} />
+                                </div>
+                            </div>}
                     </div>
                     <div className='row'>
                         <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>

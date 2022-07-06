@@ -11,7 +11,6 @@ export function ContractAnalysisCard(){
     const bscdata = useSelector(state => state.GetBSCdata.data)
     const bscstatus = useSelector(state => state.GetBSCdata.status);
    
-console.log(bscdata.data)
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBSCResult (contractAddress));

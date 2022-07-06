@@ -18,7 +18,6 @@ const ScansSection = () => {
         const socket = io('https://api.develocity.finance');
 
         socket.on("popularScan", (data) => {
-            console.log('all ==>',data);
             data.map((item)=>{
                 console.log('setPopularScans ==', item?.contractInfo);
             })

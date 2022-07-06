@@ -24,7 +24,6 @@ const BreadCrumbBar = () =>{
     }, [dispatch, contractAddress]);
 
     const tokeninfodata = tokenData.result;
-    console.log("token info", tokeninfodata)
    
    
    

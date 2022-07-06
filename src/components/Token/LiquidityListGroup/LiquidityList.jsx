@@ -4,42 +4,50 @@ import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
 import styles from './LiquidityList.module.css';
 import { useParams } from 'react-router-dom';
+import { fetchBscLiquidityScan } from '../../../store/bscLiquidityScanSlice';
+
 export function LiquidityList() {
     const param = useParams()
     const contractAddress = param.contractAddress;
-    const buySellBSCapi = useSelector(state => state.GetBuySellBSCdata.data);
     const dispatch = useDispatch();
+    const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
+    const statusLiquidity=useSelector(state => state.bscLiquidityScan.loading);
+    // useEffect(() => {
+    //     dispatch(fetchBscLiquidityScan(contractAddress));
+
+    // }, [dispatch, contractAddress]);
     useEffect(() => {
-        dispatch(fetchBuySellBSCResult(contractAddress));
+        dispatch(fetchBscLiquidityScan(contractAddress));
 
     }, [dispatch, contractAddress]);
-    const buySellBSCdata = buySellBSCapi.result;
-
-    const [data, setData] = useState([
+    const bscLiquiditydata=bscLiquidityScan?.result
+    console.log("bscLiquiditydata",bscLiquidityScan)
+    const data = [
         {
             name: 'Burned Liquidity',
-            // value:buySellBSCdata?buySellBSCdata.buyTax:null,
-            value: '9%'
+            value: bscLiquidityScan?Number(bscLiquidityScan.burnLiquidityPer).toFixed(2):null
         },
         {
             name: 'Added Liquidity',
-            // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value: '12%'
+            value: bscLiquidityScan?Number(bscLiquidityScan.addLiquidityPer).toFixed(2):null
         },
         {
             name: 'Removed Liquidity',
-            // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value: '8%'
+            value: bscLiquidityScan?Number(bscLiquidityScan.removeLiquidityPer).toFixed(2):null
         },
 
-    ])
+    ]
+
 
     return (
         <>
+  
+            {(statusLiquidity=='success' || statusLiquidity==true)  &&
             <div className='col-12 col-md-6'>
-                <h2 className={`${styles.title} text-muted  mx-2`} style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>Liquidity Metrics</h2>
-                <ListGroup listdata={data} title='Liquidity' />
-            </div>
+                <ListGroup listdata={data} title='Liquidity'/>
+            </div>}
+            {/* <ListGroup listdata={bscLiquidityScan} title="Liquidity" /> */}
+        {statusLiquidity==false && ''}
 
         </>
     )

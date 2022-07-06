@@ -9,7 +9,6 @@ export function HoneypotCard(){
     const contractAddress = param.contractAddress;
     const bscdata = useSelector(state => state.GetBSCdata.data)
    
-console.log(bscdata.data)
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBSCResult (contractAddress));

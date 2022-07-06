@@ -49,7 +49,7 @@ const LockedTokens = ({ LockedTokensData }) => {
     }
     return (
         <>
-            <HeaderText nameHeader="Locked Tokens" />
+            <HeaderText nameHeader="Locked Tokens" title="Welcome to develocity." />
             <BootstrapTable
                 keyField="id"
                 data={LockedData}

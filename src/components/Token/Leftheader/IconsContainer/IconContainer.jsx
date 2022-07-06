@@ -13,7 +13,6 @@ import {
 import { AiFillWechat, AiTwotoneMail } from "react-icons/ai";
 
 export function IconContainer({ tokeninfodata }) {
-    console.log("token icon data",tokeninfodata )
   return (
     <>
       <ul className={styles.socialIcons}>

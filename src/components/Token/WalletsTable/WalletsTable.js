@@ -49,7 +49,6 @@ const WalletsTable = ({ walletsData }) => {
         }
     }
 
-    console.log("wallet",wallet)
 
     const pagination = paginationFactory({
         page: 1,

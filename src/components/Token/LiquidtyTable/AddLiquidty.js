@@ -31,18 +31,26 @@ const columns = [
 
 
 const AddedLiquidity = ({ LiquidtyData }) => {
-console.log('LiquidtyData===============',LiquidtyData);
 
     let AddLiquidtyData = []
     if (LiquidtyData && LiquidtyData.addLiquidityTransaction) {
-        console.log(LiquidtyData.addLiquidityTransaction);
         for (let i = 0; i < LiquidtyData.addLiquidityTransaction.length; i++) {
-            let fromAddress = LiquidtyData.addLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].sender.substr(-4);
-            let toAddress = LiquidtyData.addLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].receiver.substr(-4);
-            let amount = LiquidtyData.addLiquidityTransaction[i].amount.substr(0, 5)
-            let transaction = LiquidtyData.addLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].transaction.substr(-4);
-            let currency = LiquidtyData.addLiquidityTransaction[i].currency;
-
+            let fromAddress, toAddress, amount, transaction, currency;
+            if (LiquidtyData.addLiquidityTransaction[i].sender) {
+                fromAddress = LiquidtyData.addLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].sender.substr(-4);
+            }
+            if (LiquidtyData.addLiquidityTransaction[i].receiver) {
+                toAddress = LiquidtyData.addLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].receiver.substr(-4);
+            }
+            if (LiquidtyData.addLiquidityTransaction[i].amount) {
+                amount = LiquidtyData.addLiquidityTransaction[i].amount.substr(0, 5)
+            }
+            if (LiquidtyData.addLiquidityTransaction[i].transaction) {
+                transaction = LiquidtyData.addLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].transaction.substr(-4);
+            }
+            if (LiquidtyData.addLiquidityTransaction[i].currency) {
+                currency = LiquidtyData.addLiquidityTransaction[i].currency
+            }
             AddLiquidtyData.push({ transaction, fromAddress, toAddress, amount, currency });
         }
     }

@@ -33,7 +33,6 @@ const columns = [
 const RemovedLiquidity = ({ LiquidtyData }) => {
     let RemovedLiquidityData = []
     if (LiquidtyData && LiquidtyData.removeLiquidityTransaction) {
-        console.log(LiquidtyData.removeLiquidityTransaction);
         for (let i = 0; i < LiquidtyData.removeLiquidityTransaction.length; i++) {
             let fromAddress = LiquidtyData.removeLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].sender.substr(-4);
             let toAddress = LiquidtyData.removeLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].receiver.substr(-4);

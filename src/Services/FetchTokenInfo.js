@@ -5,7 +5,6 @@ export const fetchTokenInfoResult=createAsyncThunk('tokeninfo/fetchTokenInfoResu
     async(contractaddress)=>{
         const response= await axios.get(`https://api.develocity.finance/api/v1/contract/tokenInfo?contractAddress=${contractaddress}&ipAddress=1.1.1.1&contractType=Binance`) 
         
-        console.log("response",response)
         return response.data
     }
 );

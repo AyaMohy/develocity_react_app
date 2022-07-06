@@ -8,16 +8,18 @@ import ScoreReducer from "../Pages/DataFetch/FetchTrustScoreData";
 import DistReducer from "../Pages/DataFetch/FetchDistributionData";
 import tokenOwnerSlice from "./tokenOwnerSlice";
 import topWalletSlice from "./topWalletSlice";
+import bscLiquidityScanSlice from './bscLiquidityScanSlice'
 export const store = configureStore({
     reducer: {
         contractAddress: contractAddressSlice,
         Search: SearchReducer,
         GetBSCdata: GetBSCdataReducer,
         Gettokeninfodata: GettokeninfodataReducer,
-        GetBuySellBSCdata:GetBuySellBSCdataReducer,
+        GetBuySellBSCdata: GetBuySellBSCdataReducer,
         Score: ScoreReducer,
         Dist: DistReducer,
         tokenOwner: tokenOwnerSlice,
-        topWallet: topWalletSlice
+        topWallet: topWalletSlice,
+        bscLiquidityScan: bscLiquidityScanSlice
     },
 })

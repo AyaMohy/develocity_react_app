@@ -11,7 +11,7 @@ export function Slippage() {
     const contractAddress = param.contractAddress;
     const buySellBSCslippage = useSelector(state => state.GetBuySellBSCdata.data);
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
-
+    
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchBuySellBSCResult(contractAddress));
@@ -37,7 +37,7 @@ export function Slippage() {
         <>
             {(statusSlippage=='success' || statusSlippage=='loading')  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title='Slippage' disc="slippage"/>
+                <ListGroup listdata={data} title='Slippage'/>
             </div>}
 
         {statusSlippage=='failed' && ''}
