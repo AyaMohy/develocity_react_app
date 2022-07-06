@@ -35,18 +35,20 @@ const columns = [
 const Wallet10Top = ({ topWalletData }) => {
     const wallet = [];
 
-    if (topWalletData && topWalletData.ownerInfo && topWalletData.ownerInfo.top10LiquidityHolder) {
+    if (topWalletData && topWalletData.topTenHolder) {
 
-        for (let i = 0; i < topWalletData.ownerInfo.top10LiquidityHolder.length; i++) {
+        for (let i = 0; i < topWalletData.topTenHolder.length; i++) {
             let rank = i + 1;
-            let address = topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) + '...' + topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
+            let address = topWalletData.topTenHolder[i].TokenHolderAddress.substr(0, 8) + '...' + topWalletData.topTenHolder[i].TokenHolderAddress.substr(-6);
             let nameTag = 'N/A'
-            let balance = (topWalletData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).substr(0, 9)
-            let percentage = `${Number(topWalletData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
+            let balance = Number(topWalletData.topTenHolder[i].TokenHolderQuantity).toLocaleString("en-US");;
+            let percentage = `${(Number(topWalletData.topTenHolder[i].percentage)).toFixed(2)}%`;
             wallet.push({ rank, address, nameTag, balance, percentage });
 
         }
     }
+
+
     const pagination = paginationFactory({
         page: 1,
         sizePerPage: 5,

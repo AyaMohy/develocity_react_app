@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import {IoCopy} from 'react-icons/io5';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import styles from "./Search.module.css";
 import { FaCircle } from "react-icons/fa";
 import { BiBitcoin } from "react-icons/bi";
@@ -14,6 +15,8 @@ const MySearch = () => {
   const [disable, setDisable] = useState(true);
 
   const search = useSelector((state) => state.Search);
+  const [copiedAddress,setCopyAddress] = useState('Copy Address');
+
   console.log(search);
   const dispatch = useDispatch();
   //  console.log(search.status =="success" && search.data.payload)
@@ -23,6 +26,15 @@ const MySearch = () => {
     }
   }, [term]);
 
+  function copyToClipboard(e) {
+    e.preventDefault()
+    setCopyAddress('Copied Address !')
+    navigator.clipboard.writeText('contractAddress')
+
+    setTimeout(() => {
+        setCopyAddress('Copy Address')
+    }, 2000);
+}
   useEffect(() => {
     if (term) {
       if (term.startsWith("0x") && term.length === 42) {
@@ -54,7 +66,7 @@ const MySearch = () => {
     <div className="w-100 ">
       <span className={styles.searchNote}>
         <FaCircle className={styles.dot} />
-        Enter the token name and click scan
+        Enter the token name or address then click scan 
       </span>
 
       <div className={styles.searchSection}>
@@ -64,7 +76,11 @@ const MySearch = () => {
           onChange={(e) => setTerm(e.target.value)}
           value={term}
         />
-        <button className={styles.searchBtn} disabled={disable}>
+        <button onClick={()=> {
+           term.startsWith("0x") && term.length === 42 ? 
+           window.location.href=`/token/${term}` : 
+           window.location.href=`/`
+        }} className={styles.searchBtn} disabled={disable}>
           scan
         </button>
       </div>
@@ -81,7 +97,12 @@ const MySearch = () => {
           {search.status == "success" &&
             dataGet &&
             dataGet.map((el) => (
-              <div className={styles.resultRecord}>
+              <div className={styles.resultRecord} 
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href=`/token/${el.contractAddress}`;
+              }}
+              >
                 <div>
                   <div className={styles.titleBar}>
                     {el.logo ? (
@@ -110,9 +131,14 @@ const MySearch = () => {
                    
                       { el.contractAddress.slice(0, 10)+'...'+el.contractAddress.slice(31, 41)}
 
-                      <button>
+                      <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{copiedAddress}</Tooltip>}>
+                        <span onClick={copyToClipboard} className="d-inline-block" title={el.contractAddress}>
+                            <IoCopy disabled style={{color:'#888' ,marginLeft:'4px'}}/>    
+                        </span>
+                    </OverlayTrigger>
+                      {/* <button>
                         <BiCopy />
-                      </button>
+                      </button> */}
                     </div>
 
                     {el.contractScan < 59 && (
@@ -134,7 +160,8 @@ const MySearch = () => {
                     )}
                   </div>
                 </div>
-                <button className={styles.arrowBtn}>
+                <button 
+                     className={styles.arrowBtn}>
                   <BsArrowRight />
                 </button>
               </div>

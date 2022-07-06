@@ -1,11 +1,21 @@
 .tokenImg{
     width: 50px;
+    border-radius: 100%;
+    margin-top: -5px;
 }
 .name{
     font-size: 16px;
+    margin-left: 2px;
+    font-family: 'SF Pro Display Semibold'
 }
 .symbol{
     font-size: 14px;
+     background-color: rgba(136, 136, 136,0.2)
+}
+.contractaddress{
+    font-size: 16px;
+    font-weight: bold;
+
 }
 .socialIcons{
     list-style: none;
@@ -41,11 +51,13 @@
 }
 
 .percent h5{
-    font-size: 14px;   
+    font-size: 14px; 
+    font-family: 'SF Pro Display Regular'  
 }
 
 .percent p{
     font-size: 12px !important; 
+    font-family: 'SF Pro Display Semibold'
 
 }
 .icon_token_letter1, .icon_token_letter2 {

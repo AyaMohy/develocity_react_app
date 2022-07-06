@@ -31,11 +31,17 @@
 }
 
 
+
 @media only screen and (max-width: 991px){
    nav{
         padding: 0 !important;
     }
     .navbar-nav{
         margin-left: 0;
+    }
+
+    .listGroup{
+        margin-top: -40px;
+       
     }
 }

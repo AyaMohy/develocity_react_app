@@ -40,7 +40,7 @@ export function Trading() {
             {(statusBSCapi=='success' || statusBSCapi=='loading')  &&
             <div className='col-12 col-md-6'>
                 <h2 className='text-muted mx-2' style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>Trading</h2>
-                <ListGroup listdata={data} title='Gas Fee'/>
+                <ListGroup listdata={data} title='Gas Fee' disc="llllllllllllll"/>
             </div>}
 
 

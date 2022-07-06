@@ -13,7 +13,7 @@ export function LeftBar(){
                 <div className=" ">
                 <span className="py-2 px-3" style={{color:'#9F4AE8',fontSize:'12px',backgroundColor:'rgba(159, 74, 232,0.2)',borderRadius:'2px',paddingTop:'59px'}}>BETA STAGE</span>
                 <h4 className={` ${styles.epiloguefont}`} >
-                    Became a PRO in Crypto Investments
+                    Become a PRO in Crypto Investments
                 </h4>
                 <p className={styles.parag}>
                     We are excited to share our Beta version of the Develocity Multifunctional tool, that works on BSC. 

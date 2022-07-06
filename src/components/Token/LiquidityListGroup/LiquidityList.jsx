@@ -19,17 +19,17 @@ export function LiquidityList() {
         {
             name: 'Burned Liquidity',
             // value:buySellBSCdata?buySellBSCdata.buyTax:null,
-            value: '9'
+            value: '9%'
         },
         {
             name: 'Added Liquidity',
             // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value: '12'
+            value: '12%'
         },
         {
             name: 'Removed Liquidity',
             // value:buySellBSCdata?buySellBSCdata.mint:null,
-            value: '8'
+            value: '8%'
         },
 
     ])

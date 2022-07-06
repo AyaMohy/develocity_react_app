@@ -1,4 +1,4 @@
-import React ,{ useEffect} from "react";
+import React ,{ useEffect, useState} from "react";
 import styles from "./TrustScore.module.css";
 import ReactApexChart from 'react-apexcharts';
 
@@ -24,8 +24,21 @@ const TrustScore =() =>{
 
   },[dispatch , contractAddress]);
   const scoreData = score.result;
+  let color='#fff'
+
+  if(scoreData?.contractScan<59){
+    color="#EC6666"
+  } else if(scoreData?.contractScan>=60 && scoreData?.contractScan<85){
+    color="#F5A341" 
+  }else{
+    color="#16C784"
+  }
   // console.log(scoreData ,'========= Score data ')
 // console.log(fetchScore ({contractAddress}))
+
+
+
+
 
 
     var options = {
@@ -66,7 +79,7 @@ const TrustScore =() =>{
     },
     fill: {
       type: "solid",
-      colors: ['#EC6666', '#EC6666', '#EC6666']
+      colors: [color,color,color]
     },
     stroke: {
       lineCap: "round",
@@ -91,7 +104,7 @@ const TrustScore =() =>{
       <h2 className={styles.title}>moderate</h2>
 
       <ul className={styles.chartList}>
-      <li className={styles.critical}>critical issues<span> {scoreData? scoreData.numberOfHighIssue :null} </span></li>
+      <li className={styles.critical}>critical issues<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>
       <li>important issues<span className={styles.important}>{scoreData? scoreData.numberOfMediunIssue :null}</span></li>
       <li>informational issues<span className={styles.information}>{scoreData? scoreData.numberOfInformationalIssue :null}</span></li>
      

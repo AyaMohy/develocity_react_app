@@ -3,7 +3,7 @@ import HeaderText from "../HeaderText/HeaderText"
 import { Placeholder } from "../../common/Placeholder/Placeholder"
 import styles from './ListGroup.module.css'
 
-export function ListGroup({ listdata, title }) {
+export function ListGroup({ listdata, title, disc }) {
     let stylingdata={
         width:'100px',
         height:'20px'
@@ -13,7 +13,7 @@ export function ListGroup({ listdata, title }) {
     return (
         <>
             <div className={`text-muted  mt-3 ${styles.title}`}>
-                <HeaderText nameHeader={title} />
+                <HeaderText nameHeader={title} disc={disc}/>
             </div>
 
             <div className={`mx-2 ${styles.groupcard}`}>

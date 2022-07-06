@@ -65,10 +65,20 @@
 }
 .critical {
     color: #EA3943 !important;
-    margin-right: 10px;
+   
 }
-.critical{
-    background-color: rgba(234,57,67,0.15);
+.critical span{
+    font-size: 14px;
+    font-weight: 400;
+    color: #EA3943;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+   
 }
 .icon{
     background-color: rgba(234,57,67,0.15);

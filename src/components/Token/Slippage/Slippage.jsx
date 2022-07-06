@@ -37,7 +37,7 @@ export function Slippage() {
         <>
             {(statusSlippage=='success' || statusSlippage=='loading')  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title='Slippage'/>
+                <ListGroup listdata={data} title='Slippage' disc="slippage"/>
             </div>}
 
         {statusSlippage=='failed' && ''}

@@ -41,7 +41,22 @@ const BreadCrumbBar = () =>{
         </ul>
         <div className={styles.btns}>
         {/*<button>download report</button>*/}
-        <button>share<AiOutlineUpload className={styles.shareIcon}/></button>
+        <button onClick={()=>{
+              if (navigator.share) {
+                navigator.share({
+                  text: 'Check This Token',
+                  title:'Develocity token report',
+                  url: window.location.href
+                }).then(() => {
+                  console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+              } else {
+                alert("Your Browser not Support this Service")
+              }
+        } }
+        
+        >share<AiOutlineUpload className={styles.shareIcon}/></button>
         </div>
         </div>
 

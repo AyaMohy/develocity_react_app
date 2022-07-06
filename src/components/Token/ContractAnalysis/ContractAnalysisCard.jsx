@@ -18,7 +18,7 @@ console.log(bscdata.data)
     },[contractAddress]);
 
     const newbscdata = bscdata.result;
-    let [data, setData]=useState([
+    let data=[
         {
             name:'Mint',
             value:newbscdata?newbscdata.mint:null,
@@ -56,7 +56,7 @@ console.log(bscdata.data)
         }
 
 
-    ]);
+    ];
 
     return(
         <>
@@ -69,7 +69,13 @@ console.log(bscdata.data)
                       <div className="list-group-item rounded-0 " >
                           <div className={` d-flex w-100 justify-content-between text-start  ${styles.listitem}`}  >
                               <div className="align-items-center d-flex h-100" >{item.name}</div>
-                              <div className="align-items-center d-flex h-100 ">{item.value===true?<span className={` py-1 ${styles.detected }`}>Detected</span>:<span className={`py-1 ${styles.notdetected }`} >NOT DETECTED</span>}</div>
+                              <div className="align-items-center d-flex h-100 ">
+                                {item.value===true?
+                                <span className={` py-1 ${styles.detected }`}>Detected</span>
+                                :
+                                <span className={`py-1 ${styles.notdetected }`} >NOT DETECTED</span>
+                                }
+                                </div>
                           </div>
                       </div>
                      

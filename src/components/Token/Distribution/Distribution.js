@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDistribution } from "../../../Pages/DataFetch/FetchDistributionData";
 import { useParams } from "react-router-dom";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -26,7 +28,8 @@ const Distribution = () => {
   const distData = dist.result;
 
   var options = {
-    series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage) : null],
+    series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage): null],
+    labels:["Real Holders" , "Airdrop Holders" , "Shrink Wallet"],
     dataLabels: {
       formatter: function (val) {
         return ("")
@@ -99,7 +102,11 @@ const Distribution = () => {
     <>
     <div >
       <h1 className={styles.title}>Distibution metrics</h1>
-      <h6 className={styles.secondTitle}>holders distribution<AiFillInfoCircle className={styles.infoIcon} /></h6>
+      <h6 className={styles.secondTitle}>holders distribution
+      <Tooltip title="Holders distribution means a distribution by the Holder to its equity holders of the Seller Consideration Securities." arrow>
+      <Button> <AiFillInfoCircle className={styles.infoIcon} /></Button>
+    </Tooltip>
+   </h6>
       
       <div className={styles.distChartDiv}>
         {
