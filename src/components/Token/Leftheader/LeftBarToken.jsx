@@ -20,6 +20,8 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
 import { IconContainer } from "./IconsContainer/IconContainer";
+import ModalForm from "../ModalForm/ModalForm";
+
 
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
@@ -56,8 +58,12 @@ export function LeftBarToken() {
     }, 2000);
   }
 
+
+  const[showModal,setShowModal] = useState(false)
+
   return (
     <>
+    <ModalForm show={showModal} close={()=>setShowModal(false)}/>
       <div className="w-100">
         <div className="d-flex justify-content-between align-items-center flex-wrap">
           <div className="py-2">
@@ -102,7 +108,18 @@ export function LeftBarToken() {
                     </svg>
                   </span>
                 </>
-              ) : null}
+              ) : <span className=" me-3" onClick={()=> setShowModal(true)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="#DFDFE4"
+                className="bi bi-patch-check-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+              </svg>
+            </span>}
             </span>
           </div>
           <div className=" py-2 me-0">

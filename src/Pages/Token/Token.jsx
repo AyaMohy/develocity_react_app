@@ -1,14 +1,10 @@
 import { LeftBarToken } from '../../components/Token/Leftheader/LeftBarToken'
 import { NavBar } from '../../components/Home/Header/NavBar'
-import MySearch from '../../components/Home/Search/MySearch'
 import Search from '../../components/Home/Search/MySearch'
 import TrustScore from '../../components/Token/TrustScore/TrustScore'
-import { ContractProgrssCard } from '../../components/Token/ContractProgrss/ContractProgrssCard'
 import { ContractAnalysisCard } from '../../components/Token/ContractAnalysis/ContractAnalysisCard'
-import { LiquidProgressCard } from '../../components/Token/LiquidProgress/LiquidProgressCard'
 import { HoneypotCard } from '../../components/Token/Honeypot/HoneypotCard'
 import { RugpullCard } from '../../components/Token/Rugpull/RugpullCard'
-import { GeneralProgrssCard } from '../../components/Token/GeneralProgress/GeneralProgrssCard'
 import Distribution from '../../components/Token/Distribution/Distribution'
 import BreadCrumbBar from '../../components/Token/BreadCrumbBar/BreadCrumbBar'
 import WalletsSection from '../../components/Token/WalletsSection/WalletsSection'
@@ -17,7 +13,6 @@ import { useEffect } from 'react'
 import { fetchTokenOwner } from '../../store/tokenOwnerSlice'
 import { fetchWallet } from '../../store/topWalletSlice'
 import TokenOwner from '../../components/Token/TokenOwner/TokenOwner'
-import LockedTokens from '../../components/Token/LockedTokens/LockedTokens'
 import LiquidtySection from '../../components/Token/LiquidtySection/LiquidtySection'
 import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
@@ -25,6 +20,8 @@ import { LiquidityList } from '../../components/Token/LiquidityListGroup/Liquidi
 import { useParams } from 'react-router-dom'
 import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
 import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
+import LockedSection from '../../components/Token/LockedSection/LockedSection'
+import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 
 export function Token() {
     const dispatch = useDispatch();
@@ -34,12 +31,13 @@ export function Token() {
 
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
-
+    const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
     const tokenAddress = params.contractAddress
 
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
         dispatch(fetchWallet(tokenAddress))
+        dispatch(fetchBSCTrasaction(tokenAddress))
     }, [dispatch, tokenAddress]);
 
     return (
@@ -59,7 +57,7 @@ export function Token() {
                             <TrustScore />
                         </div>
                         <div className='col-12 col-lg-9'>
-                           
+
                             <div className='row'>
                                 <div className='col-12 col-md-4'><ContractAnalysisCard /></div>
                                 <div className='col-12 col-md-4'>
@@ -80,8 +78,7 @@ export function Token() {
                         </div>
                         <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
-
-                                <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} />
+                                <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} bSCTrasaction={bSCTrasaction} />
                             </div>
                         </div>
                     </div>
@@ -98,13 +95,20 @@ export function Token() {
                             </div>
                         }
 
-                        {tokenOwnerData?.ownerInfo?.lockedToken.length > 0
+                        {/* {tokenOwnerData?.ownerInfo?.lockedToken.length > 0
 
                             && <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
                                     <LockedTokens LockedTokensData={tokenOwnerData} />
                                 </div>
-                            </div>}
+                            </div>} */}
+
+                        <div className='col-lg-6 col-md-12'>
+                            <div className='wallets_table'>
+                                <LockedSection LockedTokensData={tokenOwnerData} />
+                            </div>
+                        </div>
+
                     </div>
                     <div className='row'>
                         <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>
@@ -120,7 +124,7 @@ export function Token() {
                         </div>
                         <div className='col-12 col-lg-6'>
                             <div className='wallets_table'>
-                                <LiquidtySection LiquidtyData={topWalletData} />
+                                <LiquidtySection LiquidtyData={topWalletData} bSCTrasaction={bSCTrasaction} />
                             </div>
                         </div>
                     </div>

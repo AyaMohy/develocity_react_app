@@ -23,16 +23,20 @@ tr td:nth-child(2) {
   color: #2268E1;
 }
 
-/* @media (max-width: 568px) {
-  .wallets_table .nav-tabs>li {
-    float: none;
+@media (max-width: 767px) {
+  .wallets_table .nav-tabs {
     display: flex;
+    flex-direction: row;
+    width: 100%;
     flex-wrap: nowrap;
-    width: 115px;
-    font-size: 10px;
+
   }
 
   .wallets_table .nav-tabs .nav-link {
     font-size: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
-} */
+
+
+}

@@ -32,7 +32,7 @@ const columns = [
                     {row.liquidity.liquidity !== 'NaN' ? <p className='liquidity'>{row.liquidity.liquidity}</p> : <p className='liquidity'>0</p>
                     }
 
-                    < p className='rate' > {row.liquidity.rate}</p >
+                    < p className='rate' > {row.liquidity.rate}%</p >
                 </div >
             )
         }
@@ -44,7 +44,7 @@ const columns = [
             return (
                 <div className='token_owner_tokens'>
                     <p className='tokens'>{row.tokens.tokens}</p>
-                    <p className='rate'>{row.tokens.rate}</p>
+                    <p className='rate'>{row.tokens.rate}%</p>
                     {/* <p className='price'>{row.tokens.price}</p> */}
                 </div>
             )
@@ -59,16 +59,17 @@ const TokenOwner = ({ tokenOwnerData }) => {
         const address = tokenOwnerData.ownerInfo.ownerAddress.substr(0, 8) + '...' + tokenOwnerData.ownerInfo.ownerAddress.substr(-6);
         const renounceOwnership = tokenOwnerData.ownerInfo.renounceOwnership;
         const tokenBalance = tokenOwnerData.ownerInfo.tokenBalance;
-        const tokenBalance_percentage = tokenOwnerData.ownerInfo.tokenBalance_percentage;
-        const lockedLiquidity = tokenOwnerData.ownerInfo.lockedLiquidity;
-        OwnerData.push({ address: address, ownership: renounceOwnership, liquidity: { liquidity: lockedLiquidity, rate: tokenBalance_percentage }, tokens: { tokens: tokenBalance, rate: tokenBalance_percentage, price: '287,547$' } });
+        const tokenBalance_percentage = tokenOwnerData.ownerInfo.tokenBalance_percentage.toLocaleString("en-US")
+        const LPtokenBalance = tokenOwnerData.ownerInfo.LPtokenBalance.toLocaleString("en-US")
+        const LPtokenBalance_percentage = tokenOwnerData.ownerInfo.LPtokenBalance_percentage.toLocaleString("en-US")
+        OwnerData.push({ address: address, ownership: renounceOwnership, liquidity: { liquidity: tokenBalance, rate: tokenBalance_percentage }, tokens: { tokens: LPtokenBalance, rate: LPtokenBalance_percentage, price: '287,547$' } });
     }
 
     return (
         <>
             {
                 OwnerData.length > 0 ? <>
-                    <HeaderText nameHeader="Token Owner" title="Welcome to develocity."/>
+                    <HeaderText nameHeader="Token Owner" title="Welcome to develocity." />
                     <BootstrapTable
                         keyField="id"
                         data={OwnerData}

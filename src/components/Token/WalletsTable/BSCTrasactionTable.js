@@ -3,6 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 
+
 const columns = [
     {
         dataField: "hash",
@@ -28,19 +29,22 @@ const columns = [
 ];
 
 
-const LiquidtyTable = ({ bSCTrasaction }) => {
+const BSCTrasactionTable = ({ bSCTrasaction }) => {
     const bSCTrasactionData = [];
 
-    if (bSCTrasaction && bSCTrasaction.transactions) {
-        for (let i = 0; i < bSCTrasaction.transactions.length; i++) {
-            let fromAddress = bSCTrasaction.transactions[i].from.substr(0, 4) + '...' + bSCTrasaction.transactions[i].from.substr(-4);
-            let toAddress = bSCTrasaction.transactions[i].to.substr(0, 4) + '...' + bSCTrasaction.transactions[i].to.substr(-4);
-            let amount = Number(bSCTrasaction.transactions[i].value).toLocaleString("en-US");
-            let tokenSymbol = bSCTrasaction.transactions[i].tokenSymbol
-            let hash = bSCTrasaction.transactions[i].hash.substr(0, 4) + '...' + bSCTrasaction.transactions[i].hash.substr(-4)
+    if (bSCTrasaction && bSCTrasaction.tokenTransaction) {
+
+        for (let i = 0; i < bSCTrasaction.tokenTransaction.length; i++) {
+            let fromAddress = bSCTrasaction.tokenTransaction[i].from.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].from.substr(-4);
+            let toAddress = bSCTrasaction.tokenTransaction[i].to.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].to.substr(-4);
+            let amount = Number(bSCTrasaction.tokenTransaction[i].value).toLocaleString("en-US");
+            let tokenSymbol = bSCTrasaction.tokenTransaction[i].tokenSymbol
+            let hash = bSCTrasaction.tokenTransaction[i].hash.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].hash.substr(-4)
             bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, hash });
         }
     }
+
+
 
     const pagination = paginationFactory({
         page: 1,
@@ -54,7 +58,6 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
 
     return (
         <div className='large_table'> 
-
             <BootstrapTable
                 keyField="id"
                 data={bSCTrasactionData}
@@ -68,5 +71,5 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
         </div>
     )
 }
+export default BSCTrasactionTable
 
-export default LiquidtyTable

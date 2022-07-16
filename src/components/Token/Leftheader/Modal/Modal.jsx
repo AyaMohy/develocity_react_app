@@ -75,10 +75,10 @@ export function Modal({logo,name, symbol,isnotlisted}) {
 
               <button
                 type="button"
-                class="btn-close"
+                className={styles.closeBtn}
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              >Close x</button>
             </div>
             <div className={`modal-body ${styles.modalwrapper}`}>
               <h3 className='text-muted'>

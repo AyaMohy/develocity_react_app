@@ -56,11 +56,59 @@
 
 .wallets_table .react-bootstrap-table-pagination .react-bootstrap-table-page-btns-ul li.active a {
   background-color: #C8CED4;
-
 }
+
+.tokens_table .react-bootstrap-table table {
+  table-layout: auto;
+}
+
+
+.tokens_table .react-bootstrap-table table thead,
+.tokens_table .react-bootstrap-table table thead th,
+.tokens_table .react-bootstrap-table table thead tr {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EFF2F5;
+}
+
+.tokens_table .react-bootstrap-table table thead tr {
+  border-bottom: #EFF2F5 2px solid;
+}
+
+.tokens_table .react-bootstrap-table table thead th {
+  font-size: 12px;
+  font-family: "SF Pro Display Medium";
+  color: #888888;
+  height: 40px;
+}
+
+.tokens_table .react-bootstrap-table table tbody tr {
+  font-size: 14px;
+  font-family: "SF Pro Display Medium";
+  color: #333333;
+  flex-wrap: nowrap;
+}
+
 
 @media (max-width: 500px) {
   .wallets_table .react-bootstrap-table table {
+    overflow: auto;
+    display: block;
+    table-layout: auto;
+  }
+}
+
+@media (max-width: 800px) {
+
+
+  .large_table table {
+    overflow: auto;
+    display: block;
+    table-layout: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .tokens_table .react-bootstrap-table table {
     overflow: auto;
     display: block;
     table-layout: auto;

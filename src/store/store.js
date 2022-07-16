@@ -9,6 +9,7 @@ import DistReducer from "../Pages/DataFetch/FetchDistributionData";
 import tokenOwnerSlice from "./tokenOwnerSlice";
 import topWalletSlice from "./topWalletSlice";
 import bscLiquidityScanSlice from './bscLiquidityScanSlice'
+import bSCTrasactionSlice from './bSCTrasactionSlice'
 export const store = configureStore({
     reducer: {
         contractAddress: contractAddressSlice,
@@ -20,6 +21,7 @@ export const store = configureStore({
         Dist: DistReducer,
         tokenOwner: tokenOwnerSlice,
         topWallet: topWalletSlice,
-        bscLiquidityScan: bscLiquidityScanSlice
+        bscLiquidityScan: bscLiquidityScanSlice,
+        bSCTrasaction: bSCTrasactionSlice,
     },
 })
