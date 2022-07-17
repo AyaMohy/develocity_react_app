@@ -87,6 +87,9 @@
 .icon_token_text2 {
     font-size: 12px;
 }
+.modalIcon{
+    cursor: pointer;
+}
 @media only screen and (max-width: 450px) {
     .tokenImg{
         width: 30px;

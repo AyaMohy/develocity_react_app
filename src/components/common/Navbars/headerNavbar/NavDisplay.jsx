@@ -1,9 +1,11 @@
 import React from "react";
 import { ButtonComponent } from '../../ButtonComponent'
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import styles from './nav.module.css'
 import logo from '../../../../assets/images/logo.png'
 export function NavDisplay() {
+    const { t, i18n } = useTranslation(["common"])
     const logindata = {
         text: 'Log in',
         color: "black",
@@ -36,10 +38,10 @@ export function NavDisplay() {
                             <div className="d-lg-flex w-100 bg-ingo justify-content-between align-items-center">
                                 <div className={`d-lg-flex` }>
                                     <li className="nav-item  px-3">
-                                        <Link className={`nav-link text-black ${styles.linkitem}`} aria-current="page" to="/">Home</Link>
+                                        <Link className={`nav-link text-black ${styles.linkitem}`} aria-current="page" to="/">{t("common:home")}</Link>
                                     </li>
                                     <li className="nav-item px-3">
-                                        <a href="https://www.develocity.finance/#about" className={`nav-link text-black ${styles.linkitem}`} >About</a>
+                                        <a href="https://www.develocity.finance/#about" className={`nav-link text-black ${styles.linkitem}`} >{t("common:about")}</a>
                                     </li>
                                     {/* <li className="nav-item px-3">
                                         <Link className={`nav-link text-black ${styles.linkitem}`} to="token">Token</Link>
@@ -49,7 +51,7 @@ export function NavDisplay() {
                                         <a className={`nav-link text-black ${styles.linkitem}`}>Academy</a>
                                     </li> */}
                                     <li className="nav-item px-3">
-                                        <a href="https://www.develocity.finance/#contact" className={`nav-link text-black ${styles.linkitem}`}>Contact</a>
+                                        <a href="https://www.develocity.finance/#contact" className={`nav-link text-black ${styles.linkitem}`}>{t("common:contact")}</a>
                                     </li>
                                 </div>
                                 {/*<div className="d-lg-flex me-3">
