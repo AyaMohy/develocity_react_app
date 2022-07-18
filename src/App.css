@@ -1,7 +1,12 @@
 .App {
   text-align: center;
   background-color: #F3F2F7;
+  
 }
+/* body{
+  background-color: red !important;
+  direction: rtl;
+} */
 
 .App-logo {
   height: 40vmin;

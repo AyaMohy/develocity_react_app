@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 const SocialBar=() =>{
   const [language, setLanguage] = useState('en');
   const { t, i18n } = useTranslation(["common"]);
-
+  const lang=localStorage.getItem("i18nextLng")
   const handleOnclick=(e)=>{
     e.preventDefault();
     setLanguage(e.target.value);
@@ -18,7 +18,7 @@ const SocialBar=() =>{
   }
 
     return(
-        <div className={styles.socialBarSection} style={{ backgroundColor: '#F3F2F7' }}>
+        <div className={lang=="ar"?styles.socialBarSection_rtl:styles.socialBarSection_ltr} style={{ backgroundColor: '#F3F2F7'}}>
         <div className="container">
         <div className={styles.socialBar}>
 
@@ -47,6 +47,7 @@ const SocialBar=() =>{
 
 <select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
 <option selected value="en">English</option>
+<option value="ar">Arabic</option>
 <option value="ch">Chinese</option>
 <option value="tr">Turkish</option>
 </select>

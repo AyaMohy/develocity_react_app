@@ -12,15 +12,16 @@ import './App.css';
 import Tokens from './Pages/Tokens/Tokens';
 
 
-function App() {
 
+function App() {
+ 
   return (
-    <React.Suspense fallback={null}> 
-      <BrowserRouter>
-        <Routes>
+    <React.Suspense fallback={null} > 
+      <BrowserRouter >
+        <Routes >
           <Route exact path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path='token/:contractAddress' element={<Token />} />
+          <Route  path='token/:contractAddress' element={<Token />} />
           <Route path='tokens' element={<Tokens />} />
         </Routes>
       </BrowserRouter>

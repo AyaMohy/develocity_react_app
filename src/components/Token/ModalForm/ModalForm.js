@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {useForm , FormProvider , useFormContext , Controller, get} from "react-hook-form";
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
+import { styled } from '@mui/material/styles';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
@@ -26,6 +27,15 @@ const BackDrop =({close , show}) =>{
 }
 
 const Overlay =({show , close}) =>{
+
+  const useStyles = styled(() => ({
+    root: {
+      " & .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active": { color: " #9F4AE8 !important" }
+     
+    }
+  }));
+
+  const c = useStyles();
 
   function getSteps() {
     return ["step 1", "step 2", "step 3"];
@@ -230,6 +240,11 @@ const Overlay =({show , close}) =>{
             <Typography sx={{ mt: 2, mb: 1, display:"block !important" }}>
             <div className={styles.check}>
           <AiOutlineCheck className={styles.checkIcon}/>
+          
+          <p className={styles.subTitle}>Thanks !</p>
+          <p className={styles.review}>It's under the review now.<br/>
+          You'll receive email once it's approved.</p>
+          <button className={styles.return} onClick={()=> close()}>Return to Website</button>
           </div>
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
