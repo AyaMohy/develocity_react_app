@@ -1,11 +1,11 @@
 import React ,{ useEffect, useState} from "react";
 import styles from "./TrustScore.module.css";
 import ReactApexChart from 'react-apexcharts';
-
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchScore } from "../../../Pages/DataFetch/FetchTrustScoreData";
 import { useParams } from "react-router-dom";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
+import { useTranslation } from 'react-i18next';
 
 const TrustScore =() =>{
   const param = useParams()
@@ -17,7 +17,8 @@ const TrustScore =() =>{
   const score = useSelector(state => state.Score.data)
   // console.log(score)
   const statusTrust = useSelector(state => state.Score.status);
-
+  const { t, i18n } = useTranslation(["token"])
+  const lang=localStorage.getItem("i18nextLng")
   const dispatch = useDispatch ();
   useEffect(()=>{
       dispatch (fetchScore (contractAddress));
@@ -84,7 +85,7 @@ const TrustScore =() =>{
     stroke: {
       lineCap: "round",
     },
-    labels: ['Total Score'],
+    labels: [t("token:total_score")],
     }
    
 
@@ -95,7 +96,7 @@ const TrustScore =() =>{
         <div className={styles.trustScoreBlock}>
           {statusTrust=='success' && <>
           <div >
-        <span className={styles.blockTitle}>trust score</span>
+        <span className={styles.blockTitle}>{t("token:trust_score")}</span>
 
 
         <div className={styles.chart} id="chart" >
@@ -104,7 +105,7 @@ const TrustScore =() =>{
       <h2 className={styles.title}>moderate</h2>
 
       <ul className={styles.chartList}>
-      <li className={styles.critical}>critical issues<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>
+      <li className={styles.critical}>{t("token:critical_issues")}<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>
       <li>important issues<span className={styles.important}>{scoreData? scoreData.numberOfMediunIssue :null}</span></li>
       <li>informational issues<span className={styles.information}>{scoreData? scoreData.numberOfInformationalIssue :null}</span></li>
      

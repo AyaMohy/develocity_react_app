@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -18,7 +18,8 @@ const Distribution = () => {
   const contractAddress = param.contractAddress;
   const statusDist = useSelector(state => state.Dist.status);
   const dist = useSelector(state => state.Dist.data);
-
+  const { t, i18n } = useTranslation(["token"])
+  const lang=localStorage.getItem("i18nextLng")
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchDistribution(contractAddress));

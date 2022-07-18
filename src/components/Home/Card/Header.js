@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './CardScans.module.css';
-
+import { useTranslation } from 'react-i18next';
 const Header = ({ title }) => {
     return (
         <div className={styles.header_title}>

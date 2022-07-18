@@ -2,9 +2,8 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import paginationFactory from 'react-bootstrap-table2-paginator';
-
 import "../../Token/WalletsTable/WalletsTable.css";
-
+import { useTranslation } from 'react-i18next';
 const dataFake = [
     { hashNumber: 1, token: 'Hydrogen', score: "20", scans: 1.0079, rank: '#11', price: '$1.00', marketCap: "$570,689,853,077", totalSupply: "19,059,112", network: "BSC", fullReport: "https://www.hydrogen.org/" },
     { hashNumber: 2, token: 'Lithium', score: "20", scans: 4.0026, rank: '#12', price: '$1.00', marketCap: "$570,689,853,077", totalSupply: "19,059,112", network: "BSC", fullReport: "https://www.hydrogen.org/" },
@@ -99,6 +98,8 @@ const columns = [
 ];
 
 const TokensTable = () => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     return (
 
         <div className='tokens_table'>

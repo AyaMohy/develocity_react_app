@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './CopyRight.module.css'
+import { useTranslation } from 'react-i18next';
 const CopyRight = () => {
     return (
         <div className='container mt-5'>

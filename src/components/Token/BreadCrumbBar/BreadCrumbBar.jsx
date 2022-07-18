@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTokenInfoResult } from '../../../Services/FetchTokenInfo';
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 
 
 
@@ -16,7 +16,8 @@ const BreadCrumbBar = () =>{
     const param  = useParams()    
     const contractAddress = param.contractAddress;
     const tokenData = useSelector(state => state.Gettokeninfodata.data);
-
+    const { t, i18n } = useTranslation(["common"])
+    const lang=localStorage.getItem("i18nextLng")
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchTokenInfoResult(contractAddress));

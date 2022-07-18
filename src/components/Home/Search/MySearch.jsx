@@ -8,7 +8,7 @@ import { BiBitcoin } from "react-icons/bi";
 import { BiCopy } from "react-icons/bi";
 import { BsArrowRight, BsFillPatchCheckFill } from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
-
+import { useTranslation } from 'react-i18next';
 const MySearch = () => {
   const [term, setTerm] = useState(null);
   const [dataGet, setdataGet] = useState(null);

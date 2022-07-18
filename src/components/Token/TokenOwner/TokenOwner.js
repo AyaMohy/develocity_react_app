@@ -2,7 +2,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import HeaderText from '../HeaderText/HeaderText';
 import "./TokenOwner.css"
-
+import { useTranslation } from 'react-i18next';
 
 
 const columns = [
@@ -53,6 +53,8 @@ const columns = [
 ];
 
 const TokenOwner = ({ tokenOwnerData }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     const OwnerData = [];
 
     if (tokenOwnerData && tokenOwnerData.ownerInfo) {

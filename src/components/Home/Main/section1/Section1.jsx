@@ -1,5 +1,6 @@
 import { LeftBar } from "../../leftheader/LeftBar"
 import MySearch from '../../Search/MySearch'
+import { useTranslation } from 'react-i18next';
 export function Section1(){
     return(
         <>

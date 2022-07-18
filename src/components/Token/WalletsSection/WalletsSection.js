@@ -3,9 +3,12 @@ import { Tabs, Tab } from 'react-bootstrap';
 import Wallet10Top from '../WalletsTable/Wallet10Top';
 import WalletsTable from '../WalletsTable/WalletsTable';
 import BSCTrasactionTable from '../WalletsTable/BSCTrasactionTable';
+import { useTranslation } from 'react-i18next';
 
 import './WalletsSection.css'
 const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     let Active = topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0 ? 'TopWallets' : 'LiquidityWallets'
     return (
         <>

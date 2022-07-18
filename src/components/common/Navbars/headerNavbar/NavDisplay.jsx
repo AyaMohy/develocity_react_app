@@ -6,6 +6,7 @@ import styles from './nav.module.css'
 import logo from '../../../../assets/images/logo.png'
 export function NavDisplay() {
     const { t, i18n } = useTranslation(["common"])
+    const lang=localStorage.getItem("i18nextLng")
     const logindata = {
         text: 'Log in',
         color: "black",
@@ -21,8 +22,8 @@ export function NavDisplay() {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg  " style={{ backgroundColor: '#F3F2F7' }}>
-                <div className="container align-items-center" style={{ marginTop: '15px', marginBottom: '15px' }}>
+            <nav className={"navbar navbar-expand-lg " } style={{ backgroundColor: '#F3F2F7' }}>
+                <div className={"container align-items-center " +(lang=="ar"&&styles.navbar_rtl)} style={{ marginTop: '15px', marginBottom: '15px'}}>
                     <Link className="navbar-brand" to='/'>
                         <img width="45" src={logo} alt="logo" />
                     </Link>

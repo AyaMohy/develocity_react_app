@@ -4,13 +4,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import { fetchBSCResult } from "../../../Services/FetchBSCData";
 import { Placeholder } from '../../common/Placeholder/Placeholder';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function ContractAnalysisCard(){
     const param = useParams()
     const contractAddress = param.contractAddress;
     const bscdata = useSelector(state => state.GetBSCdata.data)
     const bscstatus = useSelector(state => state.GetBSCdata.status);
-   
+    const { t, i18n } = useTranslation(["فخنثى"])
+    const lang=localStorage.getItem("i18nextLng")
+
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBSCResult (contractAddress));
@@ -19,37 +22,37 @@ export function ContractAnalysisCard(){
     const newbscdata = bscdata.result;
     let data=[
         {
-            name:'Mint',
+            name:t("token:mint"),
             value:newbscdata?newbscdata.mint:null,
             // value:true
         },
         {
-            name:'Burn',
+            name:t("token:burn"),
             value:newbscdata?newbscdata.burn:null,
             // value:true
         },
         {
-            name:'Reflection',
+            name: t("token:reflection"),
             value:newbscdata?newbscdata.reflection:null,
             // value:true
         },
         {
-            name:'Self Destruction',
+            name:t("token:self_distribution"),
             value:newbscdata?newbscdata.selfdistruction:null,
             // value:false
         },
         {
-            name:'Transfer Ownership',
+            name:t("token:transfer_ownership"),
             value:newbscdata?newbscdata.transferOwnership:null,
             // value:true
         },
         {
-            name:'Antiwhale',
+            name:t("token:anti_whale") ,
             value:newbscdata?newbscdata.antiWhale:null,
             // value:true
         },
         {
-            name:'Antibot',
+            name:t("token:antibot"),
             value:newbscdata?newbscdata.antiBot:null,
             // value:false
         }
@@ -61,8 +64,8 @@ export function ContractAnalysisCard(){
         <>
             {(bscstatus=='success' )  &&
               <div className="" style={{width:'100%'}}>
-              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>Contract Analysis</h5>
-              <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >
+              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>{t("token:contract_address")}</h5>
+              <div className={"list-group align-self-center border-0 " +(lang=="ar"?styles.listGroup_rtl:styles.listGroup_ltr)}  >
               {data.map( (item)=>{
                   return ( 
                       <div className="list-group-item rounded-0 " >
@@ -70,9 +73,9 @@ export function ContractAnalysisCard(){
                               <div className="align-items-center d-flex h-100" >{item.name}</div>
                               <div className="align-items-center d-flex h-100 ">
                                 {item.value===true?
-                                <span className={` py-1 ${styles.detected }`}>Detected</span>
+                                <span className={` py-1 ${styles.detected }`}>{t("token:detected")}</span>
                                 :
-                                <span className={`py-1 ${styles.notdetected }`} >NOT DETECTED</span>
+                                <span className={`py-1 ${styles.notdetected }`} >{t("token:not_detected")}</span>
                                 }
                                 </div>
                           </div>
@@ -87,7 +90,7 @@ export function ContractAnalysisCard(){
 
         {bscstatus=='loading' && 
                          <div className="" style={{width:'100%'}}>
-                         <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>Contract Analysis</h5>
+                         <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>{t("token:contract_address")}</h5>
                          <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >
                          {data.map( (item)=>{
                              return ( 

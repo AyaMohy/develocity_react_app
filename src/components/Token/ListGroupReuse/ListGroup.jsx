@@ -2,8 +2,11 @@ import { useState } from "react"
 import HeaderText from "../HeaderText/HeaderText"
 import { Placeholder } from "../../common/Placeholder/Placeholder"
 import styles from './ListGroup.module.css'
+import { useTranslation } from 'react-i18next';
 
 export function ListGroup({ listdata, title }) {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     // دي كل الداتا اللي بترجع من api 
     // if (listdata) {
     //     console.log("listdata", listdata);
@@ -18,11 +21,11 @@ export function ListGroup({ listdata, title }) {
 
     return (
         <>
-            <div className={`text-muted  mt-3 ${styles.title}`}>
+            <div className={`text-muted  mt-3 ${lang=="ar"?styles.title_rtl:styles.title_ltr}`}>
                 <HeaderText nameHeader={title} title="Welcome to develocity." />
             </div>
             
-            <div className={`mx-2 ${styles.groupcard}`}>
+            <div className={`mx-2 ${lang=="ar"?styles.groupcard_rtl:styles.groupcard_ltr}`}>
                 {
                     listdata  ?
                         <>

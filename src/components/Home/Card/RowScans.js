@@ -3,7 +3,7 @@ import styles from './RowScans.module.css';
 import { useDispatch } from 'react-redux';
 import { setContractAddress } from '../../../store/contractAddressSlice';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title }) => {
     const dispatch = useDispatch();
 

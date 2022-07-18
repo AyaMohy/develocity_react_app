@@ -1,4 +1,6 @@
 import { useState, React } from "react"
+
+
 export function ButtonComponent({data}){ 
     let stylebutton={
         backgroundColor:data.bg,

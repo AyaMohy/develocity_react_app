@@ -4,7 +4,7 @@ import Header from "./Header";
 import RowScans from "./RowScans";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 import logo from "../../../assets/images/tron.png";
-
+import { useTranslation } from 'react-i18next';
 const CardScans = ({ popularScans,title }) => {
   return (
     <div className={styles.container_card}>

@@ -1,6 +1,7 @@
 import React from "react";
 import {ButtonComponent} from '../../common/ButtonComponent'
 import styles from './leftbar.module.css'
+import { useTranslation } from 'react-i18next';
 export function LeftBar(){
     const buttondata={
         text:'See how it works',

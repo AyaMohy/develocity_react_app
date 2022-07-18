@@ -1,7 +1,7 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -31,6 +31,8 @@ const columns = [
 
 
 const RemovedLiquidity = ({ LiquidtyData }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     let RemovedLiquidityData = []
     if (LiquidtyData && LiquidtyData.removeLiquidityTransaction) {
         for (let i = 0; i < LiquidtyData.removeLiquidityTransaction.length; i++) {

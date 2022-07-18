@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import HeaderCard from '../HeaderCard/HeaderCard';
 import CardScans from '../Card/CardScans';
 import { io } from "socket.io-client";
-
+import { useTranslation } from 'react-i18next';
 
 const ScansSection = () => {
     const [popularScans, setPopularScans] = useState([]);

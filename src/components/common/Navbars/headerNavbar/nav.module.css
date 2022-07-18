@@ -1,3 +1,7 @@
+.navbar_rtl{
+    direction:rtl !important;
+ 
+}
 .linkitem:active{
     font-size: 20px;
 }

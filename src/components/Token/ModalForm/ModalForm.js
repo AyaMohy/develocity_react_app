@@ -14,13 +14,15 @@ import {FaFacebookF ,FaTelegramPlane} from "react-icons/fa";
 import {BsYoutube , BsTwitter} from "react-icons/bs";
 import {AiOutlineCheck} from "react-icons/ai"
 import styles from "./ModalForm.module.css";
-
+import { useTranslation } from 'react-i18next';
 
 
 const steps = ['Token Details', 'Logo', 'Short Bio' , 'Social Media'];
 
 
 const BackDrop =({close , show}) =>{
+  const { t, i18n } = useTranslation(["common"])
+  const lang=localStorage.getItem("i18nextLng")
     return(
         <div className={`${styles.backDrop} ${show? styles.show : null}`} onClick={()=>close()}></div>
     )
@@ -38,6 +40,7 @@ const Overlay =({show , close}) =>{
   const c = useStyles();
 
   function getSteps() {
+   
     return ["step 1", "step 2", "step 3"];
   }
   

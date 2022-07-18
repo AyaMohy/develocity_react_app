@@ -1,7 +1,7 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-
+import { useTranslation } from 'react-i18next';
 
 const columns = [
     {
@@ -29,6 +29,8 @@ const columns = [
 
 
 const LiquidtyTable = ({ bSCTrasaction }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     const bSCTrasactionData = [];
 
     if (bSCTrasaction && bSCTrasaction.transactions) {

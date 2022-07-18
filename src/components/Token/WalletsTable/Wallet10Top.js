@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next'
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import "./WalletsTable.css";
-
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -33,6 +33,8 @@ const columns = [
 
 
 const Wallet10Top = ({ topWalletData }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     const wallet = [];
 
     if (topWalletData && topWalletData.topTenHolder) {

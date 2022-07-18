@@ -1,8 +1,15 @@
-.groupcard {
+.groupcard_rtl,.groupcard_ltr {
     border: 1px solid #E3E3E3;
-
 }
-
+.groupcard_rtl,.title_rtl{
+    direction: rtl;
+}
+.groupcard_ltr, .title_ltr{
+    direction: ltr;
+}
+.title_rtl ,.title_ltr{
+    margin-left: 15px;
+}
 .listitemcontainer {
     border-color: red;
     font-size: 14px;
@@ -11,9 +18,7 @@
 
 }
 
-.title {
-    margin-left: 15px;
-}
+
 
 
 /* 345*128 */

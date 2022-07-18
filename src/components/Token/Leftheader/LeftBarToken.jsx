@@ -21,7 +21,7 @@ import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
 import { IconContainer } from "./IconsContainer/IconContainer";
 import ModalForm from "../ModalForm/ModalForm";
-
+import { useTranslation } from 'react-i18next';
 
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
@@ -35,7 +35,8 @@ export function LeftBarToken() {
   useEffect(() => {
     dispatch(fetchTokenInfoResult(contractAddress));
   }, [dispatch, contractAddress]);
-
+  const { t, i18n } = useTranslation(["common"])
+  const lang=localStorage.getItem("i18nextLng")
   const tokeninfodata = tokenData.result;
   console.log("token info", tokeninfodata);
   // let iconCheck={

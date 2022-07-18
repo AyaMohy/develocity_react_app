@@ -2,6 +2,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import HeaderText from '../HeaderText/HeaderText';
 import './LockedTokens.css'
+import { useTranslation } from 'react-i18next';
 
 const columns = [
     {
@@ -35,6 +36,8 @@ const columns = [
 ];
 
 const LockedTokens = ({ LockedTokensData }) => {
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     let LockedData = []
     if (LockedTokensData && LockedTokensData.ownerInfo && LockedTokensData.ownerInfo.lockedToken) {
         for (let i = 0; i < LockedTokensData.ownerInfo.lockedToken.length; i++) {

@@ -5,6 +5,7 @@ import { ListGroup } from '../ListGroupReuse/ListGroup';
 import styles from './LiquidityList.module.css';
 import { useParams } from 'react-router-dom';
 import { fetchBscLiquidityScan } from '../../../store/bscLiquidityScanSlice';
+import { useTranslation } from 'react-i18next';
 
 export function LiquidityList() {
     const param = useParams()
@@ -12,6 +13,8 @@ export function LiquidityList() {
     const dispatch = useDispatch();
     const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
     const statusLiquidity=useSelector(state => state.bscLiquidityScan.loading);
+    const { t, i18n } = useTranslation(["token"])
+    const lang=localStorage.getItem("i18nextLng")
     // useEffect(() => {
     //     dispatch(fetchBscLiquidityScan(contractAddress));
 
@@ -24,15 +27,15 @@ export function LiquidityList() {
     console.log("bscLiquiditydata",bscLiquidityScan)
     const data = [
         {
-            name: 'Burned Liquidity',
+            name: t("token:burned_liquidity"),
             value: bscLiquidityScan?Number(bscLiquidityScan.burnLiquidityPer).toFixed(2):null
         },
         {
-            name: 'Added Liquidity',
+            name: t("token:added_liquidity"),
             value: bscLiquidityScan?Number(bscLiquidityScan.addLiquidityPer).toFixed(2):null
         },
         {
-            name: 'Removed Liquidity',
+            name: t("token:removed_liquidity"),
             value: bscLiquidityScan?Number(bscLiquidityScan.removeLiquidityPer).toFixed(2):null
         },
 
@@ -44,7 +47,7 @@ export function LiquidityList() {
   
             {(statusLiquidity=='success' || statusLiquidity==true)  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title='Liquidity'/>
+                <ListGroup listdata={data} title={t("token:liquidity")}/>
             </div>}
             {/* <ListGroup listdata={bscLiquidityScan} title="Liquidity" /> */}
         {statusLiquidity==false && ''}
