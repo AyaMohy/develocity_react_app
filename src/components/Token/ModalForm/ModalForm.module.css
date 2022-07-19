@@ -31,7 +31,20 @@
     opacity: 1;
     visibility: visible;
 }
-.closeBtn{
+.closeBtn_rtl{
+    width: 56px !important;
+    height: 24px !important;
+    background: #E8EAEC !important;
+    border: 0 !important;
+    outline: none !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #888888 !important;
+    position: absolute !important;
+    left: 20px !important;
+    top: 0px !important;
+}
+.closeBtn_ltr{
     width: 56px !important;
     height: 24px !important;
     background: #E8EAEC !important;
@@ -69,6 +82,7 @@
     align-items: center;
     text-align: center;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
    
 }
 .overlay text{
@@ -96,8 +110,10 @@
     margin: 0 0 40px;
     display: block !important;
     width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
-.inputField{
+.inputField_rtl{
     width: 100%;
     height: 60px;
     border:1px solid;
@@ -109,8 +125,27 @@
     color: #888;
     margin-bottom: 24px;
     outline: none;
+    direction: rtl;
 }
-.inputField::placeholder{
+.inputField_rtl::placeholder{
+    font-size: 14px;
+    color: #888;
+}
+.inputField_ltr{
+    width: 100%;
+    height: 60px;
+    border:1px solid;
+    border-color: rgba(136,136,136,0.3);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 24px;
+    outline: none;
+    direction: ltr;
+}
+.inputField_ltr::placeholder{
     font-size: 14px;
     color: #888;
 }
@@ -119,12 +154,21 @@
     justify-content: space-between;
     align-items: center;
 }
-.inputBlock label{
+.inputBlock_rtl label{
     font-size: 12px;
     font-weight: 500;
     color: #333;
+    direction: rtl;
+    width: 100%;
 }
-.inputField2{
+.inputBlock_ltr label{
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    direction: ltr;
+    width: 100%;
+}
+.inputField2_rtl{
     width: 245px;
     height: 48px;
     border:0;
@@ -136,18 +180,37 @@
     color: #333;
     margin-bottom: 15px;
     outline: none;
+    direction: rtl;
 }
-.inputField2::placeholder{
+.inputField2_rtl::placeholder{
     font-size: 14px;
     color: #333;
 }
-.select{
+.inputField2_ltr{
+    width: 245px;
+    height: 48px;
+    border:0;
+   background-color: rgba(136, 136, 136, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+    outline: none;
+    direction: ltr;
+}
+.inputField2_ltr::placeholder{
+    font-size: 14px;
+    color: #333;
+}
+.select_rtl{
     width: 245px;
     height: 48px;
     border:1px solid;
     border-color: rgba(136,136,136,0.3);
     border-radius: 2px;
-  
+  direction: rtl;
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -156,14 +219,50 @@
     margin-bottom: 24px;
     outline: none;
 }
-.agree{
+.select_ltr{
+    width: 245px;
+    height: 48px;
+    border:1px solid;
+    border-color: rgba(136,136,136,0.3);
+    border-radius: 2px;
+  direction: ltr;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 24px;
+    outline: none;
+}
+.agree_rtl{
+    color: #888;
+    font-size: 14px;
+    margin-right: 15px;
+    direction: rtl;
+    margin-top: -5px;
+    display: block;
+}
+.agree_ltr{
     color: #888;
     font-size: 14px;
     margin-left: 10px;
+    direction: ltr;
 }
-.agree a{
+.agree_rtl a{
     color: #9F4AE8;
     text-decoration: none;
+}
+.agree_ltr a{
+    color: #9F4AE8;
+    text-decoration: none;
+}
+.checkBox_rtl{
+    direction: rtl;
+    position: absolute;
+    right: 75px;
+}
+.checkBox_ltr{
+    direction: ltr;
 }
 .overlay button{
     width: 180px;
@@ -177,6 +276,7 @@
     ;
     border-radius: 0;
     margin-top: 26px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 .overlay button:hover{
     background-color: #25292C;
@@ -239,7 +339,7 @@
     text-align: center;
    margin: 16px auto 126px;
 }
-.comment{
+.comment_rtl{
     width: 100%;
     height: 240px;
     border:1px solid ;
@@ -249,13 +349,35 @@
     color: #888;
     padding: 20px;
     outline: none;
+    direction: rtl;
 }
-.note{
+.comment_ltr{
+    width: 100%;
+    height: 240px;
+    border:1px solid ;
+    border-color: rgba(136,136,136,0.3);
+    border-radius: 2px;
+    font-size: 14px;
+    color: #888;
+    padding: 20px;
+    outline: none;
+    direction: ltr;
+}
+.note_rtl{
     margin: 0;
     display: block !important;
     color: #888;
     font-size: 12px;
     margin-bottom: 80px;
+    direction: rtl;
+}
+.note_ltr{
+    margin: 0;
+    display: block !important;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 80px;
+    direction: ltr;
 }
 .socialInput{
     height: 48px;
@@ -330,6 +452,8 @@
     text-align: center;
     margin: 18px 0 67px;
     display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
 .check .subTitle{
     margin-bottom: 0;
@@ -343,4 +467,10 @@
     color: #9F4AE8 !important;
     font-size: 14px !important;
     width: 100% !important;
+}
+.stepper_rtl{
+    direction: rtl;
+}
+.stepper_ltr{
+    direction: ltr;
 }

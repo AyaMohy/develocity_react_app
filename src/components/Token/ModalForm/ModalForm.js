@@ -17,18 +17,21 @@ import styles from "./ModalForm.module.css";
 import { useTranslation } from 'react-i18next';
 
 
-const steps = ['Token Details', 'Logo', 'Short Bio' , 'Social Media'];
+
 
 
 const BackDrop =({close , show}) =>{
-  const { t, i18n } = useTranslation(["common"])
-  const lang=localStorage.getItem("i18nextLng")
+ 
     return(
         <div className={`${styles.backDrop} ${show? styles.show : null}`} onClick={()=>close()}></div>
     )
 }
 
 const Overlay =({show , close}) =>{
+  const { t, i18n } = useTranslation(["common"])
+  const lang=localStorage.getItem("i18nextLng")
+
+  const steps = [t("common:token_details"), t("common:logo"), t("common:short_bio") , t("common:social_media")];
 
   const useStyles = styled(() => ({
     root: {
@@ -50,70 +53,70 @@ const Overlay =({show , close}) =>{
       case 0:
         return (
           <Fragment>
-          <h1 className={styles.title}>Submit your token</h1>
-          <p className={styles.subTitle}>Details about your token</p>
-          <input type="text" placeholder="Contract Address" className={styles.inputField}/>
+          <h1 className={styles.title}>{t("common:submit_token")}</h1>
+          <p className={styles.subTitle}>{t("common:details_token")}</p>
+          <input type="text" placeholder={t("common:contract_address")} className={lang=="ar"?styles.inputField_rtl:styles.input_Field_ltr}/>
           <div className={styles.inputs}>
-          <div className={styles.inputBlock}>
-          <label>Name</label>
-          <input type="text"  className={styles.inputField2}/>
+          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <label>{t("common:name")}</label>
+          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
-          <div className={styles.inputBlock}>
-          <label>Current Price</label>
-          <input type="text"  className={styles.inputField2}/>
-          </div>
-          </div>
-          <div className={styles.inputs}>
-          <div className={styles.inputBlock}>
-          <label>Symbol</label>
-          <input type="text"  className={styles.inputField2}/>
-          </div>
-          <div className={styles.inputBlock}>
-          <label>Network</label>
-          <input type="text"  className={styles.inputField2}/>
+          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <label>{t("common:current_price")}</label>
+          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
           </div>
           <div className={styles.inputs}>
-          <div className={styles.inputBlock}>
-          <label>Is token audited?</label>
-          <select className={styles.select}>
-          <option>No</option>
-          <option>Yes</option>
+          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <label>{t("common:symbol")}</label>
+          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          </div>
+          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <label>{t("common:Network")}</label>
+          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          </div>
+          </div>
+          <div className={styles.inputs}>
+          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <label>{t("common:token_audited")}</label>
+          <select className={lang=="ar"?styles.select_rtl:styles.select_ltr}>
+          <option>{t("common:no")}</option>
+          <option>{t("common:yes")}</option>
           </select>
           </div>
           
           </div>
-          <input type="checkbox" id="agreement" name="agreement" value="agreement"/>
-  <label for="agreement" className={styles.agree}> By enter your token information you agree on Develocity's <a href="#">Terms & Conditions</a> </label>
+          <input type="checkbox" className={lang=="ar"? styles.checkBox_rtl:styles.checkBox_ltr} id="agreement" name="agreement" value="agreement"/>
+  <label for="agreement" className={lang=="ar"? styles.agree_rtl:styles.agree_ltr}> {t("common:check")}  <a href="#">{t("common:terms_conditions")}</a> </label>
           </Fragment>
         );
       case 1:
         return (
           <Fragment>
-          <h1 className={styles.title}>Submit your token</h1>
-          <p className={styles.subTitle}>Upload logo for token</p>
+          <h1 className={styles.title}>{t("common:submit_token")}</h1>
+          <p className={styles.subTitle}>{t("common:upload_logo")}</p>
           <div className={styles.upload}>
           <input type="file" onChange={(e)=>uploadHandler} value={upload}/>
-          <button className={styles.uploadBtn} onClick={()=>uploading}><GrUpload className={styles.uploadIcon}/><br/>Drag & Drop or Browse</button>
+          <button className={styles.uploadBtn} onClick={()=>uploading}><GrUpload className={styles.uploadIcon}/><br/>{t("common:browse")}</button>
           </div>
-          <p className={styles.uploadText}>Uploaded image size should be minimum 200x200 pixels Allowed file extensions: .JPEG .JPG .PNG</p>
+          <p className={styles.uploadText}>{t("common:logo_condition")}</p>
 
           </Fragment>
         );
       case 2:
         return (
           <Fragment>
-          <h1 className={styles.title}>Submit your token</h1>
-          <p className={styles.subTitle}>Tell us about your token</p>
-          <textarea className={styles.comment} placeholder="Token Bio"></textarea>
-          <p className={styles.note}>Maximum 500 Characters</p>
+          <h1 className={styles.title}>{t("common:submit_token")}</h1>
+          <p className={styles.subTitle}>{t("common:about_token")}</p>
+          <textarea className={lang=="ar"?styles.comment_rtl:styles.comment_ltr} placeholder={t("common:token_bio")}></textarea>
+          <p className={lang=="ar"?styles.note_rtl:styles.note_ltr}>{t("common:token_bio_condition")}</p>
           </Fragment>
         );
         case 3:
           return(
             <Fragment>
-          <h1 className={styles.title}>Submit your token</h1>
-          <p className={styles.subTitle}>Where to find your token</p>
+          <h1 className={styles.title}>{t("common:submit_token")}</h1>
+          <p className={styles.subTitle}>{t("common:find_token")}</p>
           <div className="input-group mb-3">
   <div className="input-group-prepend">
     <h6 className={` input-group-text ${styles.socialIcon} ${styles.fbIcon}`} id="basic-addon1"><FaFacebookF/></h6>
@@ -220,10 +223,10 @@ const Overlay =({show , close}) =>{
       };
     return(
         <div className={`${styles.overlay} ${show? styles.show2 : null}`}>
-        <button className={styles.closeBtn} onClick={()=>close()}>Close x</button>
+        <button className={lang=="ar"?styles.closeBtn_rtl:styles.closeBtn_ltr} onClick={()=>close()}>{t("common:close")}</button>
 
         <Box sx={{ width: '100%' }}>
-        <Stepper activeStep={activeStep}>
+        <Stepper className={lang=="ar"? styles.stepper_rtl:styles.stepper_ltr} activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};
@@ -244,15 +247,14 @@ const Overlay =({show , close}) =>{
             <div className={styles.check}>
           <AiOutlineCheck className={styles.checkIcon}/>
           
-          <p className={styles.subTitle}>Thanks !</p>
-          <p className={styles.review}>It's under the review now.<br/>
-          You'll receive email once it's approved.</p>
-          <button className={styles.return} onClick={()=> close()}>Return to Website</button>
+          <p className={styles.subTitle}>{t("common:thanks")}</p>
+          <p className={styles.review}>{t("common:final_comment")}</p>
+          <button className={styles.return} onClick={()=> close()}>{t("common:return")}</button>
           </div>
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
+              <Button onClick={handleReset}>{t("common:reset")}</Button>
             </Box>
           </React.Fragment>
         ) : (
@@ -272,13 +274,13 @@ const Overlay =({show , close}) =>{
                 onClick={handleBack}
                 sx={{ mr: 1 }}
               >
-                Back
+              {t("common:back")}
               </Button>
              
               
   
               <Button  onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next Step'}
+                {activeStep === steps.length - 1 ? t("common:finish") : t("common:next")}
               </Button>
             </Box>
           </React.Fragment>

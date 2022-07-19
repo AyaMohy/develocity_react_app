@@ -18,7 +18,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
         },
         {
             dataField: "fromAddress",
-            text: "From Address",
+            text: t("token:from_address"),
         },
         {
             dataField: "toAddress",

@@ -13,7 +13,8 @@ const ScansSection = () => {
     const [popularScans, setPopularScans] = useState([]);
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
-
+    const { t, i18n } = useTranslation(["home"]);
+    const lang=localStorage.getItem("i18nextLng")
     useEffect(() => {
         const socket = io('https://api.develocity.finance');
 
@@ -51,7 +52,7 @@ const ScansSection = () => {
         <div className="container">
             <Row>
                 <Col lg={4} md={6} sm={12}>
-                    <HeaderCard image={star} title="Popular Today" />
+                    <HeaderCard image={star} title={t("home:popular_today")} />
                     <CardScans popularScans={popularScans} title="Scans" />
                 </Col>
                 <Col lg={4} md={6} sm={12}>

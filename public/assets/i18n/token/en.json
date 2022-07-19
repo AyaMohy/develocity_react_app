@@ -29,6 +29,9 @@
 	"trust_score": "Trust Score",
 	"total_score": "Total Score",
 	"critical_issues": "Critical Issues",
-	"important_issues": "Important Issues"
+	"important_issues": "Important Issues",
+	"moderate": "Moderate",
+	"informational_issues": "Informational Issues"
+	
 	
 }

@@ -22,7 +22,7 @@ const SocialBar=() =>{
         <div className="container">
         <div className={styles.socialBar}>
 
-        <ul className={styles.socialIcons}>
+        <ul className={lang=="ar"?styles.socialIcons_rtl:styles.socialIcons_ltr}>
         <li><a href="#"><FaPaperPlane/></a></li>
         <li><a href="#"><FaTwitter/></a></li>
         <li><a href="#"><FaFacebookF/></a></li>

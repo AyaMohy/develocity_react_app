@@ -93,7 +93,7 @@ const TrustScore =() =>{
 
     return(
         <>
-        <div className={styles.trustScoreBlock} >
+        <div className={lang =="ar"?styles.trustScoreBlock_rtl:styles.trustScoreBlock_ltr} >
           {statusTrust=='success' && <>
           <div >
         <span className={styles.blockTitle}>{t("token:trust_score")}</span>
@@ -102,12 +102,12 @@ const TrustScore =() =>{
         <div className={styles.chart} id="chart" >
         <ReactApexChart options={options} series={options.series} type="radialBar" height={250} width={350}/>
       </div>
-      <h2 className={styles.title}>moderate</h2>
+      <h2 className={styles.title}>{t("token:moderate")}</h2>
 
       <ul className={styles.chartList}>
       <li className={styles.critical}>{t("token:critical_issues")}<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>
       <li>{t("token:important_issues")}<span className={styles.important}>{scoreData? scoreData.numberOfMediunIssue :null}</span></li>
-      <li>informational issues<span className={styles.information}>{scoreData? scoreData.numberOfInformationalIssue :null}</span></li>
+      <li>{t("token:informational_issues")}<span className={styles.information}>{scoreData? scoreData.numberOfInformationalIssue :null}</span></li>
      
       </ul>
 
