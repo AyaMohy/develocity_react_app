@@ -1,9 +1,9 @@
-.listGroup_rtl{
+/* .listGroup_rtl{
     direction: rtl;
 }
 .listGroup_ltr{
     direction: ltr;
-}
+} */
 .listGroup_rtl, .listGroup_ltr{
     background-color: #EA3943 !important;
     /* height: 240px !important; */

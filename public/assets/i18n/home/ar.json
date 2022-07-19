@@ -1,4 +1,8 @@
 {
     "popular_today": "الاكثر شعبية اليوم",
-    "from_address":""
+    "scans": "عدد البحث",
+    "score": "النقاط",
+    "last_scan": "اخر بحث",
+    "highest_score": "النقاط الاعلى",
+    "token": "الرمز"
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import styles from "./SocialBar.module.css";
 import {FaPaperPlane} from 'react-icons/fa';
 import {FaTwitter} from 'react-icons/fa';
@@ -11,10 +11,42 @@ const SocialBar=() =>{
   const [language, setLanguage] = useState('en');
   const { t, i18n } = useTranslation(["common"]);
   const lang=localStorage.getItem("i18nextLng")
+  const languages=[
+    {
+      code:'en',
+      dir:'ltr'
+    },
+    {
+      code:'ar',
+      dir:'rtl'
+    },
+    {
+      code:'tr',
+      dir:'ltr'
+    },
+    {
+      code:'ch',
+      dir:'ltr'
+    }
+  ];
+  const currentLanguage=languages.find((i)=>i.code==language)
+  useEffect(()=>{
+   if(localStorage.getItem("i18nextLng")?.length>2){
+    i18n.changeLanguage('en');
+   }
+  },[])
+
+
+  useEffect(()=>{
+    document.body.dir=currentLanguage.dir 
+    console.log("direction",currentLanguage.code)
+  },[currentLanguage])
+
   const handleOnclick=(e)=>{
     e.preventDefault();
     setLanguage(e.target.value);
     i18n.changeLanguage(e.target.value);
+    document.body.dir="ltr"
   }
 
     return(
@@ -45,11 +77,11 @@ const SocialBar=() =>{
   <li>
 
 
-<select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
-<option value="en"> {t("common:english")}</option>
-<option value="ar"> {t("common:arabic")}</option>
-<option value="ch">{t("common:chinese")}</option>
-<option value="tr"> {t("common:turkish")}</option>
+<select  className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
+<option value="en" selected={lang=='en'}> {t("common:english")}</option>
+<option value="ar" selected={lang=='ar'}> {t("common:arabic")}</option>
+<option value="ch" selected={lang=='ch'}>{t("common:chinese")}</option>
+<option value="tr" selected={lang=='tr'}> {t("common:turkish")}</option>
 </select>
 </li>     
   </ul>

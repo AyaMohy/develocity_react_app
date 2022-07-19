@@ -38,7 +38,6 @@ export function LeftBarToken() {
   const { t, i18n } = useTranslation(["common"])
   const lang=localStorage.getItem("i18nextLng")
   const tokeninfodata = tokenData.result;
-  console.log("token info", tokeninfodata);
   // let iconCheck={
   //     tokeninfodata:tokeninfodata && tokeninfodata.contractInfo.website
   // }

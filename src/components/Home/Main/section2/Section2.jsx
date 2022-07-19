@@ -1,5 +1,4 @@
 import ScansSection from '../../Scans/ScansSection'
-import { useTranslation } from 'react-i18next';
 export function Section2() {
     return (
         <>

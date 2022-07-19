@@ -24,7 +24,7 @@ export function RugpullCard(){
 
 
         <div>
-        <h5 className='text-start pt-3 pb-2' style={{fontFamily: 'SF Pro Display Medium'}}>Rugpull</h5>
+        <h5 className=' pt-3 pb-2' style={{fontFamily: 'SF Pro Display Medium'}}>{t("token:rugpull")}</h5>
         <div className={`d-flex  pt-2  ` } style={{height:'110px'}}>
         {
             newrug && newrug.honeypotTest=="PASS"?

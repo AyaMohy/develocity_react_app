@@ -26,7 +26,11 @@
     display: flex;
 }
 
-.header_number {
+.header_number_left {
+    margin-left: 14px;
+}
+
+.header_number_right {
     margin-right: 14px;
 }
 

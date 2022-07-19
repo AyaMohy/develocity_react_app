@@ -3,35 +3,35 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { useTranslation } from 'react-i18next';
 
-const columns = [
-    {
-        dataField: "hash",
-        text: "Hash",
-    },
-    {
-        dataField: "fromAddress",
-        text: "From Address",
-    },
-    {
-        dataField: "toAddress",
-        text: "To Address",
-    },
-
-    {
-        dataField: "amount",
-        text: "Amount"
-    },
-    {
-        dataField: "tokenSymbol",
-        text: "Symbol"
-    }
-];
 
 
 const LiquidtyTable = ({ bSCTrasaction }) => {
     const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
     const bSCTrasactionData = [];
+    const columns = [
+        {
+            dataField: "hash",
+            text: t("token:hash"),
+        },
+        {
+            dataField: "fromAddress",
+            text: t("token:fromaddress"),
+        },
+        {
+            dataField: "toAddress",
+            text: t("token:toaddress"),
+        },
+
+        {
+            dataField: "amount",
+            text: t("token:amount"),
+        },
+        {
+            dataField: "tokenSymbol",
+            text: t("token:tokenSymbol"),
+        }
+    ];
 
     if (bSCTrasaction && bSCTrasaction.transactions) {
         for (let i = 0; i < bSCTrasaction.transactions.length; i++) {
@@ -55,7 +55,7 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
     });
 
     return (
-        <div className='large_table'> 
+        <div className='large_table'>
 
             <BootstrapTable
                 keyField="id"

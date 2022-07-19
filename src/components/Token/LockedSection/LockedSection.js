@@ -13,9 +13,9 @@ const LockedSection = ({ LockedTokensData }) => {
                 <LockedTokens LockedTokensData={LockedTokensData} />
             </Tab>
             }
-            <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
+            {/* <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
                 <LiquidtyTable />
-            </Tab>
+            </Tab> */}
         </Tabs>
     )
 }

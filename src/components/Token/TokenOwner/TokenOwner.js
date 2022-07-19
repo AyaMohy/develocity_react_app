@@ -5,56 +5,56 @@ import "./TokenOwner.css"
 import { useTranslation } from 'react-i18next';
 
 
-const columns = [
-    {
-        dataField: "address",
-        text: "Address",
-    },
-    {
-        dataField: "ownership",
-        text: "Ownership",
-        formatter: (cell, row) => {
-            console.log(row.ownership);
-            return (
-                <div>
-                    {row.ownership ? <span className="token_owner_rennounced">Rennounced</span> : <span className="token_owner_not_rennounced">Not Rennounced</span>}
-                </div>
 
-            )
-        }
-    },
-    {
-        dataField: "liquidity",
-        text: "Liquidity",
-        formatter: (cell, row) => {
-            return (
-                <div className='token_owner_liquidity'>
-                    {row.liquidity.liquidity !== 'NaN' ? <p className='liquidity'>{row.liquidity.liquidity}</p> : <p className='liquidity'>0</p>
-                    }
-
-                    < p className='rate' > {row.liquidity.rate}%</p >
-                </div >
-            )
-        }
-    },
-    {
-        dataField: "tokens",
-        text: "Tokens",
-        formatter: (cell, row) => {
-            return (
-                <div className='token_owner_tokens'>
-                    <p className='tokens'>{row.tokens.tokens}</p>
-                    <p className='rate'>{row.tokens.rate}%</p>
-                    {/* <p className='price'>{row.tokens.price}</p> */}
-                </div>
-            )
-        }
-    }
-];
 
 const TokenOwner = ({ tokenOwnerData }) => {
     const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
+    const columns = [
+        {
+            dataField: "address",
+            text: t("token:address"),
+        },
+        {
+            dataField: "ownership",
+            text: t("token:ownership"),
+            formatter: (cell, row) => {
+                return (
+                    <div>
+                        {row.ownership ? <span className="token_owner_rennounced">Rennounced</span> : <span className="token_owner_not_rennounced">Not Rennounced</span>}
+                    </div>
+
+                )
+            }
+        },
+        {
+            dataField: "liquidity",
+            text: t("token:liquidity"),
+            formatter: (cell, row) => {
+                return (
+                    <div className='token_owner_liquidity'>
+                        {row.liquidity.liquidity !== 'NaN' ? <p className='liquidity'>{row.liquidity.liquidity}</p> : <p className='liquidity'>0</p>
+                        }
+
+                        < p className='rate' > {row.liquidity.rate}%</p >
+                    </div >
+                )
+            }
+        },
+        {
+            dataField: "tokens",
+            text: t("token:tokens"),
+            formatter: (cell, row) => {
+                return (
+                    <div className='token_owner_tokens'>
+                        <p className='tokens'>{row.tokens.tokens}</p>
+                        <p className='rate'>{row.tokens.rate}%</p>
+                        {/* <p className='price'>{row.tokens.price}</p> */}
+                    </div>
+                )
+            }
+        }
+    ];
     const OwnerData = [];
 
     if (tokenOwnerData && tokenOwnerData.ownerInfo) {
@@ -68,10 +68,11 @@ const TokenOwner = ({ tokenOwnerData }) => {
     }
 
     return (
+
         <>
             {
                 OwnerData.length > 0 ? <>
-                    <HeaderText nameHeader="Token Owner" title="Welcome to develocity." />
+                    <HeaderText nameHeader={t('token:token_owner')} title="Welcome to develocity." />
                     <BootstrapTable
                         keyField="id"
                         data={OwnerData}

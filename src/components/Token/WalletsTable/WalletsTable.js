@@ -9,36 +9,37 @@ import { useTranslation } from 'react-i18next';
 
 
 
-const columns = [
-    {
-        dataField: "rank",
-        text: "Rank",
-    },
-    {
-        dataField: "address",
-        text: "Address",
-    },
-    {
-        dataField: "nameTag",
-        text: "Name Tag"
-    },
-    {
-        dataField: "balance",
-        text: "Balance"
-    },
-    {
-        dataField: "percentage",
-        text: "Percentage"
-    }
-];
 
 
 const WalletsTable = ({ walletsData }) => {
     const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
+    const columns = [
+        {
+            dataField: "rank",
+            text: t("token:rank"),
+        },
+        {
+            dataField: "address",
+            text: t("token:address"),
+        },
+        {
+            dataField: "nameTag",
+            text: t("token:nametag"),
+        },
+        {
+            dataField: "balance",
+            text: t("token:balance"),
+        },
+        {
+            dataField: "percentage",
+            text: t("token:percentage")
+        }
+    ];
+
     const wallet = [];
-    
-    if (walletsData  && walletsData.ownerInfo && walletsData.ownerInfo.top10LiquidityHolder) {
+
+    if (walletsData && walletsData.ownerInfo && walletsData.ownerInfo.top10LiquidityHolder) {
 
         for (let i = 0; i < walletsData.ownerInfo.top10LiquidityHolder.length; i++) {
             let rank = i + 1;

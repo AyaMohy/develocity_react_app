@@ -7,12 +7,15 @@ import { useTranslation } from 'react-i18next';
 
 const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
     const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
+
+    console.log("bSCTrasaction", LiquidtyData)
+
     return (
         <>
             <Tabs defaultActiveKey="LiquidtyTransactions" id="uncontrolled-tab-example" >
 
-                {bSCTrasaction?.tokenTransaction?.length > 0 &&
+                {bSCTrasaction?.tokenTransaction?.length > 0  &&
                     <Tab eventKey="LiquidtyTransactions" title={t("token:liquidity_transactions")} >
                         <LiquidtyTable bSCTrasaction={bSCTrasaction} />
                     </Tab>
@@ -25,9 +28,7 @@ const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
                 {LiquidtyData?.removeLiquidityTransaction?.length !== 0 && <Tab eventKey="RemovedLiquidity" title={t("token:removed_liquidity")}>
                     <RemovedLiquidity LiquidtyData={LiquidtyData} />
                 </Tab>}
-                {/* <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
-                    <LiquidtyTable />
-                </Tab> */}
+
             </Tabs>
         </>
     )

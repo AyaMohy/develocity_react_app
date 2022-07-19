@@ -14,27 +14,21 @@ const ScansSection = () => {
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
     const { t, i18n } = useTranslation(["home"]);
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
+
     useEffect(() => {
         const socket = io('https://api.develocity.finance');
 
         socket.on("popularScan", (data) => {
-            data.map((item)=>{
-                console.log('setPopularScans ==', item?.contractInfo);
-            })
             setPopularScans(data);
         })
         socket.on("highScore", (data) => {
-            // data.map((item)=>{
-            //     console.log('setRecentScans ==', item?.contractInfo?.name,item.contractAddress);
-            // })
+
             setRecentScans(data);
         }
         )
         socket.on("latestScan", (data) => {
-            // data.map((item)=>{
-            //     console.log('setLastScans ==',item?.contractInfo?.name, item.contractAddress);
-            // })
+
             setLastScans(data);
 
         })
@@ -49,19 +43,19 @@ const ScansSection = () => {
 
 
     return (
-        <div className="container">
+        <div className="container" style={lang === "ar" ? { direction: "rtl" } : { direction: 'ltr' }}>
             <Row>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={star} title={t("home:popular_today")} />
-                    <CardScans popularScans={popularScans} title="Scans" />
+                    <CardScans popularScans={popularScans} title={t("home:scans")} />
                 </Col>
                 <Col lg={4} md={6} sm={12}>
-                    <HeaderCard image={last} title="Last Scan" />
-                    <CardScans popularScans={lastScans} title="Score" />
+                    <HeaderCard image={last} title={t("home:last_scan")} />
+                    <CardScans popularScans={lastScans} title={t("home:score")} />
                 </Col>
                 <Col lg={4} md={6} sm={12}>
-                    <HeaderCard image={recent} title="Highest Score" />
-                    <CardScans popularScans={recentScans} title="Score"/>
+                    <HeaderCard image={recent} title={t("home:highest_score")} />
+                    <CardScans popularScans={recentScans} title={t("home:score")} />
                 </Col>
             </Row>
         </div>

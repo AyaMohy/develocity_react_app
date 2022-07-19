@@ -31,10 +31,18 @@
     justify-content: center;
 }
 
-.header {
+.header_left {
     font-size: 16px;
     color: #333333;
     margin: 0;
     padding-left: 10px;
+    font-family: "SF Pro Display Medium";
+}
+
+.header_right {
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    padding-right: 10px;
     font-family: "SF Pro Display Medium";
 }

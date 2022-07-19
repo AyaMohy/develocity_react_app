@@ -1,25 +1,21 @@
 import React from 'react'
 import styles from './RowScans.module.css';
-import { useDispatch } from 'react-redux';
-import { setContractAddress } from '../../../store/contractAddressSlice';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title }) => {
-    const dispatch = useDispatch();
-
+    const lang = localStorage.getItem("i18nextLng")
     return (
-        // <div className={styles.container_row} onClick={() => dispatch(setContractAddress(contract))}>
         <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
 
             <div className={styles.header}>
-                <h3 className={styles.header_no}>{number}</h3>
+                <h3 className={lang === "en" ? styles.header_no_left : styles.header_no_right}>{number}</h3>
                 <div className={styles.container_image}>
                     {/* {sponsored && <div className={styles.container_sponsored}>
                         <h6 className={styles.sponsored}>sponsored</h6>
                     </div>} */}
-                    {image ? <img src={image} alt="star" className={styles.icon_token} /> :
+                    {image ? <img src={image} alt="star" className={lang === "en" ? styles.icon_token_left : styles.icon_token_right} /> :
                         //    create a new image with the first letter of the name token
-                        <div className={styles.icon_token_letter}>
+                        <div className={lang === "en" ? styles.icon_token_letter_left : styles.icon_token_letter_right} >
                             <h6 className={styles.icon_token_text}>{nametoken.charAt(0)}</h6>
                         </div>
 

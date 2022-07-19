@@ -5,34 +5,35 @@ import { useTranslation } from 'react-i18next';
 
 
 
-const columns = [
-    {
-        dataField: "transaction",
-        text: "Transaction",
-    },
-    {
-        dataField: "fromAddress",
-        text: "From Address",
-    },
-    {
-        dataField: "toAddress",
-        text: "To Address",
-    },
 
-    {
-        dataField: "amount",
-        text: "Amount"
-    },
-    {
-        dataField: "currency",
-        text: "Currency"
-    }
-];
 
 
 const RemovedLiquidity = ({ LiquidtyData }) => {
     const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const lang = localStorage.getItem("i18nextLng")
+    const columns = [
+        {
+            dataField: "transaction",
+            text: t("token:transactions"),
+        },
+        {
+            dataField: "fromAddress",
+            text: t("token:fromaddress"),
+        },
+        {
+            dataField: "toAddress",
+            text: t("token:toaddress"),
+        },
+
+        {
+            dataField: "amount",
+            text: t("token:amount")
+        },
+        {
+            dataField: "currency",
+            text: t("token:currency")
+        }
+    ];
     let RemovedLiquidityData = []
     if (LiquidtyData && LiquidtyData.removeLiquidityTransaction) {
         for (let i = 0; i < LiquidtyData.removeLiquidityTransaction.length; i++) {

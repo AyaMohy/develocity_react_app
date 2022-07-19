@@ -24,7 +24,6 @@ export function LiquidityList() {
 
     }, [dispatch, contractAddress]);
     const bscLiquiditydata=bscLiquidityScan?.result
-    console.log("bscLiquiditydata",bscLiquidityScan)
     const data = [
         {
             name: t("token:burned_liquidity"),

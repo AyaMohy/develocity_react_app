@@ -10,11 +10,13 @@ import { About } from './Pages/About'
 import { Token } from './Pages/Token/Token'
 import './App.css';
 import Tokens from './Pages/Tokens/Tokens';
-
-
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 function App() {
- 
+  let lang=localStorage.getItem("i18nextLng")
+
+
   return (
     <React.Suspense fallback={null} > 
       <BrowserRouter >

@@ -32,6 +32,7 @@ export function Token() {
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
+    const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
     const tokenAddress = params.contractAddress
 
     useEffect(() => {
@@ -88,12 +89,13 @@ export function Token() {
                             (status == 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                             <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
-
                                     <TokenOwner tokenOwnerData={tokenOwnerData} />
+
                                 </div>
 
                             </div>
                         }
+
 
                         {/* {tokenOwnerData?.ownerInfo?.lockedToken.length > 0
 
@@ -105,6 +107,7 @@ export function Token() {
 
                         <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
+
                                 <LockedSection LockedTokensData={tokenOwnerData} />
                             </div>
                         </div>
@@ -124,7 +127,7 @@ export function Token() {
                         </div>
                         <div className='col-12 col-lg-6'>
                             <div className='wallets_table'>
-                                <LiquidtySection LiquidtyData={topWalletData} bSCTrasaction={bSCTrasaction} />
+                                <LiquidtySection LiquidtyData={bscLiquidityScan} bSCTrasaction={bSCTrasaction} />
                             </div>
                         </div>
                     </div>
