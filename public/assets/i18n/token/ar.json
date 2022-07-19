@@ -28,5 +28,6 @@
     "currency":"العملة",
     "trust_score": "درجة الثقة",
     "total_score": "مجموع النقاط",
-    "critical_issues": "مشكلة حرجة"
+    "critical_issues": "مشكلة حرجة",
+    "important_issues": " مهم مشكلة"
 }

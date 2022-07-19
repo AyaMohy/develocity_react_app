@@ -28,6 +28,7 @@
 	"currency":"Currency",
 	"trust_score": "Trust Score",
 	"total_score": "Total Score",
-	"critical_issues": "Critical Issues"
+	"critical_issues": "Critical Issues",
+	"important_issues": "Important Issues"
 	
 }

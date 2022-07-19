@@ -29,9 +29,9 @@ const SocialBar=() =>{
         </ul>
 {/* start */}
         <ul className={styles.socialBarNav}>
-    <li><a href="#">{t("common:advertise")}</a></li>
+    {/* <li><a href="#">{t("common:advertise")}</a></li>
     <li><a href="#">{t("common:changelog")}</a></li>
-    <li><a href="#">{t("common:whitepaper")}</a></li>
+    <li><a href="#">{t("common:whitepaper")}</a></li> */}
     {/* <li className={`${styles.dropdown} nav-item dropdown`}>
   <button data-bs-toggle="dropdown" className={styles.dropbtn} value='en' onClick={handleOnclick}>english<IoIosArrowDown/></button>
   <ul  className="dropdown-menu">
@@ -46,7 +46,7 @@ const SocialBar=() =>{
 
 
 <select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
-<option selected value="en"> {t("common:english")}</option>
+<option value="en"> {t("common:english")}</option>
 <option value="ar"> {t("common:arabic")}</option>
 <option value="ch">{t("common:chinese")}</option>
 <option value="tr"> {t("common:turkish")}</option>

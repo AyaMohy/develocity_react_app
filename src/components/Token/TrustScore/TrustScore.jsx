@@ -93,7 +93,7 @@ const TrustScore =() =>{
 
     return(
         <>
-        <div className={styles.trustScoreBlock}>
+        <div className={styles.trustScoreBlock} >
           {statusTrust=='success' && <>
           <div >
         <span className={styles.blockTitle}>{t("token:trust_score")}</span>
@@ -106,7 +106,7 @@ const TrustScore =() =>{
 
       <ul className={styles.chartList}>
       <li className={styles.critical}>{t("token:critical_issues")}<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>
-      <li>important issues<span className={styles.important}>{scoreData? scoreData.numberOfMediunIssue :null}</span></li>
+      <li>{t("token:important_issues")}<span className={styles.important}>{scoreData? scoreData.numberOfMediunIssue :null}</span></li>
       <li>informational issues<span className={styles.information}>{scoreData? scoreData.numberOfInformationalIssue :null}</span></li>
      
       </ul>
@@ -129,7 +129,7 @@ const TrustScore =() =>{
 
       <ul className={styles.chartList}>
       <li className={styles.critical}>critical issues<span> <Placeholder styling={ {width:'50px',height:'20px'}}/> </span></li>
-      <li>important issues<span className={styles.important}><Placeholder styling={ {width:'50px',height:'20px'}}/></span></li>
+      <li>{t("token:important_issues")}<span className={styles.important}><Placeholder styling={ {width:'50px',height:'20px'}}/></span></li>
       <li>informational issues<span className={styles.information}><Placeholder styling={ {width:'50px',height:'20px'}}/></span></li>
      
       </ul>
