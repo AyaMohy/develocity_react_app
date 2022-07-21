@@ -10,7 +10,6 @@ import {
   FaLinkedinIn,
   FaDiscord,
 } from "react-icons/fa";
-import bitcoinlogo from "../../../assets/images/bitcoin.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTokenInfoResult } from "../../../Services/FetchTokenInfo";
 import { useEffect, useState } from "react";
@@ -19,10 +18,9 @@ import { IoCopy } from "react-icons/io5";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
-import { IconContainer } from "./IconsContainer/IconContainer";
 import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from 'react-i18next';
-
+import { IconContainer } from "./IconsContainer/IconContainer";
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
   const params = useParams();
@@ -35,8 +33,7 @@ export function LeftBarToken() {
   useEffect(() => {
     dispatch(fetchTokenInfoResult(contractAddress));
   }, [dispatch, contractAddress]);
-  const { t, i18n } = useTranslation(["common"])
-  const lang=localStorage.getItem("i18nextLng")
+  const { t } = useTranslation(["token"])
   const tokeninfodata = tokenData.result;
   // let iconCheck={
   //     tokeninfodata:tokeninfodata && tokeninfodata.contractInfo.website
@@ -123,138 +120,13 @@ export function LeftBarToken() {
             </span>
           </div>
           <div className=" py-2 me-0">
-            
-              {/* <IconContainer tokendata={tokeninfodata} />  */}
-            
-            <ul className={styles.socialIcons}>
-              {tokeninfodata && tokeninfodata.contractInfo.website ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaFirefoxBrowser />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.twitter ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaTwitter />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.telegram ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.telegram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaPaperPlane />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.github ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.facebook ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaFacebookF />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.reddit ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.reddit}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaReddit />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.medium ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.medium}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaMediumM />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.email ? (
-                <li>
-                  <a
-                    href={`mailto:${tokeninfodata.contractInfo.email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <AiTwotoneMail />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.wechat ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.wechat}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <AiFillWechat />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.linkedin ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedinIn />
-                  </a>
-                </li>
-              ) : null}
-              {tokeninfodata && tokeninfodata.contractInfo.discord ? (
-                <li>
-                  <a
-                    href={tokeninfodata.contractInfo.discord}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaDiscord />
-                  </a>
-                </li>
-              ) : null}
-            </ul>
+              <IconContainer tokeninfodata={tokeninfodata&&tokeninfodata} /> 
           </div>
         </div>
 
         <div className={`d-flex justify-content-between `}>
           <span className={`text-muted pe-2 ${styles.contractaddress}`}>
-            Contract Address{" "}
+            {t("token:contract_address")} {" "}
           </span>
           <div>
             <span
@@ -313,13 +185,13 @@ export function LeftBarToken() {
             className="px-2 py-1 me-2 mt-2 d-inline-block"
             style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
           >
-            Total Scan {tokeninfodata ? tokeninfodata?.interest : null}
+            {t("token:total_scans")} {tokeninfodata ? tokeninfodata?.interest : null}
           </span>
           <span
             className="px-2 py-1 me-2 mt-2 d-inline-block"
             style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
           >
-            Launched{" "}
+            {t("token:launched")}{" "}
             {tokeninfodata
               ? (tokeninfodata?.contractInfo?.age.split("T"))[0]
               : null}
@@ -328,7 +200,7 @@ export function LeftBarToken() {
             className="px-2 py-1 mt-2 me-2 d-inline-block"
             style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
           >
-            Added{" "}
+            {t("token:added")}{" "}
             {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}
           </span>
           
@@ -347,13 +219,13 @@ export function LeftBarToken() {
           className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}
         >
           <div className="text-start">
-            <h5 className="text-muted ">Current Price</h5>
+            <h5 className="text-muted ">{t("token:current_price")}</h5>
             <p className="mb-2">
               ${tokeninfodata ? tokeninfodata.contractInfo.tokenPriceUSD : null}
             </p>
           </div>
           <div className="text-start">
-            <h5 className="text-muted ">Market Cap</h5>
+            <h5 className="text-muted ">{t("token:market_cap")}</h5>
             <p className="fs-5 mb-2">
               $
               {tokeninfodata
@@ -362,7 +234,7 @@ export function LeftBarToken() {
             </p>
           </div>
           <div className="text-start">
-            <h5 className="text-muted ">Total Supply</h5>
+            <h5 className="text-muted ">{t("token:total_supply")}</h5>
             <p className="fs-5 mb-2">
               {tokeninfodata
                 ? foramtNumber(tokeninfodata.contractInfo.total_supply)

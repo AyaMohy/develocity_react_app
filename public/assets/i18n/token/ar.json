@@ -6,7 +6,8 @@
     "anti_whale": "مكافحة الحيتان",
     "antibot": "مكافحة البوتات",
     "self_distribution": " تقسيمة ذاتي",
-    "contract_address": "تحليل العقد ",
+    "contract_analysis": "تحليل العقد ",
+    "contract_address": "عنوان العقد ",
     "detected": "كُشف",
     "not_detected": "لم يكتشف",
     "gas_fee": "رسوم الغاز",
@@ -46,5 +47,11 @@
     "percentage": "النسبة المئوية",
     "top10liquiditywallets": "أفضل 10 محفظات السيولة",
     "honeypot":"",
-	"rugpull":""
+	"rugpull":"",
+    "current_price": "السعر الحالي",
+	"market_cap": "القيمة السوقية",
+	"total_supply": "اجمالي العرض",
+    "total_scans": "البحث الاجمالي",
+    "launched": "الانطلاق",
+    "added": "اضافة"
 }

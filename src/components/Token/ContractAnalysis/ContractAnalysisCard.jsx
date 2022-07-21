@@ -11,7 +11,7 @@ export function ContractAnalysisCard(){
     const contractAddress = param.contractAddress;
     const bscdata = useSelector(state => state.GetBSCdata.data)
     const bscstatus = useSelector(state => state.GetBSCdata.status);
-    const { t, i18n } = useTranslation(["token"])
+    const { t } = useTranslation(["token"])
     const lang=localStorage.getItem("i18nextLng")
 
     const dispatch = useDispatch ();
@@ -64,7 +64,7 @@ export function ContractAnalysisCard(){
         <>
             {(bscstatus=='success' )  &&
               <div className="" style={{width:'100%'}}>
-              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className=' pt-3 pb-2'>{t("token:contract_address")}</h5>
+              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className=' pt-3 pb-2'>{t("token:contract_analysis")}</h5>
               <div className={"list-group align-self-center border-0 " +(lang=="ar"?styles.listGroup_rtl:styles.listGroup_ltr)}  >
               {data.map( (item)=>{
                   return ( 

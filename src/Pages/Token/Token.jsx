@@ -22,13 +22,13 @@ import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
 import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
-
+import { useTranslation } from 'react-i18next'
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const status = useSelector(state => state.tokenOwner.loading);
-
+    const { t } = useTranslation(["token"])
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
@@ -114,6 +114,7 @@ export function Token() {
                     </div>
                     <div className='row'>
                         <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>
+                        <h2 className='text-muted mx-2' style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>{t("token:trading")}</h2>
                             <div className='d-md-flex justify-content-center'>
                                 <Trading />
                                 <LiquidityList />

@@ -6,6 +6,7 @@
 	"anti_whale": "Anti Whale",
 	"antibot": "Antibot",
 	"self_distribution": "Self Distribution",
+	"contract_analysis": "Contract Analysis",
 	"contract_address": "Contract Address",
 	"detected": "Detected",
 	"not_detected": "Not Detected",
@@ -46,5 +47,11 @@
 	"percentage": "Percentage",
 	"top10liquiditywallets": "Top 10 Liquidity Wallets",
 	"honeypot":"Honeypot",
-	"rugpull":"Rugpull"
+	"rugpull":"Rugpull",
+	"current_price": "Current Price",
+	"market_cap": "Market Cap",
+	"total_supply": "Total Supply",
+	"total_scans": "Total Scans",
+	"launched": "Launched",
+	"added": "Added"
 }
