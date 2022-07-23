@@ -30,7 +30,7 @@ const Distribution = () => {
 
   var options = {
     series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage): null],
-    labels:["Real Holders" , "Airdrop Holders" , "Shrink Wallet"],
+    labels:[t("token:Real_Holders") , t("token:Airdrop_holders") , t("token:Wallet_shrink")],
     dataLabels: {
       formatter: function (val) {
         return ("")
@@ -80,8 +80,8 @@ const Distribution = () => {
             },
             total: {
               show: true,
-              label: 'Total',
-              fontFamily:"SF Pro Display Medium",
+              label: t("token:Total"),
+              fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
               color: '#373d3f',
               formatter: function (w) {
                 return w.globals.seriesTotals.reduce((a, b) => {
@@ -102,9 +102,9 @@ const Distribution = () => {
   return (
     <>
     <div >
-      <h1 className={styles.title}>Distibution metrics</h1>
-      <h6 className={styles.secondTitle}>holders distribution
-      <Tooltip title="Holders distribution means a distribution by the Holder to its equity holders of the Seller Consideration Securities." arrow>
+      <h1 className={styles.title}>{t("token:dist_title")}</h1>
+      <h6 className={styles.secondTitle}>{t("token:holders_title")}
+      <Tooltip className={styles.tooltip} title={t("token:holders_tooltip")} arrow>
       <Button> <AiFillInfoCircle className={styles.infoIcon} /></Button>
     </Tooltip>
    </h6>
@@ -115,25 +115,25 @@ const Distribution = () => {
           <div className={styles.chartInfo}>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={styles.circleIconOne} />real holders</h6>
+              <h6><FaCircle className={lang=="ar"?styles.circleIconOne_rtl:styles.circleIconOne_ltr} />{t("token:Real_Holders")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.realholders : null}</span>
             </div>
-            <p>The actual number of token holders </p>
+            <p>{t("token:The_actual_number_of_token_holders")} </p>
 
           </div>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={styles.circleIconTwo} />airdrop holders</h6>
+              <h6><FaCircle className={lang=="ar"?styles.circleIconTwo_rtl:styles.circleIconTwo_ltr} />{t("token:Airdrop_holders")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.airdropHolders : null}</span>
             </div>
-            <p>Tokens are sent by token owner</p>
+            <p>{t("token:sent_token")}</p>
           </div>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={styles.circleIconThree} />wallet shrink</h6>
+              <h6><FaCircle className={lang=="ar"?styles.circleIconThree_rtl:styles.circleIconThree_ltr} />{t("token:Wallet_shrink")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.shrinkHolders : null}</span>
             </div>
-            <p>wallets with small amounts after selling</p>
+            <p>{t("token:Wallets_with_small_amounts_after_selling")}</p>
           </div>
         </div>
         <div className={styles.chart} id="chart">

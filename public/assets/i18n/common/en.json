@@ -36,7 +36,7 @@
 	"General": "General",
 	"Token ownership is not renounced": "Token ownership is not renounced",
 	"Percentage of Airdrop holders is too high (64%)": "Percentage of Airdrop holders is too high (64%)",
-	"Airdrop holders": "Airdrop holders",
+	
 	"Owner can mint the token and increase the amount which may cause to decrease the value": "Owner can mint the token and increase the amount which may cause to decrease the value",
 	"Trading is open with a high commission": "Trading is open with a high commission",
 	"Critical": "Critical",
@@ -46,11 +46,10 @@
 	"Higher than 10%": "Higher than 10%",
 	"Not Rennounced": "Not Rennounced",
 	"Total Holders": "Total Holders",
-	"Total": "Total",
-	"Real Holders": "Real Holders",
-	"The actual number of token holders": "The actual number of token holders",
-	"Wallet shrink": "Wallet shrink",
-	"Wallets with small amounts after selling": "Wallets with small amounts after selling",
+	
+	
+	
+	
 	"Name Tag": "Name Tag",
 	"Balance": "Balance",
 	"Percentage": "Percentage",
@@ -71,7 +70,7 @@
 	"General Information": "General Information",
 	"Problems List": "Problems List",
 	"Token Information": "Token Information",
-	"Share": "Share",
+	
 	"Menu": " Menu",
 	"Settings": "Settings",
 	"Base Currency": "Base Currency",
@@ -142,6 +141,10 @@
 	"thanks":"Thanks !",
 	"final_comment":"It's under the review now.You'll receive email once it's approved.",
 	"return":"Return to Website",
-	"reset":"Reset"
-
+	"reset":"Reset",
+	"enter_token":" Enter the token name or address then click scan ",
+	"sponsered":"SPONSERD",
+	"invest":"start to invest in bitcoin private with only 10$"
+	
+	
 }

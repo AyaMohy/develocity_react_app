@@ -1,6 +1,8 @@
 import styles from './Modal.module.css'
 import icon from '../../../../assets/images/popup.png'
+import { useTranslation } from 'react-i18next';
 export function Modal({logo,name, symbol,isnotlisted}) {
+  const {t}=useTranslation(['token'])
   return (
     <>
       <span
@@ -13,10 +15,10 @@ export function Modal({logo,name, symbol,isnotlisted}) {
         data-bs-target="#exampleModal"
       >
         {" "}
-        View More <img src={icon} height="18" alt="" />
+        {t("token:view_more")} <img src={icon} height="18" alt="" />
       </span>
       <div
-        class="modal fade"
+        className={`modal fade ${styles.fade2}`}
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
@@ -49,7 +51,7 @@ export function Modal({logo,name, symbol,isnotlisted}) {
             <span className={`${styles.name}`}>
               {name ? name : null}
             </span>
-            <span className={`ms-2 px-2 h-50 fw-light ${styles.symbol}`}>
+            <span className={`ms-2 px-2 h-50 fw-light me-2 ${styles.symbol}`}>
               {symbol ? symbol : null}
             </span>
             <span className="ms-2">
@@ -78,7 +80,7 @@ export function Modal({logo,name, symbol,isnotlisted}) {
                 className={styles.closeBtn}
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              >Close x</button>
+              >{t("token:close")} x</button>
             </div>
             <div className={`modal-body ${styles.modalwrapper}`}>
               <h3 className='text-muted'>
@@ -97,7 +99,7 @@ export function Modal({logo,name, symbol,isnotlisted}) {
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                {t("token:close")}
               </button>
              
             </div>

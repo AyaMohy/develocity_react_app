@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './nav.module.css'
 import logo from '../../../../assets/images/logo.png'
 export function NavDisplay() {
-    const { t, i18n } = useTranslation(["common"])
+    const { t } = useTranslation(["common"])
     const lang=localStorage.getItem("i18nextLng")
     const logindata = {
         text: 'Log in',

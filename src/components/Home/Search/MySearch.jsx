@@ -10,9 +10,13 @@ import { BsArrowRight, BsFillPatchCheckFill } from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 import { useTranslation } from 'react-i18next';
 const MySearch = () => {
+  const { t, i18n } = useTranslation(["common"])
+  const lang=localStorage.getItem("i18nextLng")
+
   const [term, setTerm] = useState(null);
   const [dataGet, setdataGet] = useState(null);
   const [disable, setDisable] = useState(true);
+  
 
   const search = useSelector((state) => state.Search);
   const [copiedAddress,setCopyAddress] = useState('Copy Address');
@@ -62,8 +66,8 @@ const MySearch = () => {
   return (
     <div className="w-100 ">
       <span className={styles.searchNote}>
-        <FaCircle className={styles.dot} />
-        Enter the token name or address then click scan 
+        <FaCircle className={lang=="ar"?styles.dot_rtl:styles.dot_ltr} />
+       {t("common:enter_token")}
       </span>
 
       <div className={styles.searchSection}>
@@ -77,15 +81,15 @@ const MySearch = () => {
            term.startsWith("0x") && term.length === 42 ? 
            window.location.href=`/token/${term}` : 
            window.location.href=`/`
-        }} className={styles.searchBtn} disabled={disable}>
-          scan
+        }} className={lang=="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
+        {t("common:Scan")}
         </button>
       </div>
       <div className={styles.searchNote2}>
-        <span className={styles.note}>sponsered</span>
+        <span className={styles.note}>{t("common:sponsered")}</span>
         <span className={styles.note2}>
-          <BiBitcoin className={styles.bitcoin} />
-          start to invest in bitcoin private with only 10$
+          <BiBitcoin className={lang=="ar"?styles.bitcoin_rtl:styles.bitcoin_ltr} />
+          {t("common:invest")}
         </span>
       </div>
 

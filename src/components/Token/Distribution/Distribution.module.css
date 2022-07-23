@@ -3,7 +3,8 @@
     color: #888;
     font-weight: 500;
     font-size: 26px;
-    font-family: 'SF Pro Display Medium';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
 .secondTitle{
     font-size: 16px;
@@ -11,7 +12,12 @@
     color: #333;
     margin: 0 0 10px 10px;
     text-transform: capitalize;
-    font-family: 'SF Pro Display Medium';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+}
+.tooltip{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
 .infoIcon{
     color: rgba(136,136,136,0.2);
@@ -45,18 +51,19 @@
     text-transform: capitalize;
     margin:0;
     width: 150px;
-    font-family: 'SF Pro Display Medium';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
    
 }
-.circleIconOne{
+.circleIconOne_ltr{
     color: #7BE1D9;
     margin-right: 10px;
 }
-.circleIconTwo{
+.circleIconTwo_ltr{
     color: #4CD696;
     margin-right: 10px;
 }
-.circleIconThree{
+.circleIconThree_ltr{
     color: #EC6666;
     margin-right: 10px;
 }
@@ -67,11 +74,24 @@
     font-family: 'SF Pro Display Medium';
    
 }
+.circleIconOne_rtl{
+    color: #7BE1D9;
+    margin-left: 10px;
+}
+.circleIconTwo_rtl{
+    color: #4CD696;
+    margin-left: 10px;
+}
+.circleIconThree_rtl{
+    color: #EC6666;
+    margin-left: 10px;
+}
 .infoRecord p{
     color: #888;
     font-size: 12px;
     margin: 0;
-    font-family: 'SF Pro Display Regular';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 @media (max-width: 768px) {

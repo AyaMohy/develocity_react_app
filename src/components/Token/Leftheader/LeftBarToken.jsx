@@ -72,9 +72,9 @@ export function LeftBarToken() {
                   alt={tokeninfodata.contractInfo}
                 />
               ) : (
-                <div className="d-inline-block"> 
-                <div className={styles.icon_token_letter1}>
-                  <h6 className={styles.icon_token_text1}>
+                <div className="d-inline-block "> 
+                <div className={`${styles.icon_token_letter1}`}>
+                  <h6 className={`${styles.icon_token_text1} `}>
                     {tokeninfodata
                       ? tokeninfodata.contractInfo.name.charAt(0)
                       : null}
@@ -83,10 +83,10 @@ export function LeftBarToken() {
                 </div>
               )}
             </span>
-            <span className={`${styles.name}`}>
+            <span className={`${styles.name} ` }>
               {tokeninfodata ? tokeninfodata.contractInfo.name : null}
             </span>
-            <span className={`ms-2 px-2 h-50 fw-light ${styles.symbol}`}>
+            <span className={`ms-2 px-2 h-50 fw-light me-2 ${styles.symbol}`}>
               {tokeninfodata ? tokeninfodata.contractInfo.symbol : null}
             </span>
             <span className="ms-2">
@@ -131,7 +131,7 @@ export function LeftBarToken() {
           <div>
             <span
               value={contractAddress}
-              className="text-primary"
+              className="text-primary ms-2"
               style={{ fontFamily: "SF Pro Display Medium" }}
             >
               {contractAddress
@@ -218,13 +218,13 @@ export function LeftBarToken() {
         <div
           className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}
         >
-          <div className="text-start">
+          <div className="">
             <h5 className="text-muted ">{t("token:current_price")}</h5>
             <p className="mb-2">
               ${tokeninfodata ? tokeninfodata.contractInfo.tokenPriceUSD : null}
             </p>
           </div>
-          <div className="text-start">
+          <div className="">
             <h5 className="text-muted ">{t("token:market_cap")}</h5>
             <p className="fs-5 mb-2">
               $
@@ -233,7 +233,7 @@ export function LeftBarToken() {
                 : null}
             </p>
           </div>
-          <div className="text-start">
+          <div className="">
             <h5 className="text-muted ">{t("token:total_supply")}</h5>
             <p className="fs-5 mb-2">
               {tokeninfodata

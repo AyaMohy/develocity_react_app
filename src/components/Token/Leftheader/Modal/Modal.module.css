@@ -45,10 +45,19 @@
     font-size: 12px;
     font-weight: 500;
     color: #888888;
-    position: absolute;
-    right: 20px;
-    top: 15px;
+    /* position: absolute; */
+    /* right: 20px; */
+    /* top: 15px; */
 }
 .modal-footer{
     border-top: 0;
+}
+.fade2{
+    /* transition: all 0.5s; */
+    animation: hide 1s   ;
+}
+@keyframes hide {
+    0%   {opacity: 0; }
+    75%  {opacity: 0.75; }
+    100% {opacity: 1; }
 }

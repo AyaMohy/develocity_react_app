@@ -16,7 +16,7 @@ const BreadCrumbBar = () => {
   const param = useParams()
   const contractAddress = param.contractAddress;
   const tokenData = useSelector(state => state.Gettokeninfodata.data);
-  const { t, i18n } = useTranslation(["common"])
+  const { t, i18n } = useTranslation(["token"])
   const lang = localStorage.getItem("i18nextLng")
   const dispatch = useDispatch();
   useEffect(() => {
@@ -34,9 +34,9 @@ const BreadCrumbBar = () => {
   return (
     <div className="container">
       <div className={styles.breadCrumbBar}>
-        <ul className={styles.breadCrumb}>
-          <li>home</li>
-          <li>scanner</li>
+        <ul className={lang=="ar"?styles.breadCrumb_rtl:styles.breadCrumb_ltr}>
+          <li>{t("token:home")}</li>
+          <li>{t("token:scanner")}</li>
           <li>{tokeninfodata ? (tokeninfodata.contractInfo.name) : null}</li>
         </ul>
         <div className={styles.btns}>
@@ -53,7 +53,7 @@ const BreadCrumbBar = () => {
             }
           }}
 
-          >share<AiOutlineUpload className={styles.shareIcon} /></button>
+          >{t("token:Share")}<AiOutlineUpload className={lang=="ar"?styles.shareIcon_rtl:styles.shareIcon_ltr} /></button>
         </div>
       </div>
 

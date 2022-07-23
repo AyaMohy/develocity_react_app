@@ -1,15 +1,21 @@
 {
 	"home":"الرئيسة",
 	"about":"عن",
-	"contact":"الاتصال بنا",
+	"contact":"التواصل معنا",
 	"language": "اللغة",
 	"english": "انجليزية",
 	"arabic":"العربية",
 	"turkish":"التركية",
 	"chinese":"الصينية",
+
+
+	"Create Account": "إنشاء حساب",
+	"Token":"عملة",
+	"Academy": "اكاديمية",
+	"See_how_it_works": "تعرف على كيفية عمله",
+
 	"see_less": "شاهد اقل",
 	"see_more": "شاهد المزيد",
-	"see_how_it_works":"شاهد كيف يتم تشغيلها",
 	"log in": "تسجيل الدخول"  ,
 	"no internet connection": "لا يوجد اتصال بالإنترنت",
 	"You do not have access to it": "ليس لديك حق الوصول",
@@ -24,7 +30,6 @@
 	"Scan by tokens name or address": " بواسطة اسم أو عنوان العملة",
 	"Scan": "بحث",
 	"#": "#",
-	"Token": "عملة",
 	"Scans": "عدد البحث",
 	"Last Scan": "اخر بحث",
 	"Score": "النتيجة",
@@ -36,7 +41,7 @@
 	"General": "عام",
 	"Token ownership is not renounced": "لم يتم التخلي عن ملكية العملة",
 	"Percentage of Airdrop holders is too high (64%)": "نسبة حاملي الايردروب مرتفعة جدًا :(64٪)",
-	"Airdrop holders": "حاملي الايردروب",
+	
 	"Owner can mint the token and increase the amount which may cause to decrease the value": "يمكن للمالك زيادة عدد العملة الذي قد يؤدي إلى انخفاض القيمة",
 	"Trading is open with a high commission": "التداول مفتوح بعمولة عالية",
 	"Critical": "حساس",
@@ -46,11 +51,11 @@
 	"Higher than 10%": "اعلى من ١٠٪",
 	"Not Rennounced": "لم يعلن",
 	"Total Holders": "اجمالي الملاك",
-	"Total": "اجمالي",
-	"Real Holders": "الملاك الحقيقيين",
-	"The actual number of token holders": "الرقم الفعلي لملاك العملة",
-	"Wallet shrink": "محفظة متقلصة",
-	"Wallets with small amounts after selling": "محافظ بكميات قليلة بعد البيع",
+	
+	
+	
+	
+
 	"Contract Address": "عنوان العقد",
 	"Name Tag": "الاسم",
 	"Balance": "الكمية",
@@ -74,7 +79,7 @@
 	"Problems List": "قائمة المشاكل",
 	"Antiwhale": "مكافحة الحيتان",
 	"Token Information": "معلومات العملة",
-	"Share": "مشاركة",
+	
 	"Menu": "القائمة",
 	"Settings": "الاعدادات",
 	"Base Currency": "العملة الاساسية",
@@ -145,7 +150,11 @@
 	"thanks":" ! شكرا ",
 	"final_comment":"يتم مراجعة بياناتك الآن . سوف يصلك رسالة على بريدك الإلكتروني عندما يتم قبولك",
 	"return":"العودة إلى الموقع الإلكتروني",
-	"reset":"إعادة"
+	"reset":"إعادة",
+	"enter_token":" ادخل اسم العملة أو عنوان العقد الخاص بها ثم اضغط بحث ",
+	"sponsered":"برعاية",
+	"invest":"ابدأ الاستثمار في بيتكوين خاص فقط ب 10$"
+	
 	
 	
 }
